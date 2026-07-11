@@ -1,0 +1,247 @@
+{
+ "scale": {
+  "signals": 16986,
+  "rows": 4179766,
+  "columns": 25,
+  "markets": 5,
+  "entry_from": "2015-01-05",
+  "entry_to": "2026-07-03"
+ },
+ "markets": [
+  {
+   "key": "US-SP500",
+   "label": "미국 S&P500",
+   "n": 1119,
+   "win_rate": 66.0,
+   "avg_ret": 22.4,
+   "avg_hold": 311,
+   "entry_from": "2015-01-16",
+   "entry_to": "2026-02-20",
+   "tier_full": "Tier1 (point-in-time)",
+   "tier_short": "Tier 1",
+   "exits": {
+    "만기손절": 757,
+    "TP100": 181,
+    "TP50": 139,
+    "TP50_추세꺾임": 42
+   },
+   "warn": "point-in-time 보정(ever-member). 잔존: 미반영 161(시세소실)."
+  },
+  {
+   "key": "KR",
+   "label": "한국 KR",
+   "n": 6342,
+   "win_rate": 53.3,
+   "avg_ret": 19.4,
+   "avg_hold": 252,
+   "entry_from": "2015-01-22",
+   "entry_to": "2026-07-03",
+   "tier_full": "Tier1+ (상폐주 포함·보정)",
+   "tier_short": "Tier 1+",
+   "exits": {
+    "만기손절": 3072,
+    "TP100": 1556,
+    "TP50": 1423,
+    "상폐": 149,
+    "TP50_추세꺾임": 142
+   },
+   "warn": null
+  },
+  {
+   "key": "US-NASDAQ",
+   "label": "미국 NASDAQ",
+   "n": 8980,
+   "win_rate": 51.5,
+   "avg_ret": 12.6,
+   "avg_hold": 233,
+   "entry_from": "2015-01-05",
+   "entry_to": "2026-06-23",
+   "tier_full": "Tier3 (미보정·상방편향 경고)",
+   "tier_short": "Tier 3",
+   "exits": {
+    "만기손절": 3609,
+    "TP50": 2928,
+    "TP100": 2266,
+    "TP50_추세꺾임": 177
+   },
+   "warn": "미보정 — 상장폐지 종목 누락(30~40% 추정). 성과는 상한선(낙관 편향)."
+  },
+  {
+   "key": "MAJOR",
+   "label": "코인 메이저",
+   "n": 76,
+   "win_rate": 67.1,
+   "avg_ret": 35.9,
+   "avg_hold": 217,
+   "entry_from": "2019-07-17",
+   "entry_to": "2026-02-02",
+   "tier_full": "Tier3 (거래지원종료 미보정 경고)",
+   "tier_short": "Tier 3",
+   "exits": {
+    "TP100": 34,
+    "만기손절": 23,
+    "TP50": 18,
+    "TP50_추세꺾임": 1
+   },
+   "warn": "미보정 — 거래지원종료 코인 제외. 생존편향 존재."
+  },
+  {
+   "key": "ALT",
+   "label": "코인 알트",
+   "n": 469,
+   "win_rate": 61.4,
+   "avg_ret": 23.3,
+   "avg_hold": 178,
+   "entry_from": "2020-03-15",
+   "entry_to": "2026-06-07",
+   "tier_full": "Tier3 (거래지원종료 미보정 경고)",
+   "tier_short": "Tier 3",
+   "exits": {
+    "TP50": 214,
+    "TP100": 132,
+    "만기손절": 115,
+    "TP50_추세꺾임": 8
+   },
+   "warn": "미보정 — 거래지원종료 코인 제외. 생존편향 존재."
+  }
+ ],
+ "quality_buckets": [
+  {
+   "bucket": "80+",
+   "n": 8288,
+   "win_rate": 60.1,
+   "wilson_low": 59.0,
+   "avg_ret": 24.0
+  },
+  {
+   "bucket": "70-79",
+   "n": 6802,
+   "win_rate": 47.8,
+   "wilson_low": 46.6,
+   "avg_ret": 10.4
+  },
+  {
+   "bucket": "60-69",
+   "n": 1845,
+   "win_rate": 44.8,
+   "wilson_low": 42.5,
+   "avg_ret": 2.8
+  },
+  {
+   "bucket": "50-59",
+   "n": 51,
+   "win_rate": 62.7,
+   "wilson_low": 49.0,
+   "avg_ret": 12.4
+  }
+ ],
+ "columns": [
+  {
+   "name": "signal_id",
+   "desc": "신호 ID (QL2-YYYYMMDD-티커)"
+  },
+  {
+   "name": "market",
+   "desc": "시장 (KR/US-SP500/US-NASDAQ/MAJOR/ALT)"
+  },
+  {
+   "name": "ticker",
+   "desc": "종목·심볼"
+  },
+  {
+   "name": "tier",
+   "desc": "신뢰 등급 (생존편향 보정 수준)"
+  },
+  {
+   "name": "entry_date",
+   "desc": "진입일 (day 0)"
+  },
+  {
+   "name": "day",
+   "desc": "진입 후 경과 거래일 (주말·휴장 행 없음)"
+  },
+  {
+   "name": "date",
+   "desc": "거래일 (달력일)"
+  },
+  {
+   "name": "close",
+   "desc": "종가"
+  },
+  {
+   "name": "return_from_entry_pct",
+   "desc": "진입 종가 대비 수익률(%) · day0=0"
+  },
+  {
+   "name": "rsi_bucket",
+   "desc": "RSI 구간 (진입 DNA·버킷)"
+  },
+  {
+   "name": "avgcost_gap_bucket",
+   "desc": "평단가 이격 구간"
+  },
+  {
+   "name": "vix_bucket",
+   "desc": "VIX 구간"
+  },
+  {
+   "name": "regime_bucket",
+   "desc": "시장 국면 구간"
+  },
+  {
+   "name": "spx_mom_bucket",
+   "desc": "S&P 모멘텀 구간"
+  },
+  {
+   "name": "yield_curve_bucket",
+   "desc": "장단기 금리차 구간"
+  },
+  {
+   "name": "fear_greed_bucket",
+   "desc": "공포·탐욕 구간"
+  },
+  {
+   "name": "funding_bucket",
+   "desc": "펀딩비 구간(코인)"
+  },
+  {
+   "name": "kimchi_bucket",
+   "desc": "김치프리미엄 구간(코인)"
+  },
+  {
+   "name": "quality_score",
+   "desc": "크로스마켓 품질점수(0–100·진입시점)"
+  },
+  {
+   "name": "quality_bucket",
+   "desc": "품질점수 구간"
+  },
+  {
+   "name": "fear_bucket",
+   "desc": "공포 진입등급(적극/선별/관망)"
+  },
+  {
+   "name": "exit_reason",
+   "desc": "청산 사유(TP50/TP50_추세꺾임/TP100/만기손절/상폐)"
+  },
+  {
+   "name": "total_holding_days",
+   "desc": "보유 거래일 = min(청산,365)"
+  },
+  {
+   "name": "rule_version",
+   "desc": "채점 규칙 버전(A-last-v1)"
+  },
+  {
+   "name": "data_type",
+   "desc": "데이터 구분(backtest/forward)"
+  }
+ ],
+ "capital_basis": "거래당 100만원 고정 · 단리 · 재투자 없음. 손익 = 100만 × 수익률.",
+ "rule": "A-last (SMA200 조건부: 200일선 아래 +50%/위 +100%, 기준가=마지막 매수가). 365일 미청산=만기손절.",
+ "sample": {
+  "csv": "qlab_v2_sample_100.csv",
+  "dict": "data_dictionary.md"
+ },
+ "source": "qlab_v2_all.parquet"
+}

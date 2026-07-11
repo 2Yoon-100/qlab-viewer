@@ -3,194 +3,375 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QLab · 포워드 검증 기록</title>
+<title>QLab · 트레이딩 신호 이벤트 데이터셋</title>
 <style>
   :root{
     --bg:#0d1117; --card:#161b22; --border:#2a3038; --fg:#e6edf3; --mut:#8b949e;
-    --accent:#3fb950; --accent2:#58a6ff; --red:#f85149; --chip:#21262d;
+    --accent:#3fb950; --accent2:#58a6ff; --red:#f85149; --amber:#d29922; --chip:#21262d;
   }
   @media (prefers-color-scheme: light){
     :root{--bg:#f6f8fa;--card:#fff;--border:#d0d7de;--fg:#1f2328;--mut:#656d76;
-          --accent:#1a7f37;--accent2:#0969da;--red:#cf222e;--chip:#eaeef2;}
+          --accent:#1a7f37;--accent2:#0969da;--red:#cf222e;--amber:#9a6700;--chip:#eaeef2;}
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--fg);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;
     line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1000px;margin:0 auto;padding:32px 20px 80px}
-  header h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
-  header p{color:var(--mut);margin:0 0 24px;font-size:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
-  .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
-  .stat .k{color:var(--mut);font-size:12px;margin-bottom:6px}
-  .stat .v{font-size:24px;font-weight:700;letter-spacing:-.02em}
-  .stat .v small{font-size:13px;font-weight:500;color:var(--mut)}
-  section{margin:34px 0}
-  h2{font-size:17px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
-  h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-  .desc{color:var(--mut);font-size:13.5px;margin:0 0 14px;max-width:760px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;overflow-x:auto}
-  table{border-collapse:collapse;width:100%;font-size:13.5px;white-space:nowrap}
-  th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border)}
-  th{color:var(--mut);font-weight:600;font-size:12px;position:sticky;top:0}
-  tbody tr:last-child td{border-bottom:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:36px 20px 90px}
+  a{color:var(--accent2)}
+  code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.86em;
+    background:var(--chip);padding:1px 5px;border-radius:5px}
+  /* 히어로 */
+  .hero{border:1px solid var(--border);border-radius:16px;padding:30px 26px;background:
+    linear-gradient(135deg,color-mix(in srgb,var(--accent2) 8%,var(--card)),var(--card))}
+  .hero .tag{color:var(--accent2);font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .hero h1{font-size:27px;margin:8px 0 6px;letter-spacing:-.02em;line-height:1.25}
+  .hero p.def{color:var(--fg);font-size:15px;margin:0 0 18px;max-width:820px}
+  .scale{display:flex;flex-wrap:wrap;gap:8px}
+  .scale span{background:var(--chip);border:1px solid var(--border);border-radius:8px;
+    padding:6px 11px;font-size:13px}
+  .scale span b{font-size:15px}
+  /* 섹션 */
+  .part{margin:52px 0 10px;padding-top:22px;border-top:2px solid var(--border)}
+  .part .plabel{color:var(--accent2);font-size:12.5px;font-weight:700;letter-spacing:.04em}
+  .part h2{font-size:22px;margin:4px 0 2px;letter-spacing:-.02em}
+  .part .psub{color:var(--mut);font-size:14px;margin:0}
+  section{margin:30px 0}
+  h3{font-size:17px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+  h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .desc{color:var(--mut);font-size:13.5px;margin:0 0 14px;max-width:840px}
+  .cap{font-size:12.5px;color:var(--mut);margin:0 0 8px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .scroll{overflow-x:auto}
+  table{border-collapse:collapse;font-size:12.5px;white-space:nowrap}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border)}
+  th{color:var(--mut);font-weight:600;font-size:11.5px;cursor:help;position:sticky;top:0;background:var(--card)}
+  tbody tr:hover{background:color-mix(in srgb,var(--accent2) 6%,transparent)}
+  td.sig{font-family:ui-monospace,monospace;font-size:11px;color:var(--accent2)}
   .pos{color:var(--accent)} .neg{color:var(--red)}
-  .chip{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;font-size:11.5px;
-    font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
-  .rule-A{color:var(--accent2)} .rule-B{color:#d29922}
+  .bkt{background:var(--chip);border-radius:5px;padding:0 6px;font-size:11px}
+  .prevhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+  .prevhead h4{margin:0;font-size:14.5px}
+  .prevhead .n{color:var(--mut);font-size:12px}
+  .prevnote{color:var(--mut);font-size:12.5px;margin:0 0 8px}
+  details.gloss{margin-top:12px;font-size:12.5px}
+  details.gloss summary{cursor:pointer;color:var(--accent2)}
+  .gloss dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:10px 0 0}
+  .gloss dt{font-family:ui-monospace,monospace;color:var(--fg);font-size:11.5px}
+  .gloss dd{margin:0;color:var(--mut);font-size:12px}
+  /* 카드 그리드 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px}
+  .stat .k{color:var(--mut);font-size:12px;margin-bottom:6px}
+  .stat .v{font-size:23px;font-weight:700;letter-spacing:-.02em}
+  .stat .v small{font-size:13px;font-weight:500;color:var(--mut)}
+  .uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .use{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .use h4{margin:0 0 6px;font-size:15px}
+  .use p{margin:0 0 10px;color:var(--mut);font-size:13px}
+  .use .cols{font-size:11.5px}
+  .use .cols b{color:var(--accent2)}
+  .mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+  .mcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .mcard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .mcard .top h4{margin:0;font-size:16px}
+  .tier{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
+  .tier.t1{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent)}
+  .tier.t3{background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
+  .mrow{display:flex;justify-content:space-between;padding:3px 0;font-size:13px;border-bottom:1px solid var(--border)}
+  .mrow:last-of-type{border:none}
+  .mrow .l{color:var(--mut)}
+  .warn{margin-top:8px;font-size:11.5px;color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,transparent);
+    border-radius:6px;padding:6px 8px}
+  .exits{margin-top:6px;font-size:11px;color:var(--mut)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;
+    padding:11px 18px;border-radius:9px;font-size:14px}
+  @media (prefers-color-scheme:light){.btn{color:#fff}}
+  .note{font-size:12.5px;color:var(--mut)}
   /* 해시체인 */
-  .chain{display:flex;align-items:center;gap:0;overflow-x:auto;padding:6px 2px}
+  .chain{display:flex;align-items:center;overflow-x:auto;padding:6px 2px}
   .node{flex:0 0 auto;text-align:center;min-width:96px}
   .node .box{background:var(--chip);border:1px solid var(--border);border-radius:8px;padding:8px 6px;
     font-family:ui-monospace,monospace;font-size:11px}
-  .node .box.gen{border-color:var(--accent2)}
-  .node .box.bad{border-color:var(--red)}
+  .node .box.gen{border-color:var(--accent2)} .node .box.bad{border-color:var(--red)}
   .node .dt{color:var(--mut);font-size:10.5px;margin-top:4px}
   .link{color:var(--mut);flex:0 0 auto;padding:0 2px;font-size:16px}
   .ok{color:var(--accent)} .bad{color:var(--red)}
   .cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media (max-width:620px){.cmp{grid-template-columns:1fr}}
-  .cmp .card h3{margin:0 0 10px;font-size:15px}
+  .cmp .card h4{margin:0 0 10px;font-size:15px}
   .cmp .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:13.5px}
   .cmp .row:last-child{border:none}
   .cmp .row .lbl{color:var(--mut)}
+  .rule-A{color:var(--accent2)} .rule-B{color:var(--amber)}
+  .connect{background:color-mix(in srgb,var(--accent) 8%,var(--card));border:1px solid var(--border);
+    border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:13.5px;margin:14px 0 26px}
   footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color:var(--mut);font-size:13px}
   .err{color:var(--red);font-size:14px}
   .muted{color:var(--mut)}
-  code{font-family:ui-monospace,monospace;font-size:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>QLab · 포워드 검증 기록</h1>
-    <p>매일 자동 갱신되는 트레이딩 신호의 <b>사후 청산 성과</b>와 <b>조작 불가 해시체인</b> 공개 기록.
-       실시간 보유 포지션은 전략 보호를 위해 비공개이며, <b>청산 완료 건만</b> 사후 공개됩니다.</p>
-  </header>
+
+  <!-- [1] 히어로 -->
+  <div class="hero">
+    <div class="tag">QLab Dataset</div>
+    <h1>트레이딩 신호 이벤트 데이터셋</h1>
+    <p class="def">신호 발생일(<code>day 0</code>)부터 청산까지, <b>매 거래일의 경로가 한 행씩 기록된 라벨 데이터</b>.
+       진입 시점의 시장 상태(DNA 버킷)·품질점수와 이후 수익률 경로·청산 사유가 한 신호에 함께 담겨 있습니다.</p>
+    <div id="scale" class="scale"></div>
+  </div>
+
+  <!-- ══════ PART I. 백테스트 마스터 ══════ -->
+  <div class="part">
+    <div class="plabel">PART I</div>
+    <h2>백테스트 마스터 DB</h2>
+    <p class="psub">2015~ · 생존편향 실측 보정 · 검증 완료된 고정 자산 (판매 상품)</p>
+  </div>
+
+  <!-- [2] 데이터 미리보기 -->
+  <section>
+    <h3><span class="dot"></span>데이터 미리보기 — 실제 행</h3>
+    <p class="cap">실제 데이터 발췌입니다. 구매 시 이런 행 <b>418만 개</b>를 Parquet/CSV로 받습니다.
+       (컬럼 헤더에 마우스를 올리면 설명이 뜹니다)</p>
+    <div id="preview"></div>
+    <details class="gloss"><summary>컬럼 25개 설명 펼치기</summary><dl id="gloss"></dl></details>
+  </section>
+
+  <!-- [3] 이 데이터로 할 수 있는 것 -->
+  <section>
+    <h3><span class="dot"></span>이 데이터로 할 수 있는 것</h3>
+    <p class="desc">개별 신호의 진입 상태(라벨)와 이후 전체 경로가 함께 있어, 조건부 분석·리스크 설계·포트폴리오 연구에 바로 쓸 수 있습니다.</p>
+    <div class="uses">
+      <div class="use"><h4>① 조건부 승률 분석</h4>
+        <p>"품질점수 70+ 신호만 골랐을 때 승률이 어떻게 변하는가" 같은 필터링 성과 분석. (바로 아래 표가 그 예시)</p>
+        <div class="cols">사용 컬럼: <b>quality_score</b> · <b>quality_bucket</b> · <b>exit_reason</b> · <b>return_from_entry_pct</b></div></div>
+      <div class="use"><h4>② 최대낙폭(MAE) 분포</h4>
+        <p>각 신호의 일별 경로에서 최저 수익률을 뽑아 MAE 분포를 만들면, 손절선을 데이터로 설계할 수 있습니다.</p>
+        <div class="cols">사용 컬럼: <b>return_from_entry_pct</b> × <b>day</b> (신호별 경로)</div></div>
+      <div class="use"><h4>③ 내 전략과의 상관</h4>
+        <p>날짜·종목 기준으로 기존 전략 수익률과 상관을 계산해 포트폴리오 분산 효과를 검증합니다.</p>
+        <div class="cols">사용 컬럼: <b>return_from_entry_pct</b> · <b>date</b> · <b>ticker</b> · <b>market</b></div></div>
+    </div>
+  </section>
+
+  <!-- [4] 품질 점수별 성과 -->
+  <section>
+    <h3><span class="dot"></span>품질 점수별 성과 (예시 ①의 실증)</h3>
+    <p class="desc">진입 시점 <code>quality_score</code> 구간별 신호단위 성과. 승률과 함께 <b>Wilson 95% 하한</b>(표본 불확실성을 반영한 보수적 하한)을 표기합니다.</p>
+    <div class="card scroll"><table id="quality">
+      <thead><tr><th>품질 버킷</th><th>신호 수(n)</th><th>승률</th><th>Wilson 95% 하한</th><th>평균 수익률</th></tr></thead>
+      <tbody></tbody></table></div>
+    <p class="note" id="quality-note"></p>
+  </section>
+
+  <!-- [5] 시장별 커버리지 -->
+  <section>
+    <h3><span class="dot"></span>시장별 커버리지 · 데이터 품질 등급</h3>
+    <p class="desc">성과 나열이 아니라 <b>커버리지 범위와 생존편향 보정 수준(Tier)</b> 관점입니다. Tier는 데이터의 신뢰 등급이며, 미보정 시장은 경고를 함께 표기합니다.</p>
+    <div id="markets" class="mkt"></div>
+    <p class="note" id="capital"></p>
+  </section>
+
+  <!-- [6] 무료 샘플 -->
+  <section>
+    <h3><span class="dot"></span>무료 샘플</h3>
+    <p class="desc">100개 신호의 <b>전체 일별 경로</b>(25컬럼)를 그대로 담은 CSV입니다. 데이터 사전도 함께 확인하세요.</p>
+    <div class="card">
+      <p style="margin:0 0 14px"><a class="btn" id="dl-sample" href="./data/qlab_v2_sample_100.csv" download>⬇ 무료 샘플 CSV 다운로드</a></p>
+      <p class="note" id="sample-note"></p>
+      <p class="note" style="margin-top:8px"><a href="./data/data_dictionary.md" target="_blank">📄 데이터 사전(data_dictionary.md) 열기</a> — 25컬럼 정의·Tier 근거·청산 규칙·자본 기준</p>
+    </div>
+  </section>
+
+  <!-- ══════ PART II. 포워드 검증 기록 ══════ -->
+  <div class="part">
+    <div class="plabel">PART II</div>
+    <h2>포워드 검증 기록</h2>
+    <p class="psub">매일 갱신 · 조작 불가 해시체인으로 실시간 축적</p>
+  </div>
+
+  <div class="connect" id="connect">
+    <b>Part I과의 연결</b> — 위 백테스트 마스터에서 <b>아직 보유중인 신호</b>가
+    지금 이 순간에도 아래에서 실시간으로 검증·축적되고 있습니다. 실시간 보유 포지션은 전략 보호를 위해 비공개이며,
+    <b>청산 완료 건만</b> 사후 공개됩니다.
+  </div>
 
   <div id="stats" class="grid"></div>
 
   <section>
-    <h2><span class="dot"></span>해시체인 무결성</h2>
+    <h3><span class="dot"></span>해시체인 무결성</h3>
     <p class="desc">매일의 스냅샷은 전일 해시를 포함해 SHA-256으로 봉인됩니다(<code>today = sha256(prev + payload)</code>).
-       과거 한 건이라도 바꾸면 이후 모든 해시가 어긋나 <b>사후 조작이 즉시 드러납니다</b>. 아래는 GENESIS부터 오늘까지의 연결 상태입니다.</p>
+       과거 한 건이라도 바꾸면 이후 모든 해시가 어긋나 <b>사후 조작이 즉시 드러납니다</b>.</p>
     <div class="card"><div id="chain" class="chain"></div>
       <div id="chain-status" class="muted" style="margin-top:10px;font-size:12.5px"></div></div>
   </section>
 
   <section>
-    <h2><span class="dot"></span>A-last vs B-last 규칙별 청산 성과</h2>
-    <p class="desc">동일 신호를 두 청산 규칙(A-last: 추세 조건부 분할, B-last: 단일 50%)으로 각각 추적해
-       사후 성과를 비교합니다. 규칙이 갈린 사례가 자동으로 드러납니다.</p>
+    <h3><span class="dot"></span>A-last vs B-last 규칙별 청산 성과</h3>
+    <p class="desc">동일 신호를 두 청산 규칙(A-last: 추세 조건부 분할, B-last: 단일 50%)으로 각각 추적해 사후 성과를 비교합니다.</p>
     <div id="rulecmp" class="cmp"></div>
   </section>
 
   <section>
-    <h2><span class="dot"></span>청산 기록 <span id="clo-count" class="muted" style="font-size:13px;font-weight:400"></span></h2>
+    <h3><span class="dot"></span>청산 기록 <span id="clo-count" class="muted" style="font-size:13px;font-weight:400"></span></h3>
     <p class="desc">최신순. 티커·청산 규칙·청산 사유·수익률·보유일. (진입가 대비 수익률)</p>
-    <div class="card"><table id="clo">
+    <div class="card scroll"><table id="clo">
       <thead><tr><th>청산일</th><th>티커</th><th>시장</th><th>규칙</th><th>사유</th><th>수익률</th><th>보유일</th></tr></thead>
       <tbody></tbody></table></div>
   </section>
 
+  <!-- [8] 문의 -->
   <footer>
-    <p><b>데이터셋 문의</b> — 전체 신호 데이터셋(진입·물타기·청산 상세, A/B/B-first 규칙별)의 상업적 이용 문의는 추후 별도 채널로 안내 예정입니다.</p>
+    <p><b>데이터셋 문의</b> — 전체 신호 데이터셋(진입·청산 상세, A/B/B-first 규칙별)의 상업적 이용 문의는 추후 별도 채널로 안내 예정입니다.</p>
     <p class="muted" id="meta"></p>
   </footer>
 </div>
 
 <script>
 const $ = s => document.querySelector(s);
-const fmtPct = v => (v==null||isNaN(v)) ? '<span class="muted">–</span>'
-  : `<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${v.toFixed(2)}%</span>`;
 const esc = s => String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const num = (v,d=2)=> (v==null||isNaN(v))?'–':Number(v).toLocaleString(undefined,{maximumFractionDigits:d,minimumFractionDigits:0});
+const fmtPct = v => (v==null||isNaN(v)) ? '<span class="muted">–</span>'
+  : `<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${Number(v).toFixed(2)}%</span>`;
 
-async function load(name){
-  const r = await fetch(`./data/${name}.json?_=${Date.now()}`);
-  if(!r.ok) throw new Error(`${name}.json ${r.status}`);
-  return r.json();
+async function load(name, required){
+  try{ const r = await fetch(`./data/${name}.json?_=${Date.now()}`); if(!r.ok) throw 0; return await r.json(); }
+  catch(e){ if(required) throw new Error(`${name}.json 없음`); return null; }
 }
 
-function statCard(k,v){ return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`; }
+/* ── PART I ── */
+function renderHero(sc){
+  $('#scale').innerHTML = [
+    ['신호', num(sc.signals,0)+'개'], ['행', num(sc.rows,0)+'행'], ['컬럼', sc.columns+'개'],
+    ['시장', sc.markets+'개'], ['기간', sc.entry_from.slice(0,4)+'~'], ['정확도','시점정확(룩어헤드 없음)'],
+  ].map(([k,v])=>`<span>${k} <b>${v}</b></span>`).join('');
+}
 
+const BKT_COLS = new Set(['tier','rsi_bucket','avgcost_gap_bucket','vix_bucket','regime_bucket','spx_mom_bucket',
+  'yield_curve_bucket','fear_greed_bucket','funding_bucket','kimchi_bucket','quality_bucket','fear_bucket','exit_reason','data_type']);
+function cell(col,v){
+  if(col==='signal_id') return `<td class="sig">${esc(v)}</td>`;
+  if(col==='return_from_entry_pct') return `<td>${fmtPct(v)}</td>`;
+  if(BKT_COLS.has(col)) return `<td><span class="bkt">${esc(v)}</span></td>`;
+  return `<td>${esc(v)}</td>`;
+}
+function renderPreview(prev, cols, descMap){
+  const head = `<thead><tr>${cols.map(c=>`<th title="${esc(descMap[c]||'')}">${esc(c)}</th>`).join('')}</tr></thead>`;
+  let html='';
+  for(const sig of prev.signals){
+    html += `<div class="prevhead"><h4>${esc(sig.title)}</h4>`+
+            `<span class="n">표시 ${sig.shown_rows}행 / 전체 ${num(sig.total_rows,0)}행</span></div>`+
+            `<p class="prevnote">${esc(sig.note)}</p>`+
+            `<div class="card scroll"><table>${head}<tbody>`+
+            sig.rows.map(r=>`<tr>${cols.map(c=>cell(c,r[c])).join('')}</tr>`).join('')+
+            `</tbody></table></div>`;
+  }
+  $('#preview').innerHTML = html;
+  $('#gloss').innerHTML = cols.map(c=>`<dt>${esc(c)}</dt><dd>${esc(descMap[c]||'')}</dd>`).join('');
+}
+function renderQuality(qb){
+  const tb=$('#quality tbody');
+  tb.innerHTML = qb.map(q=>`<tr><td><span class="bkt">${esc(q.bucket)}</span></td><td>${num(q.n,0)}</td>`+
+    `<td><b>${q.win_rate}%</b></td><td class="pos">${q.wilson_low}%</td><td>${fmtPct(q.avg_ret)}</td></tr>`).join('');
+  $('#quality-note').innerHTML = '핵심 논리: <b>품질점수가 높을수록 승률이 오릅니다</b>(80+ → 60-69 단조 상승). '+
+    '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓습니다 — 정직하게 함께 표기합니다.';
+}
+function renderMarkets(ms, capital){
+  $('#markets').innerHTML = ms.map(m=>{
+    const t = m.tier_short.startsWith('Tier 1')?'t1':'t3';
+    const exits = Object.entries(m.exits).map(([k,v])=>`${esc(k)} ${num(v,0)}`).join(' · ');
+    return `<div class="mcard"><div class="top"><h4>${esc(m.label)}</h4><span class="tier ${t}">${esc(m.tier_short)}</span></div>
+      <div class="mrow"><span class="l">신호 수</span><b>${num(m.n,0)}개</b></div>
+      <div class="mrow"><span class="l">기간</span><span>${esc(m.entry_from)} ~ ${esc(m.entry_to)}</span></div>
+      <div class="mrow"><span class="l">승률 / 평균 수익</span><span>${m.win_rate}% / ${fmtPct(m.avg_ret)}</span></div>
+      <div class="mrow"><span class="l">평균 보유</span><span>${m.avg_hold}일</span></div>
+      <div class="exits">청산: ${exits}</div>
+      ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}</div>`;
+  }).join('');
+  $('#capital').innerHTML = `자본 기준: <b>${esc(capital)}</b> · 승률=신호 최종 수익률&gt;0 비율.`;
+}
+function renderSample(bt){
+  $('#sample-note').innerHTML = `파일: <code>${esc(bt.sample.csv)}</code> — 100신호 전체 일별 경로 · 25컬럼. `+
+    `청산 규칙: ${esc(bt.rule)}`;
+}
+
+/* ── PART II (포워드) ── */
+function statCard(k,v){ return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`; }
 function renderStats(s){
   $('#stats').innerHTML = [
     statCard('포워드 가동일수', `${s.forward_days} <small>일</small>`),
-    statCard('추적 신호 수', `${s.n_signals_tracked.toLocaleString()} <small>개</small>`),
-    statCard('누적 청산 수', `${s.n_closed_total.toLocaleString()} <small>건</small>`),
-    statCard('최신 해시', `<span class="chip">${s.latest_hash?esc(s.latest_hash.slice(0,12)):'–'}…</span>`),
+    statCard('추적 신호 수', `${num(s.n_signals_tracked,0)} <small>개</small>`),
+    statCard('누적 청산 수', `${num(s.n_closed_total,0)} <small>건</small>`),
+    statCard('최신 해시', `<span class="bkt">${s.latest_hash?esc(s.latest_hash.slice(0,12)):'–'}…</span>`),
   ].join('');
-  $('#meta').textContent =
-    `기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source} · 커버 ${s.n_covered}/${s.n_signals_tracked}`;
+  $('#meta').textContent = `포워드 기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source}`;
 }
-
 function renderChain(snaps){
-  // FORWARD 시장만, 날짜순
   const rows = snaps.filter(x=>x.market==='FORWARD').sort((a,b)=>(a.date||'').localeCompare(b.date||''));
-  const box = $('#chain'); box.innerHTML='';
-  let prevHash='GENESIS', broken=0, shown=rows;
-  // 너무 길면 처음2 … 최근8만
+  const box=$('#chain'); box.innerHTML='';
+  let broken=0,prevHash='GENESIS';
+  for(const s of rows){ if(s.prev_hash!==prevHash) broken++; prevHash=s.today_hash; }
   const trim = rows.length>12 ? [...rows.slice(0,2), null, ...rows.slice(-8)] : rows;
-  // GENESIS 노드
-  box.insertAdjacentHTML('beforeend',
-    `<div class="node"><div class="box gen">GENESIS</div><div class="dt">시작</div></div>`);
-  for(const s of rows){ // 무결성은 전체로 계산
-    if(s.prev_hash !== prevHash) broken++;
-    prevHash = s.today_hash;
-  }
+  box.insertAdjacentHTML('beforeend',`<div class="node"><div class="box gen">GENESIS</div><div class="dt">시작</div></div>`);
   prevHash='GENESIS';
   for(const s of trim){
-    if(s===null){ box.insertAdjacentHTML('beforeend', `<div class="link muted">…</div>`); continue; }
-    const ok = s.prev_hash===prevHash; prevHash=s.today_hash;
+    if(s===null){ box.insertAdjacentHTML('beforeend',`<div class="link muted">…</div>`); continue; }
+    const ok=s.prev_hash===prevHash; prevHash=s.today_hash;
     box.insertAdjacentHTML('beforeend',
-      `<div class="link ${ok?'ok':'bad'}">→</div>`+
-      `<div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,10))}…</div>`+
-      `<div class="dt">${esc(s.date)}</div></div>`);
+      `<div class="link ${ok?'ok':'bad'}">→</div><div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,10))}…</div><div class="dt">${esc(s.date)}</div></div>`);
   }
   $('#chain-status').innerHTML = broken===0
     ? `<span class="ok">✓ 무결성 정상</span> — ${rows.length}개 스냅샷 전부 이전 해시와 정확히 연결됨(조작 흔적 없음).`
-    : `<span class="bad">✗ ${broken}개 지점에서 체인 불일치 감지</span> — 조작 또는 기록 오류 신호.`;
+    : `<span class="bad">✗ ${broken}개 지점 체인 불일치</span> — 조작·오류 신호.`;
 }
-
-function ruleBox(name, r, cls){
-  if(!r || r.n===0) return `<div class="card"><h3 class="${cls}">${name}</h3><p class="muted">청산 기록 없음</p></div>`;
-  const reasons = Object.entries(r.reasons||{}).map(([k,v])=>`${esc(k)} ${v}`).join(' · ');
-  return `<div class="card"><h3 class="${cls}">${name}</h3>
+function ruleBox(name,r,cls){
+  if(!r||r.n===0) return `<div class="card"><h4 class="${cls}">${name}</h4><p class="muted">청산 기록 없음</p></div>`;
+  const reasons=Object.entries(r.reasons||{}).map(([k,v])=>`${esc(k)} ${v}`).join(' · ');
+  return `<div class="card"><h4 class="${cls}">${name}</h4>
     <div class="row"><span class="lbl">청산 건수</span><b>${r.n}건</b></div>
     <div class="row"><span class="lbl">평균 수익률</span><b>${fmtPct(r.avg_ret)}</b></div>
     <div class="row"><span class="lbl">승률</span><b>${r.win_rate==null?'–':r.win_rate+'%'}</b></div>
     <div class="row"><span class="lbl">최고 / 최저</span><b>${fmtPct(r.best)} / ${fmtPct(r.worst)}</b></div>
-    <div class="row"><span class="lbl">청산 사유</span><span class="muted" style="font-size:12px">${reasons||'–'}</span></div>
-  </div>`;
+    <div class="row"><span class="lbl">청산 사유</span><span class="muted" style="font-size:12px">${reasons||'–'}</span></div></div>`;
 }
-
 function renderRules(s){
-  const c = s.rule_compare||{};
-  $('#rulecmp').innerHTML = ruleBox('A-last','A-last' in c?c['A-last']:null,'rule-A')
-                          + ruleBox('B-last','B-last' in c?c['B-last']:null,'rule-B');
+  const c=s.rule_compare||{};
+  $('#rulecmp').innerHTML = ruleBox('A-last','A-last'in c?c['A-last']:null,'rule-A')+ruleBox('B-last','B-last'in c?c['B-last']:null,'rule-B');
 }
-
 function renderClosures(clos){
-  $('#clo-count').textContent = `(${clos.length.toLocaleString()}건)`;
-  const tb = $('#clo tbody');
+  $('#clo-count').textContent=`(${num(clos.length,0)}건)`;
+  const tb=$('#clo tbody');
   if(!clos.length){ tb.innerHTML=`<tr><td colspan="7" class="muted">아직 청산 기록이 없습니다.</td></tr>`; return; }
-  tb.innerHTML = clos.map(c=>{
-    const rc = c.rule==='A-last'?'rule-A':(c.rule==='B-last'?'rule-B':'');
+  tb.innerHTML=clos.map(c=>{
+    const rc=c.rule==='A-last'?'rule-A':(c.rule==='B-last'?'rule-B':'');
     return `<tr><td>${esc(c.date)}</td><td><b>${esc(c.ticker)}</b></td><td class="muted">${esc(c.market)}</td>`+
-      `<td class="${rc}">${esc(c.rule)}</td><td>${esc(c.reason)}</td>`+
-      `<td>${fmtPct(c.ret_pct)}</td><td class="muted">${c.hold_days==null?'–':c.hold_days+'일'}</td></tr>`;
+      `<td class="${rc}">${esc(c.rule)}</td><td>${esc(c.reason)}</td><td>${fmtPct(c.ret_pct)}</td><td class="muted">${c.hold_days==null?'–':c.hold_days+'일'}</td></tr>`;
   }).join('');
+}
+function forwardUnavailable(){
+  $('#stats').innerHTML = `<div class="stat" style="grid-column:1/-1"><div class="muted">포워드 검증 데이터가 아직 없습니다 — 일별 워크플로 첫 실행 후 채워집니다.</div></div>`;
+  $('#connect').style.display='none';
 }
 
 (async()=>{
+  // PART I (필수 — 커밋된 정적 자산)
   try{
-    const [summary, snaps, clos] = await Promise.all([load('summary'), load('snapshots'), load('closures')]);
-    renderStats(summary); renderChain(snaps); renderRules(summary); renderClosures(clos);
+    const [btSum, btPrev] = await Promise.all([load('backtest_summary',true), load('backtest_preview',true)]);
+    const descMap={}; (btSum.columns||[]).forEach(c=>descMap[c.name]=c.desc);
+    renderHero(btSum.scale); renderPreview(btPrev, btPrev.columns, descMap);
+    renderQuality(btSum.quality_buckets); renderMarkets(btSum.markets, btSum.capital_basis);
+    renderSample(btSum);
   }catch(e){
-    $('#stats').innerHTML =
-      `<div class="stat" style="grid-column:1/-1"><div class="err">데이터를 불러오지 못했습니다: ${esc(e.message)}</div>
-       <div class="muted" style="margin-top:6px">일별 워크플로가 처음 실행되면 데이터가 채워집니다.</div></div>`;
+    $('#scale').innerHTML=`<span class="err">백테스트 데이터 로드 실패: ${esc(e.message)}</span>`;
   }
+  // PART II (포워드 — 배포 전이면 없을 수 있음)
+  try{
+    const [fSum, snaps, clos] = await Promise.all([load('summary'), load('snapshots'), load('closures')]);
+    if(fSum && snaps && clos){ renderStats(fSum); renderChain(snaps); renderRules(fSum); renderClosures(clos); }
+    else forwardUnavailable();
+  }catch(e){ forwardUnavailable(); }
 })();
 </script>
 </body>
