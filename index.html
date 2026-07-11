@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QLab · 포워드 검증 기록</title>
+<style>
+  :root{
+    --bg:#0d1117; --card:#161b22; --border:#2a3038; --fg:#e6edf3; --mut:#8b949e;
+    --accent:#3fb950; --accent2:#58a6ff; --red:#f85149; --chip:#21262d;
+  }
+  @media (prefers-color-scheme: light){
+    :root{--bg:#f6f8fa;--card:#fff;--border:#d0d7de;--fg:#1f2328;--mut:#656d76;
+          --accent:#1a7f37;--accent2:#0969da;--red:#cf222e;--chip:#eaeef2;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:32px 20px 80px}
+  header h1{font-size:26px;margin:0 0 4px;letter-spacing:-.02em}
+  header p{color:var(--mut);margin:0 0 24px;font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:28px}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .stat .k{color:var(--mut);font-size:12px;margin-bottom:6px}
+  .stat .v{font-size:24px;font-weight:700;letter-spacing:-.02em}
+  .stat .v small{font-size:13px;font-weight:500;color:var(--mut)}
+  section{margin:34px 0}
+  h2{font-size:17px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .desc{color:var(--mut);font-size:13.5px;margin:0 0 14px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;white-space:nowrap}
+  th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border)}
+  th{color:var(--mut);font-weight:600;font-size:12px;position:sticky;top:0}
+  tbody tr:last-child td{border-bottom:none}
+  .pos{color:var(--accent)} .neg{color:var(--red)}
+  .chip{display:inline-block;background:var(--chip);border-radius:6px;padding:1px 7px;font-size:11.5px;
+    font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  .rule-A{color:var(--accent2)} .rule-B{color:#d29922}
+  /* 해시체인 */
+  .chain{display:flex;align-items:center;gap:0;overflow-x:auto;padding:6px 2px}
+  .node{flex:0 0 auto;text-align:center;min-width:96px}
+  .node .box{background:var(--chip);border:1px solid var(--border);border-radius:8px;padding:8px 6px;
+    font-family:ui-monospace,monospace;font-size:11px}
+  .node .box.gen{border-color:var(--accent2)}
+  .node .box.bad{border-color:var(--red)}
+  .node .dt{color:var(--mut);font-size:10.5px;margin-top:4px}
+  .link{color:var(--mut);flex:0 0 auto;padding:0 2px;font-size:16px}
+  .ok{color:var(--accent)} .bad{color:var(--red)}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:620px){.cmp{grid-template-columns:1fr}}
+  .cmp .card h3{margin:0 0 10px;font-size:15px}
+  .cmp .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+  .cmp .row:last-child{border:none}
+  .cmp .row .lbl{color:var(--mut)}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--border);color:var(--mut);font-size:13px}
+  .err{color:var(--red);font-size:14px}
+  .muted{color:var(--mut)}
+  code{font-family:ui-monospace,monospace;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>QLab · 포워드 검증 기록</h1>
+    <p>매일 자동 갱신되는 트레이딩 신호의 <b>사후 청산 성과</b>와 <b>조작 불가 해시체인</b> 공개 기록.
+       실시간 보유 포지션은 전략 보호를 위해 비공개이며, <b>청산 완료 건만</b> 사후 공개됩니다.</p>
+  </header>
+
+  <div id="stats" class="grid"></div>
+
+  <section>
+    <h2><span class="dot"></span>해시체인 무결성</h2>
+    <p class="desc">매일의 스냅샷은 전일 해시를 포함해 SHA-256으로 봉인됩니다(<code>today = sha256(prev + payload)</code>).
+       과거 한 건이라도 바꾸면 이후 모든 해시가 어긋나 <b>사후 조작이 즉시 드러납니다</b>. 아래는 GENESIS부터 오늘까지의 연결 상태입니다.</p>
+    <div class="card"><div id="chain" class="chain"></div>
+      <div id="chain-status" class="muted" style="margin-top:10px;font-size:12.5px"></div></div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>A-last vs B-last 규칙별 청산 성과</h2>
+    <p class="desc">동일 신호를 두 청산 규칙(A-last: 추세 조건부 분할, B-last: 단일 50%)으로 각각 추적해
+       사후 성과를 비교합니다. 규칙이 갈린 사례가 자동으로 드러납니다.</p>
+    <div id="rulecmp" class="cmp"></div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>청산 기록 <span id="clo-count" class="muted" style="font-size:13px;font-weight:400"></span></h2>
+    <p class="desc">최신순. 티커·청산 규칙·청산 사유·수익률·보유일. (진입가 대비 수익률)</p>
+    <div class="card"><table id="clo">
+      <thead><tr><th>청산일</th><th>티커</th><th>시장</th><th>규칙</th><th>사유</th><th>수익률</th><th>보유일</th></tr></thead>
+      <tbody></tbody></table></div>
+  </section>
+
+  <footer>
+    <p><b>데이터셋 문의</b> — 전체 신호 데이터셋(진입·물타기·청산 상세, A/B/B-first 규칙별)의 상업적 이용 문의는 추후 별도 채널로 안내 예정입니다.</p>
+    <p class="muted" id="meta"></p>
+  </footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const fmtPct = v => (v==null||isNaN(v)) ? '<span class="muted">–</span>'
+  : `<span class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${v.toFixed(2)}%</span>`;
+const esc = s => String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+async function load(name){
+  const r = await fetch(`./data/${name}.json?_=${Date.now()}`);
+  if(!r.ok) throw new Error(`${name}.json ${r.status}`);
+  return r.json();
+}
+
+function statCard(k,v){ return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`; }
+
+function renderStats(s){
+  $('#stats').innerHTML = [
+    statCard('포워드 가동일수', `${s.forward_days} <small>일</small>`),
+    statCard('추적 신호 수', `${s.n_signals_tracked.toLocaleString()} <small>개</small>`),
+    statCard('누적 청산 수', `${s.n_closed_total.toLocaleString()} <small>건</small>`),
+    statCard('최신 해시', `<span class="chip">${s.latest_hash?esc(s.latest_hash.slice(0,12)):'–'}…</span>`),
+  ].join('');
+  $('#meta').textContent =
+    `기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source} · 커버 ${s.n_covered}/${s.n_signals_tracked}`;
+}
+
+function renderChain(snaps){
+  // FORWARD 시장만, 날짜순
+  const rows = snaps.filter(x=>x.market==='FORWARD').sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  const box = $('#chain'); box.innerHTML='';
+  let prevHash='GENESIS', broken=0, shown=rows;
+  // 너무 길면 처음2 … 최근8만
+  const trim = rows.length>12 ? [...rows.slice(0,2), null, ...rows.slice(-8)] : rows;
+  // GENESIS 노드
+  box.insertAdjacentHTML('beforeend',
+    `<div class="node"><div class="box gen">GENESIS</div><div class="dt">시작</div></div>`);
+  for(const s of rows){ // 무결성은 전체로 계산
+    if(s.prev_hash !== prevHash) broken++;
+    prevHash = s.today_hash;
+  }
+  prevHash='GENESIS';
+  for(const s of trim){
+    if(s===null){ box.insertAdjacentHTML('beforeend', `<div class="link muted">…</div>`); continue; }
+    const ok = s.prev_hash===prevHash; prevHash=s.today_hash;
+    box.insertAdjacentHTML('beforeend',
+      `<div class="link ${ok?'ok':'bad'}">→</div>`+
+      `<div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,10))}…</div>`+
+      `<div class="dt">${esc(s.date)}</div></div>`);
+  }
+  $('#chain-status').innerHTML = broken===0
+    ? `<span class="ok">✓ 무결성 정상</span> — ${rows.length}개 스냅샷 전부 이전 해시와 정확히 연결됨(조작 흔적 없음).`
+    : `<span class="bad">✗ ${broken}개 지점에서 체인 불일치 감지</span> — 조작 또는 기록 오류 신호.`;
+}
+
+function ruleBox(name, r, cls){
+  if(!r || r.n===0) return `<div class="card"><h3 class="${cls}">${name}</h3><p class="muted">청산 기록 없음</p></div>`;
+  const reasons = Object.entries(r.reasons||{}).map(([k,v])=>`${esc(k)} ${v}`).join(' · ');
+  return `<div class="card"><h3 class="${cls}">${name}</h3>
+    <div class="row"><span class="lbl">청산 건수</span><b>${r.n}건</b></div>
+    <div class="row"><span class="lbl">평균 수익률</span><b>${fmtPct(r.avg_ret)}</b></div>
+    <div class="row"><span class="lbl">승률</span><b>${r.win_rate==null?'–':r.win_rate+'%'}</b></div>
+    <div class="row"><span class="lbl">최고 / 최저</span><b>${fmtPct(r.best)} / ${fmtPct(r.worst)}</b></div>
+    <div class="row"><span class="lbl">청산 사유</span><span class="muted" style="font-size:12px">${reasons||'–'}</span></div>
+  </div>`;
+}
+
+function renderRules(s){
+  const c = s.rule_compare||{};
+  $('#rulecmp').innerHTML = ruleBox('A-last','A-last' in c?c['A-last']:null,'rule-A')
+                          + ruleBox('B-last','B-last' in c?c['B-last']:null,'rule-B');
+}
+
+function renderClosures(clos){
+  $('#clo-count').textContent = `(${clos.length.toLocaleString()}건)`;
+  const tb = $('#clo tbody');
+  if(!clos.length){ tb.innerHTML=`<tr><td colspan="7" class="muted">아직 청산 기록이 없습니다.</td></tr>`; return; }
+  tb.innerHTML = clos.map(c=>{
+    const rc = c.rule==='A-last'?'rule-A':(c.rule==='B-last'?'rule-B':'');
+    return `<tr><td>${esc(c.date)}</td><td><b>${esc(c.ticker)}</b></td><td class="muted">${esc(c.market)}</td>`+
+      `<td class="${rc}">${esc(c.rule)}</td><td>${esc(c.reason)}</td>`+
+      `<td>${fmtPct(c.ret_pct)}</td><td class="muted">${c.hold_days==null?'–':c.hold_days+'일'}</td></tr>`;
+  }).join('');
+}
+
+(async()=>{
+  try{
+    const [summary, snaps, clos] = await Promise.all([load('summary'), load('snapshots'), load('closures')]);
+    renderStats(summary); renderChain(snaps); renderRules(summary); renderClosures(clos);
+  }catch(e){
+    $('#stats').innerHTML =
+      `<div class="stat" style="grid-column:1/-1"><div class="err">데이터를 불러오지 못했습니다: ${esc(e.message)}</div>
+       <div class="muted" style="margin-top:6px">일별 워크플로가 처음 실행되면 데이터가 채워집니다.</div></div>`;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+ {
+  "sid": "20250124-DXST-5208",
+  "ticker": "DXST",
+  "market": "US",
+  "rule": "A-last",
+  "reason": "만기손절",
+  "ret_pct": -70.06,
+  "hold_days": 365,
+  "date": "2026-07-11"
+ },
+ {
+  "sid": "20250124-DXST-5208",
+  "ticker": "DXST",
+  "market": "US",
+  "rule": "B-last",
+  "reason": "만기손절",
+  "ret_pct": -70.06,
+  "hold_days": 365,
+  "date": "2026-07-11"
+ },
+ {
+  "sid": "20250409-EBC-5413",
+  "ticker": "EBC",
+  "market": "US",
+  "rule": "B-last",
+  "reason": "TP50",
+  "ret_pct": 79.92,
+  "hold_days": 313,
+  "date": "2026-07-11"
+ }
+]

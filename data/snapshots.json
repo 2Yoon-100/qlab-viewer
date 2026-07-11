@@ -1,0 +1,24 @@
+[
+ {
+  "date": "2026-07-11",
+  "market": "FORWARD",
+  "prev_hash": "GENESIS",
+  "today_hash": "00f6be7d08874604e0f947a98125089fb9cecbac03582265ea2dad9c48d89fb6",
+  "n_active": 943,
+  "n_closed": 3,
+  "n_failed": 0,
+  "n_tracking": 813,
+  "avg_cur_ret": -1.977
+ },
+ {
+  "date": "2026-07-12",
+  "market": "FORWARD",
+  "prev_hash": "00f6be7d08874604e0f947a98125089fb9cecbac03582265ea2dad9c48d89fb6",
+  "today_hash": "f8216e6dfd2b2603bf5be666a664632bdf1a477423481bc7171a03acad57cfe3",
+  "n_active": 943,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 813,
+  "avg_cur_ret": -1.99
+ }
+]

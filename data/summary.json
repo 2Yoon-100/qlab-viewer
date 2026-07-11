@@ -1,0 +1,44 @@
+{
+ "forward_days": 2,
+ "n_signals_tracked": 1011,
+ "n_covered": 943,
+ "n_closed_total": 3,
+ "genesis_date": "2026-07-11",
+ "latest_date": "2026-07-12",
+ "latest_hash": "f8216e6dfd2b2603bf5be666a664632bdf1a477423481bc7171a03acad57cfe3",
+ "alast_status_counts": {
+  "보유중": 880,
+  "청산완료(백테스트)": 130,
+  "만기손절": 1
+ },
+ "blast_status_counts": {
+  "보유중": 852,
+  "청산완료(백테스트)": 157,
+  "만기손절": 1,
+  "TP50": 1
+ },
+ "rule_compare": {
+  "A-last": {
+   "n": 1,
+   "avg_ret": -70.06,
+   "win_rate": 0.0,
+   "best": -70.06,
+   "worst": -70.06,
+   "reasons": {
+    "만기손절": 1
+   }
+  },
+  "B-last": {
+   "n": 2,
+   "avg_ret": 4.93,
+   "win_rate": 50.0,
+   "best": 79.92,
+   "worst": -70.06,
+   "reasons": {
+    "만기손절": 1,
+    "TP50": 1
+   }
+  }
+ },
+ "source": "supabase"
+}
