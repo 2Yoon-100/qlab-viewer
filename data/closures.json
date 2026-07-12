@@ -1,5 +1,17 @@
 [
  {
+  "sid": "20251118-RBNE-5629",
+  "ticker": "RBNE",
+  "market": "US",
+  "rule": "A-last",
+  "reason": "TP50",
+  "ret_pct": 795.83,
+  "hold_days": 159,
+  "date": "2026-07-12",
+  "quality_score": 77,
+  "quality_bucket": "70-79"
+ },
+ {
   "sid": "20250124-DXST-5208",
   "ticker": "DXST",
   "market": "US",

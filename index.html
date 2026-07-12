@@ -100,6 +100,13 @@
   .siglist tbody tr{cursor:pointer}
   .siglist tbody tr:hover{background:color-mix(in srgb,var(--accent2) 9%,transparent)}
   .qbadge{font-weight:700}
+  /* 필터 바 */
+  .frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+  .frow .flab{color:var(--mut);font-size:12px;font-weight:600;min-width:60px}
+  .fbtn{background:var(--chip);border:1px solid var(--border);color:var(--fg);border-radius:20px;
+    padding:5px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
+  .fbtn.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .fbtn .fc{opacity:.6;margin-left:5px;font-size:11px} .fbtn.on .fc{opacity:.85}
   /* 모달 카드 */
   .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
   .modal-bg[hidden]{display:none}
@@ -161,15 +168,13 @@
        <code>rule_version</code> 컬럼으로 버전이 고정 기재됩니다.</p>
   </div>
 
-  <!-- [2] 데이터 미리보기 -->
+  <!-- [A] ★신호 탐색기 (주인공) -->
   <section>
-    <h3><span class="dot"></span>데이터 미리보기 — 실제 행</h3>
-    <p class="cap">실제 데이터 발췌입니다. 구매 시 이런 행 <b>418만 개</b>를 Parquet/CSV로 받습니다.
-       (컬럼 헤더에 마우스를 올리면 설명이 뜹니다)</p>
-    <p class="cap" style="color:var(--amber)">⚠ <b>exit_reason·total_holding_days·quality_score·mfe/mae 등은 신호 단위 라벨</b>이라
-       모든 행에 동일하게 반복됩니다. <b>행마다 변하는 것은 day·date·close·return_from_entry_pct</b>뿐입니다.</p>
-    <div id="preview"></div>
-    <details class="gloss"><summary>컬럼 25개 설명 펼치기</summary><dl id="gloss"></dl></details>
+    <h3><span class="dot"></span>신호 탐색기</h3>
+    <p class="desc">무료 샘플 100건을 <b>시장 · 청산상태 · 공포등급</b>으로 조합 탐색합니다. 행을 클릭하면 신호 카드(일별 경로 차트·DNA 버킷·MFE/MAE)가 열립니다. 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
+    <div id="tabs" class="tabs"></div>
+    <div id="filters"></div>
+    <div id="explist"></div>
   </section>
 
   <!-- [3] 이 데이터로 할 수 있는 것 -->
@@ -200,24 +205,30 @@
     <p class="note" id="quality-note"></p>
   </section>
 
-  <!-- [5] 시장별 탐색 -->
+  <!-- [D] 시장별 커버리지 · Tier -->
   <section>
-    <h3><span class="dot"></span>시장별 탐색 — 커버리지·등급 + 샘플 신호</h3>
-    <p class="desc">5개 시장 탭. 각 탭 상단은 <b>커버리지·Tier 요약</b>, 아래는 <b>무료 샘플 신호 목록</b>(행 클릭 → 카드). 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
-    <div id="tabs" class="tabs"></div>
-    <div id="tabpanel"></div>
+    <h3><span class="dot"></span>시장별 커버리지 · 데이터 품질 등급</h3>
+    <p class="desc">성과 나열이 아니라 <b>커버리지 범위와 생존편향 보정 수준(Tier)</b> 관점입니다. 미보정 시장은 경고를 함께 표기합니다.</p>
+    <div id="marketcards" class="mkt"></div>
     <p class="note" id="capital"></p>
   </section>
 
-  <!-- [6] 무료 샘플 -->
+  <!-- [E] 무료 샘플 + 파일 형식 미리보기 -->
   <section>
     <h3><span class="dot"></span>무료 샘플</h3>
-    <p class="desc">100개 신호의 <b>전체 일별 경로</b>(25컬럼)를 그대로 담은 CSV입니다. 데이터 사전도 함께 확인하세요.</p>
+    <p class="desc">100개 신호의 <b>전체 일별 경로</b>를 그대로 담은 CSV입니다. 데이터 사전도 함께 확인하세요.</p>
     <div class="card">
       <p style="margin:0 0 14px"><a class="btn" id="dl-sample" href="./data/qlab_v2_1_sample_100.csv" download>⬇ 무료 샘플 CSV 다운로드</a></p>
       <p class="note" id="sample-note"></p>
-      <p class="note" style="margin-top:8px"><a href="./data/data_dictionary.md" target="_blank">📄 데이터 사전(data_dictionary.md) 열기</a> — 25컬럼 정의·Tier 근거·청산 규칙·자본 기준</p>
+      <p class="note" style="margin-top:8px"><a href="./data/data_dictionary.md" target="_blank">📄 데이터 사전(data_dictionary.md) 열기</a> — 컬럼 정의·Tier 근거·청산 규칙·자본 기준</p>
     </div>
+
+    <h4 style="margin:24px 0 4px;font-size:16px">파일 형식 미리보기</h4>
+    <p class="cap">구매·다운로드 시 받는 파일의 <b>실제 행 구조</b>입니다. (컬럼 헤더에 마우스를 올리면 설명)</p>
+    <p class="cap" style="color:var(--amber)">⚠ <b>exit_reason·quality_score·mfe/mae 등은 신호 단위 라벨</b>이라 모든 행에 반복됩니다 —
+       행마다 변하는 것은 <b>day·date·close·return_from_entry_pct</b>뿐입니다.</p>
+    <div id="preview"></div>
+    <details class="gloss"><summary>컬럼 설명 펼치기</summary><dl id="gloss"></dl></details>
   </section>
 
   <!-- ══════ PART II. 포워드 검증 기록 ══════ -->
@@ -319,48 +330,71 @@ function renderQuality(qb){
     '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓어 비단조로 보입니다 — 숨기지 않고 함께 표기합니다.';
 }
 const MKT_ORDER=['US-SP500','US-NASDAQ','KR','MAJOR','ALT'];
-let EXP={sum:{},sig:{}};
-function renderExplorer(ms, signals, capital){
-  EXP.sum={}; ms.forEach(m=>EXP.sum[m.key]=m);
-  EXP.sig=(signals&&signals.markets)||{};
-  const order=MKT_ORDER.filter(k=>EXP.sum[k]);
-  $('#tabs').innerHTML=order.map((k,i)=>{
-    const n=(EXP.sig[k]||[]).length;
-    return `<button data-mk="${k}" class="${i===0?'active':''}">${esc(EXP.sum[k].label)}<span class="cnt">${n}</span></button>`;
-  }).join('');
+const STATUS_OPTS=[
+  {k:'all',lab:'전체',f:()=>true},
+  {k:'익절',lab:'익절',f:e=>e.indexOf('TP')===0},
+  {k:'TP50',lab:'TP50',f:e=>e==='TP50'},
+  {k:'TP100',lab:'TP100',f:e=>e==='TP100'},
+  {k:'추세꺾임',lab:'추세꺾임',f:e=>e==='TP50_추세꺾임'},
+  {k:'만기손절',lab:'만기손절',f:e=>e==='만기손절'},
+  {k:'상폐',lab:'상폐',f:e=>e==='상폐'},
+];
+const FEAR_OPTS=[{k:'all',lab:'전체등급'},{k:'적극',lab:'적극'},{k:'선별',lab:'선별'},{k:'관망',lab:'관망'}];
+let EXP={sig:{},labels:{},state:{market:null,status:'all',fear:'all'},rows:[]};
+function renderExplorer(ms, signals){
+  EXP.sig=(signals&&signals.markets)||{}; EXP.labels={}; ms.forEach(m=>EXP.labels[m.key]=m.label);
+  const order=MKT_ORDER.filter(k=>(EXP.sig[k]||[]).length);
+  $('#tabs').innerHTML=order.map((k,i)=>
+    `<button data-mk="${k}" class="${i===0?'active':''}">${esc(EXP.labels[k]||k)}<span class="cnt">${EXP.sig[k].length}</span></button>`).join('');
   $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{
     $('#tabs').querySelectorAll('button').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active'); showTab(b.dataset.mk);
+    b.classList.add('active'); selectMarket(b.dataset.mk);
   });
-  $('#capital').innerHTML=`자본 기준: <b>${esc(capital)}</b>`;
-  if(order.length) showTab(order[0]);
+  if(order.length) selectMarket(order[0]);
 }
-function showTab(k){
-  const m=EXP.sum[k], sigs=EXP.sig[k]||[];
-  const t=m.tier_short.startsWith('Tier 1')?'t1':'t3';
-  const exits=Object.entries(m.exits).map(([kk,v])=>`${esc(kk)} ${num(v,0)}`).join(' · ');
-  const legs=Object.entries(m.n_legs_dist||{}).map(([kk,v])=>`${kk}회 ${num(v,0)}`).join(' · ');
-  let h=`<div class="tsum">
-    <div class="b"><div class="k">Tier</div><div class="v"><span class="tier ${t}">${esc(m.tier_short)}</span></div></div>
-    <div class="b"><div class="k">신호 수</div><div class="v">${num(m.n,0)}</div></div>
-    <div class="b"><div class="k">익절률</div><div class="v">${m.tp_rate}%</div></div>
-    <div class="b"><div class="k">수익종결률</div><div class="v">${m.pos_close_rate}%</div></div>
-    <div class="b"><div class="k">평균 수익</div><div class="v">${fmtPct(m.avg_ret)}</div></div>
-    <div class="b"><div class="k">평균 보유</div><div class="v">${m.avg_hold}일</div></div></div>
-    <div class="exits" style="margin-bottom:4px">기간 ${esc(m.entry_from)}~${esc(m.entry_to)} · 청산: ${exits} · 물타기: ${legs}</div>
-    ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}
-    <p class="cap" style="margin:14px 0 6px">샘플 신호 ${sigs.length}건 — 행 클릭 시 카드가 열립니다.</p>
+function selectMarket(mk){ EXP.state={market:mk,status:'all',fear:'all'}; renderFilters(); renderList(); }
+function marketSigs(){ return EXP.sig[EXP.state.market]||[]; }
+function renderFilters(){
+  const sigs=marketSigs();
+  const mk=(t,opts,cur,cntf)=>`<div class="frow"><span class="flab">${t}</span>`+opts.map(o=>{
+    const n=cntf(o); if(o.k!=='all'&&n===0) return '';
+    return `<button data-t="${t==='청산상태'?'status':'fear'}" data-k="${o.k}" class="fbtn ${cur===o.k?'on':''}">${o.lab}<span class="fc">${n}</span></button>`;
+  }).join('')+`</div>`;
+  $('#filters').innerHTML=
+    mk('청산상태',STATUS_OPTS,EXP.state.status,o=>sigs.filter(c=>o.f(c.exit_reason)).length)+
+    mk('공포등급',FEAR_OPTS,EXP.state.fear,o=>o.k==='all'?sigs.length:sigs.filter(c=>c.fear_bucket===o.k).length);
+  $('#filters').querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
+    EXP.state[b.dataset.t]=b.dataset.k; renderFilters(); renderList();
+  });
+}
+function renderList(){
+  const st=STATUS_OPTS.find(o=>o.k===EXP.state.status);
+  EXP.rows=marketSigs().filter(c=>st.f(c.exit_reason)&&(EXP.state.fear==='all'||c.fear_bucket===EXP.state.fear));
+  const rows=EXP.rows;
+  $('#explist').innerHTML=`<p class="cap" style="margin:12px 0 6px">결과 <b>${rows.length}</b>건 — 행 클릭 시 카드가 열립니다.</p>
     <div class="card scroll siglist"><table>
       <thead><tr><th>진입일</th><th>티커</th><th>품질</th><th>공포등급</th><th>청산사유</th><th>최종수익률</th><th>보유일</th></tr></thead>
-      <tbody>${sigs.map((c,i)=>`<tr data-mk="${k}" data-i="${i}">
+      <tbody>${rows.length?rows.map((c,i)=>`<tr data-i="${i}">
         <td>${esc(c.entry_date)}</td><td><b>${esc(c.ticker)}</b></td>
         <td class="qbadge">${c.quality_score} <span class="bkt">${esc(c.quality_bucket)}</span></td>
         <td><span class="bkt">${esc(c.fear_bucket)}</span></td>
-        <td>${esc(c.exit_reason)}</td><td>${fmtPct(c.final_ret)}</td>
-        <td class="muted">${c.hold_days}일</td></tr>`).join('')}</tbody></table></div>`;
-  $('#tabpanel').innerHTML=h;
-  $('#tabpanel').querySelectorAll('.siglist tbody tr').forEach(tr=>
-    tr.onclick=()=>openCard(EXP.sig[tr.dataset.mk][+tr.dataset.i]));
+        <td>${esc(c.exit_reason)}</td><td>${fmtPct(c.final_ret)}</td><td class="muted">${c.hold_days}일</td></tr>`).join('')
+        :`<tr><td colspan="7" class="muted">조건에 맞는 신호가 없습니다.</td></tr>`}</tbody></table></div>`;
+  $('#explist').querySelectorAll('.siglist tbody tr[data-i]').forEach(tr=>tr.onclick=()=>openCard(EXP.rows[+tr.dataset.i]));
+}
+function renderMarketCards(ms, capital){
+  $('#marketcards').innerHTML=ms.map(m=>{
+    const t=m.tier_short.startsWith('Tier 1')?'t1':'t3';
+    const exits=Object.entries(m.exits).map(([k,v])=>`${esc(k)} ${num(v,0)}`).join(' · ');
+    return `<div class="mcard"><div class="top"><h4>${esc(m.label)}</h4><span class="tier ${t}">${esc(m.tier_short)}</span></div>
+      <div class="mrow"><span class="l">신호 수</span><b>${num(m.n,0)}개</b></div>
+      <div class="mrow"><span class="l">기간</span><span>${esc(m.entry_from)} ~ ${esc(m.entry_to)}</span></div>
+      <div class="mrow"><span class="l">익절률 / 수익종결률</span><span>${m.tp_rate}% / ${m.pos_close_rate}%</span></div>
+      <div class="mrow"><span class="l">평균 수익 / 보유</span><span>${fmtPct(m.avg_ret)} / ${m.avg_hold}일</span></div>
+      <div class="exits">청산: ${exits}</div>
+      ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}</div>`;
+  }).join('');
+  $('#capital').innerHTML=`자본 기준: <b>${esc(capital)}</b>`;
 }
 function chartSVG(c){
   const p=c.path, W=600,H=170,pad=24;
@@ -475,7 +509,8 @@ function forwardUnavailable(){
       load('backtest_summary',true), load('backtest_preview',true), load('backtest_signals',true)]);
     const descMap={}; (btSum.columns||[]).forEach(c=>descMap[c.name]=c.desc);
     renderHero(btSum.scale); renderPreview(btPrev, btPrev.columns, descMap);
-    renderQuality(btSum.quality_buckets); renderExplorer(btSum.markets, btSig, btSum.capital_basis);
+    renderExplorer(btSum.markets, btSig);
+    renderQuality(btSum.quality_buckets); renderMarketCards(btSum.markets, btSum.capital_basis);
     renderSample(btSum);
   }catch(e){
     $('#scale').innerHTML=`<span class="err">백테스트 데이터 로드 실패: ${esc(e.message)}</span>`;
