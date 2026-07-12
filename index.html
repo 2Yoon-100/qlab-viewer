@@ -135,6 +135,8 @@
     <h3><span class="dot"></span>데이터 미리보기 — 실제 행</h3>
     <p class="cap">실제 데이터 발췌입니다. 구매 시 이런 행 <b>418만 개</b>를 Parquet/CSV로 받습니다.
        (컬럼 헤더에 마우스를 올리면 설명이 뜹니다)</p>
+    <p class="cap" style="color:var(--amber)">⚠ <b>exit_reason·total_holding_days·quality_score·mfe/mae 등은 신호 단위 라벨</b>이라
+       모든 행에 동일하게 반복됩니다. <b>행마다 변하는 것은 day·date·close·return_from_entry_pct</b>뿐입니다.</p>
     <div id="preview"></div>
     <details class="gloss"><summary>컬럼 25개 설명 펼치기</summary><dl id="gloss"></dl></details>
   </section>
@@ -144,12 +146,12 @@
     <h3><span class="dot"></span>이 데이터로 할 수 있는 것</h3>
     <p class="desc">개별 신호의 진입 상태(라벨)와 이후 전체 경로가 함께 있어, 조건부 분석·리스크 설계·포트폴리오 연구에 바로 쓸 수 있습니다.</p>
     <div class="uses">
-      <div class="use"><h4>① 조건부 승률 분석</h4>
-        <p>"품질점수 70+ 신호만 골랐을 때 승률이 어떻게 변하는가" 같은 필터링 성과 분석. (바로 아래 표가 그 예시)</p>
+      <div class="use"><h4>① 조건부 익절률·수익종결률 분석</h4>
+        <p>"품질점수 70+ 신호만 골랐을 때 익절률·수익종결률이 어떻게 변하는가" 같은 필터링 성과 분석. (바로 아래 표가 그 예시)</p>
         <div class="cols">사용 컬럼: <b>quality_score</b> · <b>quality_bucket</b> · <b>exit_reason</b> · <b>return_from_entry_pct</b></div></div>
       <div class="use"><h4>② 최대낙폭(MAE) 분포</h4>
-        <p>각 신호의 일별 경로에서 최저 수익률을 뽑아 MAE 분포를 만들면, 손절선을 데이터로 설계할 수 있습니다.</p>
-        <div class="cols">사용 컬럼: <b>return_from_entry_pct</b> × <b>day</b> (신호별 경로)</div></div>
+        <p>신호별 <b>mae_pct</b>가 이미 계산돼 있어 MAE 분포를 바로 그려 손절선을 데이터로 설계할 수 있습니다. (원경로로 직접 재계산도 가능)</p>
+        <div class="cols">사용 컬럼: <b>mae_pct</b> · <b>mfe_pct</b> · <b>return_from_entry_pct</b> × <b>day</b></div></div>
       <div class="use"><h4>③ 내 전략과의 상관</h4>
         <p>날짜·종목 기준으로 기존 전략 수익률과 상관을 계산해 포트폴리오 분산 효과를 검증합니다.</p>
         <div class="cols">사용 컬럼: <b>return_from_entry_pct</b> · <b>date</b> · <b>ticker</b> · <b>market</b></div></div>
@@ -159,9 +161,10 @@
   <!-- [4] 품질 점수별 성과 -->
   <section>
     <h3><span class="dot"></span>품질 점수별 성과 (예시 ①의 실증)</h3>
-    <p class="desc">진입 시점 <code>quality_score</code> 구간별 신호단위 성과. 승률과 함께 <b>Wilson 95% 하한</b>(표본 불확실성을 반영한 보수적 하한)을 표기합니다.</p>
+    <p class="desc">진입 시점 <code>quality_score</code> 구간별 신호단위 성과. 승률은 두 정의로 분리 표기합니다 —
+       <b>익절률</b>(익절 청산÷전체)과 <b>수익종결률</b>(최종수익&gt;0÷청산완료). 수익종결률엔 <b>Wilson 95% 하한</b>(표본 불확실성 반영)을 병기.</p>
     <div class="card scroll"><table id="quality">
-      <thead><tr><th>품질 버킷</th><th>신호 수(n)</th><th>승률</th><th>Wilson 95% 하한</th><th>평균 수익률</th></tr></thead>
+      <thead><tr><th>품질 버킷</th><th>신호 수(n)</th><th>익절률</th><th>수익종결률</th><th>수익종결 Wilson 하한</th><th>평균 수익률</th></tr></thead>
       <tbody></tbody></table></div>
     <p class="note" id="quality-note"></p>
   </section>
@@ -179,7 +182,7 @@
     <h3><span class="dot"></span>무료 샘플</h3>
     <p class="desc">100개 신호의 <b>전체 일별 경로</b>(25컬럼)를 그대로 담은 CSV입니다. 데이터 사전도 함께 확인하세요.</p>
     <div class="card">
-      <p style="margin:0 0 14px"><a class="btn" id="dl-sample" href="./data/qlab_v2_sample_100.csv" download>⬇ 무료 샘플 CSV 다운로드</a></p>
+      <p style="margin:0 0 14px"><a class="btn" id="dl-sample" href="./data/qlab_v2_1_sample_100.csv" download>⬇ 무료 샘플 CSV 다운로드</a></p>
       <p class="note" id="sample-note"></p>
       <p class="note" style="margin-top:8px"><a href="./data/data_dictionary.md" target="_blank">📄 데이터 사전(data_dictionary.md) 열기</a> — 25컬럼 정의·Tier 근거·청산 규칙·자본 기준</p>
     </div>
@@ -218,8 +221,9 @@
     <h3><span class="dot"></span>청산 기록 <span id="clo-count" class="muted" style="font-size:13px;font-weight:400"></span></h3>
     <p class="desc">최신순. 티커·청산 규칙·청산 사유·수익률·보유일. (진입가 대비 수익률)</p>
     <div class="card scroll"><table id="clo">
-      <thead><tr><th>청산일</th><th>티커</th><th>시장</th><th>규칙</th><th>사유</th><th>수익률</th><th>보유일</th></tr></thead>
+      <thead><tr><th>청산일</th><th>티커</th><th>시장</th><th>규칙</th><th>사유</th><th>수익률</th><th>보유일</th><th>품질(진입)</th></tr></thead>
       <tbody></tbody></table></div>
+    <p class="note">품질 점수·버킷은 <b>청산 완료 건만</b> 공개합니다(보유중 개별 점수는 비공개).</p>
   </section>
 
   <!-- [8] 문의 -->
@@ -244,7 +248,8 @@ async function load(name, required){
 /* ── PART I ── */
 function renderHero(sc){
   $('#scale').innerHTML = [
-    ['신호', num(sc.signals,0)+'개'], ['행', num(sc.rows,0)+'행'], ['컬럼', sc.columns+'개'],
+    ['신호', num(sc.signals,0)+'개'], ['행', num(sc.rows,0)+'행'],
+    ['컬럼', (sc.columns_public||sc.columns)+'개'],
     ['시장', sc.markets+'개'], ['기간', sc.entry_from.slice(0,4)+'~'], ['정확도','시점정확(룩어헤드 없음)'],
   ].map(([k,v])=>`<span>${k} <b>${v}</b></span>`).join('');
 }
@@ -274,27 +279,31 @@ function renderPreview(prev, cols, descMap){
 function renderQuality(qb){
   const tb=$('#quality tbody');
   tb.innerHTML = qb.map(q=>`<tr><td><span class="bkt">${esc(q.bucket)}</span></td><td>${num(q.n,0)}</td>`+
-    `<td><b>${q.win_rate}%</b></td><td class="pos">${q.wilson_low}%</td><td>${fmtPct(q.avg_ret)}</td></tr>`).join('');
-  $('#quality-note').innerHTML = '핵심 논리: <b>품질점수가 높을수록 승률이 오릅니다</b>(80+ → 60-69 단조 상승). '+
-    '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓습니다 — 정직하게 함께 표기합니다.';
+    `<td>${q.tp_rate}%</td><td><b>${q.pos_close_rate}%</b></td><td class="pos">${q.pos_close_wilson_low}%</td><td>${fmtPct(q.avg_ret)}</td></tr>`).join('');
+  $('#quality-note').innerHTML = '핵심 논리: <b>품질점수가 높을수록 수익종결률이 오릅니다</b>(80+ 60.1% → 60-69 44.8% 단조). '+
+    '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓어 비단조로 보입니다 — 숨기지 않고 함께 표기합니다.';
 }
 function renderMarkets(ms, capital){
   $('#markets').innerHTML = ms.map(m=>{
     const t = m.tier_short.startsWith('Tier 1')?'t1':'t3';
     const exits = Object.entries(m.exits).map(([k,v])=>`${esc(k)} ${num(v,0)}`).join(' · ');
+    const legs = Object.entries(m.n_legs_dist||{}).map(([k,v])=>`${k}회 ${num(v,0)}`).join(' · ');
     return `<div class="mcard"><div class="top"><h4>${esc(m.label)}</h4><span class="tier ${t}">${esc(m.tier_short)}</span></div>
       <div class="mrow"><span class="l">신호 수</span><b>${num(m.n,0)}개</b></div>
       <div class="mrow"><span class="l">기간</span><span>${esc(m.entry_from)} ~ ${esc(m.entry_to)}</span></div>
-      <div class="mrow"><span class="l">승률 / 평균 수익</span><span>${m.win_rate}% / ${fmtPct(m.avg_ret)}</span></div>
-      <div class="mrow"><span class="l">평균 보유</span><span>${m.avg_hold}일</span></div>
+      <div class="mrow"><span class="l">익절률</span><span title="익절 청산 ÷ 전체 신호">${m.tp_rate}%</span></div>
+      <div class="mrow"><span class="l">수익종결률</span><span title="최종 수익률&gt;0 ÷ 청산 완료">${m.pos_close_rate}%</span></div>
+      <div class="mrow"><span class="l">평균 수익 / 보유</span><span>${fmtPct(m.avg_ret)} / ${m.avg_hold}일</span></div>
       <div class="exits">청산: ${exits}</div>
+      <div class="exits">물타기 차수 분포: ${legs}</div>
       ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}</div>`;
   }).join('');
-  $('#capital').innerHTML = `자본 기준: <b>${esc(capital)}</b> · 승률=신호 최종 수익률&gt;0 비율.`;
+  $('#capital').innerHTML = `자본 기준: <b>${esc(capital)}</b>`;
 }
 function renderSample(bt){
-  $('#sample-note').innerHTML = `파일: <code>${esc(bt.sample.csv)}</code> — 100신호 전체 일별 경로 · 25컬럼. `+
-    `청산 규칙: ${esc(bt.rule)}`;
+  $('#sample-note').innerHTML = `파일: <code>${esc(bt.sample.csv)}</code> — 100신호 전체 일별 경로 · `+
+    `${bt.scale.columns_public}컬럼(무료 공개). 청산 규칙: ${esc(bt.rule)}`;
+  const a=$('#dl-sample'); if(a) a.setAttribute('href', './data/'+bt.sample.csv);
 }
 
 /* ── PART II (포워드) ── */
@@ -332,7 +341,7 @@ function ruleBox(name,r,cls){
   return `<div class="card"><h4 class="${cls}">${name}</h4>
     <div class="row"><span class="lbl">청산 건수</span><b>${r.n}건</b></div>
     <div class="row"><span class="lbl">평균 수익률</span><b>${fmtPct(r.avg_ret)}</b></div>
-    <div class="row"><span class="lbl">승률</span><b>${r.win_rate==null?'–':r.win_rate+'%'}</b></div>
+    <div class="row"><span class="lbl">수익종결률</span><b>${r.win_rate==null?'–':r.win_rate+'%'}</b></div>
     <div class="row"><span class="lbl">최고 / 최저</span><b>${fmtPct(r.best)} / ${fmtPct(r.worst)}</b></div>
     <div class="row"><span class="lbl">청산 사유</span><span class="muted" style="font-size:12px">${reasons||'–'}</span></div></div>`;
 }
@@ -343,11 +352,12 @@ function renderRules(s){
 function renderClosures(clos){
   $('#clo-count').textContent=`(${num(clos.length,0)}건)`;
   const tb=$('#clo tbody');
-  if(!clos.length){ tb.innerHTML=`<tr><td colspan="7" class="muted">아직 청산 기록이 없습니다.</td></tr>`; return; }
+  if(!clos.length){ tb.innerHTML=`<tr><td colspan="8" class="muted">아직 청산 기록이 없습니다.</td></tr>`; return; }
   tb.innerHTML=clos.map(c=>{
     const rc=c.rule==='A-last'?'rule-A':(c.rule==='B-last'?'rule-B':'');
+    const q=(c.quality_score!=null)?`${c.quality_score} <span class="bkt">${esc(c.quality_bucket)}</span>`:'<span class="muted">–</span>';
     return `<tr><td>${esc(c.date)}</td><td><b>${esc(c.ticker)}</b></td><td class="muted">${esc(c.market)}</td>`+
-      `<td class="${rc}">${esc(c.rule)}</td><td>${esc(c.reason)}</td><td>${fmtPct(c.ret_pct)}</td><td class="muted">${c.hold_days==null?'–':c.hold_days+'일'}</td></tr>`;
+      `<td class="${rc}">${esc(c.rule)}</td><td>${esc(c.reason)}</td><td>${fmtPct(c.ret_pct)}</td><td class="muted">${c.hold_days==null?'–':c.hold_days+'일'}</td><td>${q}</td></tr>`;
   }).join('');
 }
 function forwardUnavailable(){

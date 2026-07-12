@@ -2,7 +2,8 @@
  "scale": {
   "signals": 16986,
   "rows": 4179766,
-  "columns": 25,
+  "columns_product": 30,
+  "columns_public": 29,
   "markets": 5,
   "entry_from": "2015-01-05",
   "entry_to": "2026-07-03"
@@ -12,7 +13,8 @@
    "key": "US-SP500",
    "label": "미국 S&P500",
    "n": 1119,
-   "win_rate": 66.0,
+   "tp_rate": 32.4,
+   "pos_close_rate": 66.0,
    "avg_ret": 22.4,
    "avg_hold": 311,
    "entry_from": "2015-01-16",
@@ -25,13 +27,21 @@
     "TP50": 139,
     "TP50_추세꺾임": 42
    },
+   "n_legs_dist": {
+    "1": 614,
+    "2": 300,
+    "3": 136,
+    "4": 49,
+    "5": 20
+   },
    "warn": "point-in-time 보정(ever-member). 잔존: 미반영 161(시세소실)."
   },
   {
    "key": "KR",
    "label": "한국 KR",
    "n": 6342,
-   "win_rate": 53.3,
+   "tp_rate": 49.2,
+   "pos_close_rate": 53.3,
    "avg_ret": 19.4,
    "avg_hold": 252,
    "entry_from": "2015-01-22",
@@ -45,13 +55,21 @@
     "상폐": 149,
     "TP50_추세꺾임": 142
    },
+   "n_legs_dist": {
+    "1": 2906,
+    "2": 1880,
+    "3": 987,
+    "4": 396,
+    "5": 173
+   },
    "warn": null
   },
   {
    "key": "US-NASDAQ",
    "label": "미국 NASDAQ",
    "n": 8980,
-   "win_rate": 51.5,
+   "tp_rate": 59.8,
+   "pos_close_rate": 51.5,
    "avg_ret": 12.6,
    "avg_hold": 233,
    "entry_from": "2015-01-05",
@@ -64,13 +82,21 @@
     "TP100": 2266,
     "TP50_추세꺾임": 177
    },
+   "n_legs_dist": {
+    "1": 3602,
+    "2": 2487,
+    "3": 1509,
+    "4": 779,
+    "5": 603
+   },
    "warn": "미보정 — 상장폐지 종목 누락(30~40% 추정). 성과는 상한선(낙관 편향)."
   },
   {
    "key": "MAJOR",
    "label": "코인 메이저",
    "n": 76,
-   "win_rate": 67.1,
+   "tp_rate": 69.7,
+   "pos_close_rate": 67.1,
    "avg_ret": 35.9,
    "avg_hold": 217,
    "entry_from": "2019-07-17",
@@ -83,13 +109,21 @@
     "TP50": 18,
     "TP50_추세꺾임": 1
    },
+   "n_legs_dist": {
+    "1": 37,
+    "2": 20,
+    "3": 9,
+    "4": 6,
+    "5": 4
+   },
    "warn": "미보정 — 거래지원종료 코인 제외. 생존편향 존재."
   },
   {
    "key": "ALT",
    "label": "코인 알트",
    "n": 469,
-   "win_rate": 61.4,
+   "tp_rate": 75.5,
+   "pos_close_rate": 61.4,
    "avg_ret": 23.3,
    "avg_hold": 178,
    "entry_from": "2020-03-15",
@@ -102,6 +136,13 @@
     "만기손절": 115,
     "TP50_추세꺾임": 8
    },
+   "n_legs_dist": {
+    "1": 204,
+    "2": 120,
+    "3": 63,
+    "4": 42,
+    "5": 40
+   },
    "warn": "미보정 — 거래지원종료 코인 제외. 생존편향 존재."
   }
  ],
@@ -109,139 +150,228 @@
   {
    "bucket": "80+",
    "n": 8288,
-   "win_rate": 60.1,
-   "wilson_low": 59.0,
+   "tp_rate": 56.6,
+   "pos_close_rate": 60.1,
+   "pos_close_wilson_low": 59.0,
    "avg_ret": 24.0
   },
   {
    "bucket": "70-79",
    "n": 6802,
-   "win_rate": 47.8,
-   "wilson_low": 46.6,
+   "tp_rate": 54.1,
+   "pos_close_rate": 47.8,
+   "pos_close_wilson_low": 46.6,
    "avg_ret": 10.4
   },
   {
    "bucket": "60-69",
    "n": 1845,
-   "win_rate": 44.8,
-   "wilson_low": 42.5,
+   "tp_rate": 47.2,
+   "pos_close_rate": 44.8,
+   "pos_close_wilson_low": 42.5,
    "avg_ret": 2.8
   },
   {
    "bucket": "50-59",
    "n": 51,
-   "win_rate": 62.7,
-   "wilson_low": 49.0,
+   "tp_rate": 49.0,
+   "pos_close_rate": 62.7,
+   "pos_close_wilson_low": 49.0,
    "avg_ret": 12.4
   }
  ],
  "columns": [
   {
    "name": "signal_id",
-   "desc": "신호 ID (QL2-YYYYMMDD-티커)"
+   "desc": "신호 ID (QL2-YYYYMMDD-티커)",
+   "group": "signal"
   },
   {
    "name": "market",
-   "desc": "시장 (KR/US-SP500/US-NASDAQ/MAJOR/ALT)"
+   "desc": "시장 (KR/US-SP500/US-NASDAQ/MAJOR/ALT)",
+   "group": "signal"
   },
   {
    "name": "ticker",
-   "desc": "종목·심볼"
+   "desc": "종목·심볼",
+   "group": "signal"
   },
   {
    "name": "tier",
-   "desc": "신뢰 등급 (생존편향 보정 수준)"
+   "desc": "신뢰 등급 (생존편향 보정 수준)",
+   "group": "signal"
   },
   {
    "name": "entry_date",
-   "desc": "진입일 (day 0)"
+   "desc": "진입일 (day 0)",
+   "group": "signal"
   },
   {
    "name": "day",
-   "desc": "진입 후 경과 거래일 (주말·휴장 행 없음)"
+   "desc": "진입 후 경과 거래일 (주말·휴장 행 없음)",
+   "group": "daily"
   },
   {
    "name": "date",
-   "desc": "거래일 (달력일)"
+   "desc": "거래일 (달력일)",
+   "group": "daily"
   },
   {
    "name": "close",
-   "desc": "종가"
+   "desc": "종가",
+   "group": "daily"
   },
   {
    "name": "return_from_entry_pct",
-   "desc": "진입 종가 대비 수익률(%) · day0=0"
+   "desc": "진입 종가 대비 수익률(%) · day0=0",
+   "group": "daily"
   },
   {
    "name": "rsi_bucket",
-   "desc": "RSI 구간 (진입 DNA·버킷)"
+   "desc": "RSI 구간 (진입 DNA·버킷)",
+   "group": "signal"
   },
   {
    "name": "avgcost_gap_bucket",
-   "desc": "평단가 이격 구간"
+   "desc": "평단가 이격 구간",
+   "group": "signal"
   },
   {
    "name": "vix_bucket",
-   "desc": "VIX 구간"
+   "desc": "VIX 구간",
+   "group": "signal"
   },
   {
    "name": "regime_bucket",
-   "desc": "시장 국면 구간"
+   "desc": "시장 국면 구간",
+   "group": "signal"
   },
   {
    "name": "spx_mom_bucket",
-   "desc": "S&P 모멘텀 구간"
+   "desc": "S&P 모멘텀 구간",
+   "group": "signal"
   },
   {
    "name": "yield_curve_bucket",
-   "desc": "장단기 금리차 구간"
+   "desc": "장단기 금리차 구간",
+   "group": "signal"
   },
   {
    "name": "fear_greed_bucket",
-   "desc": "공포·탐욕 구간"
+   "desc": "공포·탐욕 구간",
+   "group": "signal"
   },
   {
    "name": "funding_bucket",
-   "desc": "펀딩비 구간(코인)"
+   "desc": "펀딩비 구간(코인)",
+   "group": "signal"
   },
   {
    "name": "kimchi_bucket",
-   "desc": "김치프리미엄 구간(코인)"
+   "desc": "김치프리미엄 구간(코인)",
+   "group": "signal"
   },
   {
    "name": "quality_score",
-   "desc": "크로스마켓 품질점수(0–100·진입시점)"
+   "desc": "크로스마켓 품질점수(0–100·진입시점)",
+   "group": "signal"
   },
   {
    "name": "quality_bucket",
-   "desc": "품질점수 구간"
+   "desc": "품질점수 구간",
+   "group": "signal"
   },
   {
    "name": "fear_bucket",
-   "desc": "공포 진입등급(적극/선별/관망)"
+   "desc": "공포 진입등급(적극/선별/관망)",
+   "group": "signal"
   },
   {
    "name": "exit_reason",
-   "desc": "청산 사유(TP50/TP50_추세꺾임/TP100/만기손절/상폐)"
+   "desc": "청산 사유(TP50/TP50_추세꺾임/TP100/만기손절/상폐) · 신호단위",
+   "group": "signal"
   },
   {
    "name": "total_holding_days",
-   "desc": "보유 거래일 = min(청산,365)"
+   "desc": "보유 거래일 = min(청산,365) · 신호단위",
+   "group": "signal"
+  },
+  {
+   "name": "mfe_pct",
+   "desc": "최고 미실현 수익 MFE(%) · 보유 중 최대 · 신호단위",
+   "group": "signal"
+  },
+  {
+   "name": "mae_pct",
+   "desc": "최대 낙폭 MAE(%) · 보유 중 최저 · 신호단위",
+   "group": "signal"
+  },
+  {
+   "name": "mfe_day",
+   "desc": "MFE가 발생한 day · 신호단위",
+   "group": "signal"
+  },
+  {
+   "name": "mae_day",
+   "desc": "MAE가 발생한 day · 신호단위",
+   "group": "signal"
   },
   {
    "name": "rule_version",
-   "desc": "채점 규칙 버전(A-last-v1)"
+   "desc": "채점 규칙 버전(A-last-v1)",
+   "group": "signal"
   },
   {
    "name": "data_type",
-   "desc": "데이터 구분(backtest/forward)"
+   "desc": "데이터 구분(backtest/forward)",
+   "group": "signal"
   }
  ],
+ "col_groups": {
+  "signal_level": [
+   "signal_id",
+   "market",
+   "ticker",
+   "tier",
+   "entry_date",
+   "rsi_bucket",
+   "avgcost_gap_bucket",
+   "vix_bucket",
+   "regime_bucket",
+   "spx_mom_bucket",
+   "yield_curve_bucket",
+   "fear_greed_bucket",
+   "funding_bucket",
+   "kimchi_bucket",
+   "quality_score",
+   "quality_bucket",
+   "fear_bucket",
+   "exit_reason",
+   "total_holding_days",
+   "mfe_pct",
+   "mae_pct",
+   "mfe_day",
+   "mae_day",
+   "rule_version",
+   "data_type"
+  ],
+  "daily": [
+   "day",
+   "date",
+   "close",
+   "return_from_entry_pct"
+  ]
+ },
+ "metric_defs": {
+  "익절률(TP rate)": "익절 청산(TP50·TP50_추세꺾임·TP100) ÷ 전체 신호",
+  "수익종결률(positive-close rate)": "최종 수익률 > 0 ÷ 청산 완료 신호"
+ },
  "capital_basis": "거래당 100만원 고정 · 단리 · 재투자 없음. 손익 = 100만 × 수익률.",
  "rule": "A-last (SMA200 조건부: 200일선 아래 +50%/위 +100%, 기준가=마지막 매수가). 365일 미청산=만기손절.",
  "sample": {
-  "csv": "qlab_v2_sample_100.csv",
+  "csv": "qlab_v2_1_sample_100.csv",
   "dict": "data_dictionary.md"
  },
- "source": "qlab_v2_all.parquet"
+ "schema_version": "v2.1",
+ "source": "qlab_v2_1_all.parquet"
 }

@@ -1,44 +1,70 @@
-# QLab 데이터셋 — 데이터 사전 v2.0
+# QLab 데이터셋 — 데이터 사전 v2.1
 
 > 코드명 **QLab**. 청산 규칙 **A-last**. 전 데이터 `data_type="backtest"`. 포워드(실시간)는 해시봉인 이후 분만 `data_type="forward"`. **백테스트를 실시간 실적으로 오인 금지.**
-> v1(B-first·미보정)은 `product_v1/`에 동결. 변경 상세는 `CHANGELOG.md`.
+> v1(B-first·미보정)은 `product_v1/`에 동결. v2.0도 비파괴 유지. 변경 상세는 `CHANGELOG.md`.
 
-## 변경 이력 (v1 → v2.0)
-- **청산 규칙**: B-first(첫매수가+50% 단일) → **A-last(SMA200 조건부: 200일선 아래 +50%/위 +100%, 기준가=마지막매수가)**
-- **유니버스 보정**: KR 상폐주 포함(Tier1+), S&P500 point-in-time(Tier1); NASDAQ·코인은 미보정(Tier3 경고)
-- **스키마**: +`tier`, +`rule_version`, `exit_reason` 세분(6종)
-- 사유: 생존편향 실측 보정 + A/B 검증에서 A-last 우월. (전체 → `CHANGELOG.md`)
+## 변경 이력
+- **v1 → v2.0**: 청산 B-first→**A-last**(SMA200 조건부). 유니버스 보정(KR 상폐주 Tier1+, S&P500 PIT Tier1, NASDAQ·코인 Tier3 경고). +`tier`·`rule_version`·`exit_reason` 세분.
+- **v2.0 → v2.1**(비파괴 증강):
+  - **+MFE/MAE**: `mfe_pct`·`mfe_day`·`mae_pct`·`mae_day` (신호별 일별 경로에서 파생 — 결과 통계)
+  - **+n_legs**: 물타기 차수(1~5) — **유료 product 전용**(무료 샘플·공개 뷰어 미포함, 유출 방어)
+  - **+market_context.parquet**: 시장 컨텍스트 지수 일별 시계열(종목 미포함)
+  - **승률 2지표 분리**: "익절률"·"수익종결률"(아래 정의). "승률" 단독 표기 폐기.
 
 ## 파일
-- `qlab_v2_{KR,US-SP500,US-NASDAQ,MAJOR,ALT}.parquet` — 시장/티어별 일별(day≤365)
-- `qlab_v2_all.parquet` — 통합본
-- `qlab_v2_sample_100.csv` — 무료 샘플(시장비례·품질분포 반영)
+- `qlab_v2_1_{KR,US-SP500,US-NASDAQ,MAJOR,ALT}.parquet` — 시장/티어별 일별(day≤365), **30컬럼**(유료 product)
+- `qlab_v2_1_all.parquet` — 통합본
+- `qlab_v2_1_sample_100.csv` — 무료 샘플, **29컬럼**(n_legs 제외)
+- `market_context.parquet` — 시장 컨텍스트 지수(date + 4지수, 종목 미포함)
+- (v2.0 파일 `qlab_v2_*`도 그대로 보존)
 
-## 컬럼 (25)
-| 컬럼 | 정의 | 비고 |
+## 컬럼 (product 30) — [S]=신호 단위(불변·행 반복) · [D]=일별(행마다 변동)
+| 컬럼 | 분류 | 정의 | 비고 |
+|---|---|---|---|
+| `signal_id` | [S] | 신호 ID (`QL2-YYYYMMDD-티커`) | v2 접두 QL2 |
+| `market` | [S] | 시장 | KR/US-SP500/US-NASDAQ/MAJOR/ALT |
+| `ticker` | [S] | 종목·심볼 | |
+| `tier` | [S] | **신뢰 등급** | Tier1+/Tier1/Tier3 (아래) |
+| `entry_date` | [S] | 진입일(day 0) | |
+| `day` | **[D]** | 진입 후 경과 거래일 | 주말/휴장 행 없음(정상) |
+| `date` | **[D]** | 거래일 달력일 | |
+| `close` | **[D]** | 종가 | 시장별 정규장 마감 |
+| `return_from_entry_pct` | **[D]** | 진입 종가 대비 수익률 | day0 = 0.00 |
+| `rsi_bucket`…`kimchi_bucket` | [S] | DNA 9종 **버킷**(원본값 미노출) | 진입 시점 |
+| `quality_score` / `quality_bucket` | [S] | 크로스마켓 품질점수(0–100) / 구간 | 진입 시점 산출 |
+| `fear_bucket` | [S] | 공포 진입등급 | 적극/선별/관망 |
+| `exit_reason` | [S] | **청산 사유** | TP50 / TP50_추세꺾임 / TP100 / 만기손절 / 상폐 |
+| `total_holding_days` | [S] | 보유 거래일 = min(청산, 365) | |
+| `mfe_pct` / `mfe_day` | [S] | **최고 미실현 수익(MFE)** %와 그 day | 보유 중 최대. 결과 통계 |
+| `mae_pct` / `mae_day` | [S] | **최대 낙폭(MAE)** %와 그 day | 보유 중 최저. 손절선 설계용 |
+| `n_legs` | [S] | 물타기 차수(1~5) | **유료 전용**. 무료/공개 미포함 |
+| `rule_version` | [S] | 채점 규칙 버전 | `A-last-v1` |
+| `data_type` | [S] | 데이터 구분 | backtest / forward |
+
+> **행 반복 주의**: [S] 컬럼은 한 신호의 모든 경로행에 **동일 값 반복**. 행마다 변하는 것은 [D] 4종(`day`·`date`·`close`·`return_from_entry_pct`)뿐. 신호 단위 분석 시 신호별 1행(예: 마지막 day)만 취해 집계.
+
+## 승률 2지표 (이름 = 정의. "승률" 단독 표기 사용 안 함)
+| 지표 | 분자 | 분모 |
 |---|---|---|
-| `signal_id` | 신호 ID (`QL2-YYYYMMDD-티커`) | v2 접두 QL2 |
-| `market` | 시장 | KR/US-SP500/US-NASDAQ/MAJOR/ALT |
-| `ticker` | 종목·심볼 | |
-| `tier` | **신뢰 등급** | Tier1+/Tier1/Tier3 (아래) |
-| `entry_date` | 진입일(day 0) | |
-| `day` | 진입 후 경과 거래일 | 주말/휴장 행 없음(정상) |
-| `date` | 거래일 달력일 | |
-| `close` | 종가 | 시장별 정규장 마감 |
-| `return_from_entry_pct` | 진입 종가 대비 수익률 | day0 = 0.00 |
-| `rsi_bucket`…`kimchi_bucket` | DNA 9종 **버킷**(원본 미노출) | 진입 시점 |
-| `quality_score` / `quality_bucket` | 크로스마켓 품질점수(0–100) / 구간 | 진입 시점 산출 |
-| `fear_bucket` | 공포 진입등급 | 적극/선별/관망 |
-| `exit_reason` | **청산 사유(세분)** | TP50 / TP50_추세꺾임 / TP100 / 만기손절 / 상폐 / 보유중 |
-| `total_holding_days` | 보유 거래일 = min(청산, 365) | |
-| `rule_version` | 채점 규칙 버전 | `A-last-v1` |
-| `data_type` | 데이터 구분 | backtest / forward |
+| **익절률 (TP rate)** | 익절 청산(TP50 · TP50_추세꺾임 · TP100) | 전체 신호 |
+| **수익종결률 (positive-close rate)** | 최종 수익률 > 0 | 청산 완료 신호 |
+
+- 두 지표는 다를 수 있음(예: 만기손절이어도 최종 수익률>0 가능 → 수익종결률에만 포함). 시장 카드·품질 표에 **병기**.
+- 백테스트는 전 신호 청산완료라 "전체 = 청산완료". 포워드는 청산건에만 적용.
+
+## 미실재 필드 (명시)
+- `AI_Confidence`·`유사패턴 점수`·`뉴스 감성` 등은 **본 데이터셋에 없음**. 명세·산출물 어디에도 미존재(허위 필드 0).
+
+## 시장 컨텍스트 지수 (`market_context.parquet`)
+- 컬럼: `date` · `quality_index` · `fear_index` · `risk_index` · `momentum_index` (2015~현재 일별). **종목 미포함.**
+- 각 지수는 시장 상태의 **독자 산출 지수**(0–100). **산출 방법론·가중치·입력식은 비공개** — 값만 제공.
+- 시점정확(available_at) 값만 사용(룩어헤드 없음).
 
 ## 신뢰 등급 (Tier) — 생존편향 기준
 | Tier | 대상 | 상태 | 근거 |
 |---|---|---|---|
-| **Tier 1+** | KR (상폐주 포함) | **완전 보정(실측)** | 상폐 553/605 포함. 보정 후 승률 −2%p, 상폐손실 KOSDAQ −60.6%/KOSPI −17.5% |
-| **Tier 1** | US-SP500 (point-in-time) | **제거(측정됨)** | ever-member 재백테스트. current 대비 승률 −3%p. 잔존: 미반영 161(시세소실) |
+| **Tier 1+** | KR (상폐주 포함) | **완전 보정(실측)** | 상폐 553/605 포함. 보정 후 수익종결률 −2%p, 상폐손실 KOSDAQ −60.6%/KOSPI −17.5% |
+| **Tier 1** | US-SP500 (point-in-time) | **제거(측정됨)** | ever-member 재백테스트. current 대비 −3%p. 잔존: 미반영 161(시세소실) |
 | **Tier 3** | US-NASDAQ | **미보정 — 경고** | 현재 상장목록. 누락 30~40% 추정, **성과 상방(낙관) 편향**. 절대치는 상한선 |
 | **Tier 3** | 코인 (MAJOR/ALT) | **미보정 — 경고** | 거래지원종료 코인 제외 → 생존편향 존재 |
 
@@ -46,10 +72,12 @@
 - **포워드**: 신호 시점 해시봉인 → 종목 상폐돼도 과거 스냅샷 불변 + `detect_delisting()`로 상폐 청산 기록 → **생존편향 구조적 0**.
 
 ## 청산 규칙 (A-last)
-매 거래일 종가 평가 (기준가 = 마지막 매수가 entryPrice):
+매 거래일 종가 평가 (기준가 = 마지막 매수가):
 1. `종가 < SMA200 AND 종가 ≥ 기준가×1.5` → **TP50** (직전 거래일 종가 > SMA200이면 **TP50_추세꺾임**)
 2. `종가 > SMA200 AND 종가 ≥ 기준가×2.0` → **TP100**
 3. 365일 경과 미청산 → **만기손절**  ·  보유 중 상폐 → **상폐**(상폐일 최종가)
+
+> **진입·물타기(추가매수) 규칙은 비공개.** 데이터셋은 결과(경로·청산)만 제공하며 진입 발동 조건·임계값은 산출물에 포함하지 않음.
 
 ## 시장별 기준 시각 · available_at
 | 시장 | 일봉 종가 기준 | available_at |
@@ -58,8 +86,11 @@
 | US | 16:00 ET (미 마감) | 익일 05~06시 KST 이후 |
 | 코인 | 00:00 UTC | 당일 09:00 KST 이후 |
 
-- **available_at = 룩어헤드 없음**: 위 시각 이전 미확정 → 그 이후에만 신호 유효.
+- **available_at = 룩어헤드 없음**: 위 시각 이전 미확정 → 그 이후에만 신호 유효. MFE/MAE·total_holding_days 등 [S] 라벨도 청산 시점(available_at) 이후 확정값.
 - KST 15:00 조기 알림은 **한국 전용**(미국·코인 미적용).
 
 ## 자본 기준
 - 거래당 **100만원 고정 · 단리 · 재투자 없음**. 손익 = 100만 × 수익률.
+
+## 라이선스
+- 재배포·재판매·파생 데이터셋 판매 금지, 내부 연구 목적 한정. 상세는 `LICENSE.md`.
