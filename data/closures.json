@@ -5,11 +5,35 @@
   "market": "US",
   "rule": "A-last",
   "reason": "TP50",
-  "ret_pct": 795.83,
+  "ret_from_entry": null,
+  "ret_ref": 795.83,
+  "buys": null,
   "hold_days": 159,
   "date": "2026-07-12",
   "quality_score": 77,
-  "quality_bucket": "70-79"
+  "quality_bucket": "70-79",
+  "correction_of": null,
+  "void_reason": null,
+  "corrected_at": null,
+  "voided": true
+ },
+ {
+  "sid": "CORR-20251118-RBNE-5629",
+  "ticker": "RBNE",
+  "market": "US",
+  "rule": "A-last",
+  "reason": "정정(무효)",
+  "ret_from_entry": -90.43,
+  "ret_ref": null,
+  "buys": null,
+  "hold_days": null,
+  "date": "2026-07-12",
+  "quality_score": null,
+  "quality_bucket": null,
+  "correction_of": "20251118-RBNE-5629",
+  "void_reason": "ref 스케일 부패(역분할 미조정) — 기록 795.8% 무효, 진입가 대비 실제 -90.4%. 실제 미청산.",
+  "corrected_at": "2026-07-12",
+  "voided": false
  },
  {
   "sid": "20250124-DXST-5208",
@@ -17,11 +41,17 @@
   "market": "US",
   "rule": "A-last",
   "reason": "만기손절",
-  "ret_pct": -70.06,
+  "ret_from_entry": null,
+  "ret_ref": -70.06,
+  "buys": null,
   "hold_days": 365,
   "date": "2026-07-11",
   "quality_score": null,
-  "quality_bucket": null
+  "quality_bucket": null,
+  "correction_of": null,
+  "void_reason": null,
+  "corrected_at": null,
+  "voided": false
  },
  {
   "sid": "20250124-DXST-5208",
@@ -29,11 +59,17 @@
   "market": "US",
   "rule": "B-last",
   "reason": "만기손절",
-  "ret_pct": -70.06,
+  "ret_from_entry": null,
+  "ret_ref": -70.06,
+  "buys": null,
   "hold_days": 365,
   "date": "2026-07-11",
   "quality_score": null,
-  "quality_bucket": null
+  "quality_bucket": null,
+  "correction_of": null,
+  "void_reason": null,
+  "corrected_at": null,
+  "voided": false
  },
  {
   "sid": "20250409-EBC-5413",
@@ -41,10 +77,16 @@
   "market": "US",
   "rule": "B-last",
   "reason": "TP50",
-  "ret_pct": 79.92,
+  "ret_from_entry": null,
+  "ret_ref": 79.92,
+  "buys": null,
   "hold_days": 313,
   "date": "2026-07-11",
   "quality_score": null,
-  "quality_bucket": null
+  "quality_bucket": null,
+  "correction_of": null,
+  "void_reason": null,
+  "corrected_at": null,
+  "voided": false
  }
 ]
