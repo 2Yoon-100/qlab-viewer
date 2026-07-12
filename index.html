@@ -107,17 +107,29 @@
     padding:5px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
   .fbtn.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
   .fbtn .fc{opacity:.6;margin-left:5px;font-size:11px} .fbtn.on .fc{opacity:.85}
-  /* v5: 보유중 라이브 카드 */
-  .livecard{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--card)),var(--card));
-    border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:14px 16px;margin-bottom:16px;cursor:pointer}
-  .livecard:hover{border-color:var(--accent)}
-  .livecard .lch{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-bottom:10px}
-  .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
-  .livegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .livegrid .b .k{color:var(--mut);font-size:11px} .livegrid .b .v{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
-  .livecard .cap3{color:var(--mut);font-size:11.5px;margin-top:10px}
+  /* v6: 보유중 라이브 카드(프리미엄) */
+  .livecard{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 13%,var(--card)),var(--card));
+    border:1px solid color-mix(in srgb,var(--accent) 28%,var(--border));border-radius:16px;padding:18px 20px;margin-bottom:18px;cursor:pointer;
+    box-shadow:0 4px 20px color-mix(in srgb,var(--accent) 12%,transparent);transition:transform .15s,box-shadow .15s}
+  .livecard:hover{transform:translateY(-1px);box-shadow:0 8px 28px color-mix(in srgb,var(--accent) 20%,transparent)}
+  .livecard .lch{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;margin-bottom:14px}
+  .livebadge{background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.06em}
+  .livemeta{margin-left:auto;font-weight:400;font-size:11.5px;color:var(--mut)}
+  .pending{font-size:12.5px;color:var(--mut);font-weight:600}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  .livegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .livegrid .b{background:color-mix(in srgb,var(--card) 60%,transparent);border:1px solid var(--border);border-radius:11px;padding:11px 13px}
+  .livegrid .b .k{color:var(--mut);font-size:11.5px;margin-bottom:3px} .livegrid .b .v{font-size:23px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .livecard .cap3{color:var(--mut);font-size:11.5px;margin-top:12px}
   @media(max-width:560px){.livegrid{grid-template-columns:repeat(2,1fr)}}
+  /* v6: 프리미엄 폴리시 */
+  .hero{box-shadow:0 6px 30px color-mix(in srgb,var(--accent2) 9%,transparent)}
+  .card{box-shadow:0 1px 3px color-mix(in srgb,#000 4%,transparent)}
+  .stat,.mcard,.use,.idx{transition:transform .12s,box-shadow .12s}
+  .stat:hover,.mcard:hover{transform:translateY(-1px);box-shadow:0 4px 14px color-mix(in srgb,#000 8%,transparent)}
+  h3 .dot{box-shadow:0 0 8px color-mix(in srgb,var(--accent) 70%,transparent)}
+  .build{font-family:ui-monospace,monospace;font-size:11px;color:var(--mut)}
   /* 모달 카드 */
   .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
   .modal-bg[hidden]{display:none}
@@ -240,7 +252,8 @@
   <section>
     <h3><span class="dot"></span>신호 탐색기</h3>
     <p class="desc">무료 샘플 100건을 <b>시장 · 청산상태 · 공포등급</b>으로 조합 탐색합니다. 행을 클릭하면 신호 카드(일별 경로 차트·DNA 버킷·MFE/MAE)가 열립니다. 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
-    <p class="cap">샘플 구성: <b>시장별 비례 + 최소 8건</b> 보장, 각 시장 할당의 <b>절반은 청산일 최신순 · 절반은 전 기간 무작위</b>. 목록 기본 정렬 = 진입일 최신순.</p>
+    <p class="cap">샘플 구성: <b>시장별 비례 + 최소 8건</b> 보장, 각 시장 할당의 <b>절반은 청산일 최신순 · 절반은 전 기간 무작위</b>. 목록 기본 정렬 = 진입일 최신순.
+       <b>기간 필터 기본 = 최근 3년</b> — <b>전체 기간</b> 버튼으로 2015~ 전체 탐색 가능(기준=청산일).</p>
     <div id="livecard"></div>
     <div id="tabs" class="tabs"></div>
     <div id="filters"></div>
@@ -365,6 +378,7 @@
     </div>
     <div class="disclaimer">⚠ 본 자료는 <b>연구용 데이터</b>이며 투자 권유가 아닙니다. 백테스트는 과거 시뮬레이션으로 미래 수익을 보장하지 않습니다. 생존편향 등 한계는 Tier 등급·데이터 사전에 고지된 대로입니다.</div>
     <p class="muted" id="meta" style="margin-top:12px"></p>
+    <p class="build" id="build-badge" style="margin-top:6px">빌드 로딩…</p>
   </footer>
 </div>
 
@@ -494,9 +508,21 @@ const STATUS_OPTS=[
   {k:'상폐',lab:'상폐',f:e=>e==='상폐'},
 ];
 const FEAR_OPTS=[{k:'all',lab:'전체등급'},{k:'적극',lab:'적극'},{k:'선별',lab:'선별'},{k:'관망',lab:'관망'}];
-let EXP={sig:{},labels:{},state:{market:null,status:'all',fear:'all'},rows:[]};
+const PERIOD_OPTS=[{k:'1y',lab:'최근 1년',days:365},{k:'3y',lab:'최근 3년',days:1095},{k:'all',lab:'전체 기간',days:null}];
+let EXP={sig:{},labels:{},state:{market:null,status:'all',fear:'all',period:'3y'},rows:[],maxClose:null};
+function _cutoff(days){
+  if(!EXP.maxClose||days==null) return null;
+  const d=new Date(EXP.maxClose+'T00:00:00'); d.setDate(d.getDate()-days);
+  return d.toISOString().slice(0,10);
+}
+function periodMatch(c){
+  const o=PERIOD_OPTS.find(x=>x.k===EXP.state.period); if(!o||o.days==null) return true;
+  const cut=_cutoff(o.days); return !cut || (c.close_date||'')>=cut;
+}
 function renderExplorer(ms, signals){
   EXP.sig=(signals&&signals.markets)||{}; EXP.labels={}; ms.forEach(m=>EXP.labels[m.key]=m.label);
+  const allc=Object.values(EXP.sig).flat();
+  EXP.maxClose=allc.reduce((m,c)=>(c.close_date&&c.close_date>m)?c.close_date:m,'');
   const order=MKT_ORDER.filter(k=>(EXP.sig[k]||[]).length);
   $('#tabs').innerHTML=order.map((k,i)=>
     `<button data-mk="${k}" class="${i===0?'active':''}">${esc(EXP.labels[k]||k)}<span class="cnt">${EXP.sig[k].length}</span></button>`).join('');
@@ -506,24 +532,29 @@ function renderExplorer(ms, signals){
   });
   if(order.length) selectMarket(order[0]);
 }
-function selectMarket(mk){ EXP.state={market:mk,status:'all',fear:'all'}; renderFilters(); renderList(); }
+function selectMarket(mk){ EXP.state.market=mk; EXP.state.status='all'; EXP.state.fear='all'; renderFilters(); renderList(); }
 function marketSigs(){ return EXP.sig[EXP.state.market]||[]; }
 function renderFilters(){
   const sigs=marketSigs();
-  const mk=(t,opts,cur,cntf)=>`<div class="frow"><span class="flab">${t}</span>`+opts.map(o=>{
+  const row=(lab,key,opts,cur,cntf)=>`<div class="frow"><span class="flab">${lab}</span>`+opts.map(o=>{
     const n=cntf(o); if(o.k!=='all'&&n===0) return '';
-    return `<button data-t="${t==='청산상태'?'status':'fear'}" data-k="${o.k}" class="fbtn ${cur===o.k?'on':''}">${o.lab}<span class="fc">${n}</span></button>`;
+    return `<button data-t="${key}" data-k="${o.k}" class="fbtn ${cur===o.k?'on':''}">${o.lab}<span class="fc">${n}</span></button>`;
   }).join('')+`</div>`;
+  const inPeriod=c=>{ const s=EXP.state.period, o=PERIOD_OPTS.find(x=>x.k===s); if(!o||o.days==null)return true;
+    const cut=_cutoff(o.days); return !cut||(c.close_date||'')>=cut; };
   $('#filters').innerHTML=
-    mk('청산상태',STATUS_OPTS,EXP.state.status,o=>sigs.filter(c=>o.f(c.exit_reason)).length)+
-    mk('공포등급',FEAR_OPTS,EXP.state.fear,o=>o.k==='all'?sigs.length:sigs.filter(c=>c.fear_bucket===o.k).length);
+    row('기간','period',PERIOD_OPTS,EXP.state.period,o=>{
+      if(o.days==null) return sigs.length;
+      const cut=_cutoff(o.days); return sigs.filter(c=>!cut||(c.close_date||'')>=cut).length; })+
+    row('청산상태','status',STATUS_OPTS,EXP.state.status,o=>sigs.filter(c=>o.f(c.exit_reason)&&inPeriod(c)).length)+
+    row('공포등급','fear',FEAR_OPTS,EXP.state.fear,o=>(o.k==='all'?sigs.filter(inPeriod):sigs.filter(c=>c.fear_bucket===o.k&&inPeriod(c))).length);
   $('#filters').querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
     EXP.state[b.dataset.t]=b.dataset.k; renderFilters(); renderList();
   });
 }
 function renderList(){
   const st=STATUS_OPTS.find(o=>o.k===EXP.state.status);
-  EXP.rows=marketSigs().filter(c=>st.f(c.exit_reason)&&(EXP.state.fear==='all'||c.fear_bucket===EXP.state.fear));
+  EXP.rows=marketSigs().filter(c=>st.f(c.exit_reason)&&(EXP.state.fear==='all'||c.fear_bucket===EXP.state.fear)&&periodMatch(c));
   const rows=EXP.rows;
   $('#explist').innerHTML=`<p class="cap" style="margin:12px 0 6px">결과 <b>${rows.length}</b>건 — 행 클릭 시 카드가 열립니다.</p>
     <div class="card scroll siglist"><table>
@@ -539,15 +570,19 @@ function renderList(){
 function renderLive(live){
   const el=$('#livecard'); if(!el)return;
   if(!live||!live.n_tracked){el.innerHTML='';return;}
-  const ar=live.avg_ret;
-  el.innerHTML=`<div class="lch"><span class="pulse"></span>지금 보유중 <span class="muted" style="font-weight:400;font-size:12px">· 집계 · 클릭 → 검증 기록</span></div>
+  const ar=live.avg_ret, pr=live.positive_ratio;
+  const pend='<span class="pending">다음 갱신 시 표시</span>';
+  const upd=live.updated_at?('갱신 '+esc(String(live.updated_at).slice(0,16).replace('T',' '))):'';
+  el.innerHTML=`
+    <div class="lch"><span class="pulse"></span><span class="livebadge">LIVE</span> 지금 보유중
+      <span class="livemeta">${upd}${upd?' · ':''}클릭 → 검증 기록 ↓</span></div>
     <div class="livegrid">
       <div class="b"><div class="k">추적 신호 수</div><div class="v">${num(live.n_tracked,0)}</div></div>
-      <div class="b"><div class="k">보유중 평균 수익률</div><div class="v ${ar==null?'':(ar>=0?'pos':'neg')}">${ar==null?'–':(ar>=0?'+':'')+ar+'%'}</div></div>
-      <div class="b"><div class="k">수익권 비율</div><div class="v">${live.positive_ratio==null?'–':live.positive_ratio+'%'}</div></div>
-      <div class="b"><div class="k">최근 청산</div><div class="v" style="font-size:14px">${esc(live.latest_close_date||'–')} <small class="muted">${live.latest_close_n?live.latest_close_n+'건':''}</small></div></div>
+      <div class="b"><div class="k">보유중 평균 수익률</div><div class="v ${ar==null?'':(ar>=0?'pos':'neg')}">${ar==null?pend:(ar>=0?'+':'')+ar+'%'}</div></div>
+      <div class="b"><div class="k">수익권 비율</div><div class="v">${pr==null?pend:pr+'%'}</div></div>
+      <div class="b"><div class="k">최근 청산</div><div class="v" style="font-size:15px">${esc(live.latest_close_date||'–')}${live.latest_close_n?` <small class="muted">${live.latest_close_n}건</small>`:''}</div></div>
     </div>
-    <div class="cap3">종목·개별 점수는 전략 보호를 위해 <b>비공개</b>이며, <b>청산 완료 시 공개</b>됩니다. (아래 값은 전부 집계)</div>`;
+    <div class="cap3">종목·개별 점수는 전략 보호를 위해 <b>비공개</b>, <b>청산 완료 시</b>에만 공개(위 값은 전부 집계).</div>`;
   el.onclick=()=>{const t=document.querySelector('.connect')||$('#stats'); if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
 }
 function renderMarketCards(ms, capital){
@@ -616,7 +651,7 @@ function statCard(k,v){ return `<div class="stat"><div class="k">${k}</div><div 
 function renderStats(s){
   $('#stats').innerHTML = [
     statCard('포워드 가동일수', `${s.forward_days} <small>일</small>`),
-    statCard('추적 신호 수', `${num(s.n_signals_tracked,0)} <small>개</small>`),
+    statCard('추적 신호 수', `${num((s.live&&s.live.n_tracked!=null)?s.live.n_tracked:s.n_signals_tracked,0)} <small>보유중</small>`),
     statCard('누적 청산 수', `${num(s.n_closed_total,0)} <small>건</small>`),
     statCard('최신 해시', `<span class="bkt">${s.latest_hash?esc(s.latest_hash.slice(0,12)):'–'}…</span>`),
   ].join('');
@@ -699,6 +734,11 @@ function forwardUnavailable(){
     if(fSum && snaps && clos){ renderStats(fSum); renderLive(fSum.live); renderChain(snaps); renderRules(fSum); renderClosures(clos); }
     else forwardUnavailable();
   }catch(e){ forwardUnavailable(); }
+  // 빌드 신선도(배포 커밋 해시) — 캐시/구버전 판별용
+  try{
+    const b=await load('build');
+    $('#build-badge').textContent = b&&b.commit ? `빌드 ${b.commit}${b.built_at?' · '+b.built_at:''}` : '빌드 dev(로컬)';
+  }catch(e){ $('#build-badge').textContent='빌드 dev(로컬)'; }
 })();
 </script>
 </body>

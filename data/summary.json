@@ -12,7 +12,14 @@
   "avg_ret": null,
   "positive_ratio": null,
   "latest_close_date": "2026-07-12",
-  "latest_close_n": 1
+  "latest_close_n": 1,
+  "updated_at": null,
+  "breakdown": {
+   "holding_covered": 811,
+   "closed_backtest": 130,
+   "covered_total": 943,
+   "active_total": 1011
+  }
  },
  "genesis_date": "2026-07-11",
  "latest_date": "2026-07-12",
