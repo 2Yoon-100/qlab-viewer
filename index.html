@@ -197,7 +197,10 @@
   .spark{vertical-align:middle}
   /* v4: 숫자 모노 정렬 */
   #quality td,#clo td,.siglist td,.mrow b,.mrow span,.idx .v{font-variant-numeric:tabular-nums}
-  .siglist th:nth-last-child(-n+2),.siglist td:nth-last-child(-n+2){text-align:right}
+  .siglist table{width:100%}
+  .siglist th,.siglist td{padding:6px 9px;font-size:12.5px}
+  .trunc{color:var(--amber);margin-top:8px;font-size:12.5px}
+  @media(max-width:720px){.mHide{display:none}}
   /* v4: 푸터 */
   .foot-links{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0 0;font-size:13px}
   .disclaimer{margin-top:14px;padding:11px 13px;background:var(--chip);border-radius:8px;font-size:12px;color:var(--mut)}
@@ -251,9 +254,9 @@
   <!-- [A] ★신호 탐색기 (주인공) -->
   <section>
     <h3><span class="dot"></span>신호 탐색기</h3>
-    <p class="desc">무료 샘플 100건을 <b>시장 · 청산상태 · 공포등급</b>으로 조합 탐색합니다. 행을 클릭하면 신호 카드(일별 경로 차트·DNA 버킷·MFE/MAE)가 열립니다. 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
-    <p class="cap">샘플 구성: <b>시장별 비례 + 최소 8건</b> 보장, 각 시장 할당의 <b>절반은 청산일 최신순 · 절반은 전 기간 무작위</b>. 목록 기본 정렬 = 진입일 최신순.
-       <b>기간 필터 기본 = 최근 3년</b> — <b>전체 기간</b> 버튼으로 2015~ 전체 탐색 가능(기준=청산일).</p>
+    <p class="desc"><b>시장별 최근 청산 신호</b>를 <b>기간 · 청산상태 · 공포등급</b>으로 조합 탐색합니다. 행을 클릭하면 신호 카드(경로 차트·DNA 버킷·MFE/MAE)가 열립니다. (청산 완료 건만 · 보유중 종목은 미노출)</p>
+    <p class="cap"><b>기간별 표시 상한(청산일 최신순)</b>: 최근 1년 시장별 30건 · 최근 3년 50건 · 전체 기간 100건. 상한 초과 시 하단에 표기. 기본 = <b>최근 3년</b>.
+       무료 <b>다운로드 CSV</b>는 별도 <b>100신호</b>(시장 비례+최소8, 절반 최신/절반 무작위) — 아래 무료 샘플 섹션.</p>
     <div id="livecard"></div>
     <div id="tabs" class="tabs"></div>
     <div id="filters"></div>
@@ -519,8 +522,10 @@ function periodMatch(c){
   const o=PERIOD_OPTS.find(x=>x.k===EXP.state.period); if(!o||o.days==null) return true;
   const cut=_cutoff(o.days); return !cut || (c.close_date||'')>=cut;
 }
+const PERIOD_CAP={'1y':30,'3y':50,'all':100};
 function renderExplorer(ms, signals){
-  EXP.sig=(signals&&signals.markets)||{}; EXP.labels={}; ms.forEach(m=>EXP.labels[m.key]=m.label);
+  EXP.sig=(signals&&signals.markets)||{}; EXP.labels={}; EXP.mtotal={};
+  ms.forEach(m=>{EXP.labels[m.key]=m.label; EXP.mtotal[m.key]=m.n;});
   const allc=Object.values(EXP.sig).flat();
   EXP.maxClose=allc.reduce((m,c)=>(c.close_date&&c.close_date>m)?c.close_date:m,'');
   const order=MKT_ORDER.filter(k=>(EXP.sig[k]||[]).length);
@@ -534,37 +539,48 @@ function renderExplorer(ms, signals){
 }
 function selectMarket(mk){ EXP.state.market=mk; EXP.state.status='all'; EXP.state.fear='all'; renderFilters(); renderList(); }
 function marketSigs(){ return EXP.sig[EXP.state.market]||[]; }
+function periodSet(){  // 기간 필터 + 청산일 최신순 정렬(캡 적용 전)
+  return marketSigs().filter(periodMatch).slice().sort((a,b)=>(b.close_date||'').localeCompare(a.close_date||''));
+}
+function cappedSet(){ return periodSet().slice(0, PERIOD_CAP[EXP.state.period]||100); }  // 기간별 표시 상한
 function renderFilters(){
   const sigs=marketSigs();
+  const capped=cappedSet();   // 상태·등급 카운트는 '기간 규격(캡) 안'에서
   const row=(lab,key,opts,cur,cntf)=>`<div class="frow"><span class="flab">${lab}</span>`+opts.map(o=>{
     const n=cntf(o); if(o.k!=='all'&&n===0) return '';
     return `<button data-t="${key}" data-k="${o.k}" class="fbtn ${cur===o.k?'on':''}">${o.lab}<span class="fc">${n}</span></button>`;
   }).join('')+`</div>`;
-  const inPeriod=c=>{ const s=EXP.state.period, o=PERIOD_OPTS.find(x=>x.k===s); if(!o||o.days==null)return true;
+  const inP=c=>{ const o=PERIOD_OPTS.find(x=>x.k===EXP.state.period); if(!o||o.days==null)return true;
     const cut=_cutoff(o.days); return !cut||(c.close_date||'')>=cut; };
   $('#filters').innerHTML=
     row('기간','period',PERIOD_OPTS,EXP.state.period,o=>{
-      if(o.days==null) return sigs.length;
-      const cut=_cutoff(o.days); return sigs.filter(c=>!cut||(c.close_date||'')>=cut).length; })+
-    row('청산상태','status',STATUS_OPTS,EXP.state.status,o=>sigs.filter(c=>o.f(c.exit_reason)&&inPeriod(c)).length)+
-    row('공포등급','fear',FEAR_OPTS,EXP.state.fear,o=>(o.k==='all'?sigs.filter(inPeriod):sigs.filter(c=>c.fear_bucket===o.k&&inPeriod(c))).length);
+      const avail=o.days==null?sigs.length:sigs.filter(c=>{const cut=_cutoff(o.days);return !cut||(c.close_date||'')>=cut;}).length;
+      return Math.min(avail, PERIOD_CAP[o.k]||100); })+
+    row('청산상태','status',STATUS_OPTS,EXP.state.status,o=>capped.filter(c=>o.f(c.exit_reason)).length)+
+    row('공포등급','fear',FEAR_OPTS,EXP.state.fear,o=>o.k==='all'?capped.length:capped.filter(c=>c.fear_bucket===o.k).length);
   $('#filters').querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{
     EXP.state[b.dataset.t]=b.dataset.k; renderFilters(); renderList();
   });
 }
 function renderList(){
   const st=STATUS_OPTS.find(o=>o.k===EXP.state.status);
-  EXP.rows=marketSigs().filter(c=>st.f(c.exit_reason)&&(EXP.state.fear==='all'||c.fear_bucket===EXP.state.fear)&&periodMatch(c));
+  const full=periodSet(), cap=PERIOD_CAP[EXP.state.period]||100, capped=full.slice(0,cap);
+  EXP.rows=capped.filter(c=>st.f(c.exit_reason)&&(EXP.state.fear==='all'||c.fear_bucket===EXP.state.fear));
   const rows=EXP.rows;
+  const M=EXP.mtotal[EXP.state.market];
+  const trunc = full.length>cap
+    ? `<p class="cap trunc">상위 <b>${cap}</b>건 표시 — 이 시장 전체 <b>${num(M,0)}</b>건은 유료 데이터셋</p>` : '';
   $('#explist').innerHTML=`<p class="cap" style="margin:12px 0 6px">결과 <b>${rows.length}</b>건 — 행 클릭 시 카드가 열립니다.</p>
     <div class="card scroll siglist"><table>
-      <thead><tr><th>진입일</th><th>티커</th><th>경로</th><th>품질</th><th>공포등급</th><th>청산사유</th><th>최종수익률</th><th>보유일</th></tr></thead>
+      <thead><tr><th>진입일</th><th>티커</th><th class="mHide">시장</th><th>경로</th><th class="mHide">품질</th><th class="mHide">공포</th><th>청산사유</th><th>최종수익</th><th class="mHide">MFE</th><th class="mHide">MAE</th><th>보유일</th><th class="mHide">Tier</th></tr></thead>
       <tbody>${rows.length?rows.map((c,i)=>`<tr data-i="${i}">
-        <td>${esc(c.entry_date)}</td><td><b>${esc(c.ticker)}</b></td><td>${spark(c.path)}</td>
-        <td class="qbadge">${c.quality_score} <span class="bkt">${esc(c.quality_bucket)}</span></td>
-        <td><span class="bkt">${esc(c.fear_bucket)}</span></td>
-        <td>${esc(c.exit_reason)}</td><td>${retCell(c.final_ret)}</td><td class="muted">${c.hold_days}일</td></tr>`).join('')
-        :`<tr><td colspan="8" class="muted">조건에 맞는 신호가 없습니다.</td></tr>`}</tbody></table></div>`;
+        <td>${esc(c.entry_date)}</td><td><b>${esc(c.ticker)}</b></td><td class="mHide muted">${esc(c.market)}</td><td>${spark(c.path)}</td>
+        <td class="mHide qbadge">${c.quality_score} <span class="bkt">${esc(c.quality_bucket)}</span></td>
+        <td class="mHide"><span class="bkt">${esc(c.fear_bucket)}</span></td>
+        <td>${esc(c.exit_reason)}</td><td>${retCell(c.final_ret)}</td>
+        <td class="mHide pos">${c.mfe_pct==null?'':'+'+c.mfe_pct+'%'}</td><td class="mHide neg">${c.mae_pct==null?'':c.mae_pct+'%'}</td>
+        <td class="muted">${c.hold_days}일</td><td class="mHide"><span class="bkt">${esc(String(c.tier).split(' ')[0])}</span></td></tr>`).join('')
+        :`<tr><td colspan="12" class="muted">조건에 맞는 신호가 없습니다.</td></tr>`}</tbody></table></div>${trunc}`;
   $('#explist').querySelectorAll('.siglist tbody tr[data-i]').forEach(tr=>tr.onclick=()=>openCard(EXP.rows[+tr.dataset.i]));
 }
 function renderLive(live){
