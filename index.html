@@ -88,6 +88,35 @@
     padding:11px 18px;border-radius:9px;font-size:14px}
   @media (prefers-color-scheme:light){.btn{color:#fff}}
   .note{font-size:12.5px;color:var(--mut)}
+  /* 시장 탭 + 탐색기 */
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px;border-bottom:1px solid var(--border)}
+  .tabs button{background:none;border:none;color:var(--mut);padding:9px 13px;cursor:pointer;font-size:13.5px;
+    border-bottom:2px solid transparent;font-weight:600;white-space:nowrap}
+  .tabs button.active{color:var(--fg);border-bottom-color:var(--accent2)}
+  .tabs button .cnt{font-size:11px;opacity:.7;margin-left:3px}
+  .tsum{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:0 0 14px}
+  .tsum .b{background:var(--chip);border:1px solid var(--border);border-radius:9px;padding:9px 11px}
+  .tsum .b .k{color:var(--mut);font-size:11px} .tsum .b .v{font-size:15px;font-weight:700}
+  .siglist tbody tr{cursor:pointer}
+  .siglist tbody tr:hover{background:color-mix(in srgb,var(--accent2) 9%,transparent)}
+  .qbadge{font-weight:700}
+  /* 모달 카드 */
+  .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+  .modal-bg[hidden]{display:none}
+  .modal{background:var(--card);border:1px solid var(--border);border-radius:14px;max-width:660px;width:100%;
+    max-height:90vh;overflow-y:auto;padding:22px 22px 18px}
+  .modal .x{float:right;cursor:pointer;color:var(--mut);font-size:22px;line-height:1;border:none;background:none}
+  .modal h3{margin:0 0 2px;font-size:20px}
+  .modal .sub{color:var(--mut);font-size:12.5px;font-family:ui-monospace,monospace;margin:0 0 12px}
+  .mchips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+  .chip2{background:var(--chip);border:1px solid var(--border);border-radius:6px;padding:3px 9px;font-size:11.5px}
+  .chip2 b{color:var(--accent2);font-weight:700}
+  .mlab{color:var(--mut);font-size:11.5px;margin:14px 0 6px;font-weight:600;letter-spacing:.02em}
+  .mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+  .mgrid .b{background:var(--chip);border-radius:8px;padding:8px 10px}
+  .mgrid .b .k{color:var(--mut);font-size:11px} .mgrid .b .v{font-size:14px;font-weight:700}
+  .chart{width:100%;height:180px;background:var(--chip);border-radius:10px;margin-top:6px}
+  .modal .cap2{margin:14px 0 0;font-size:12px;color:var(--mut);border-top:1px solid var(--border);padding-top:10px}
   /* 해시체인 */
   .chain{display:flex;align-items:center;overflow-x:auto;padding:6px 2px}
   .node{flex:0 0 auto;text-align:center;min-width:96px}
@@ -128,6 +157,8 @@
     <div class="plabel">PART I</div>
     <h2>백테스트 마스터 DB</h2>
     <p class="psub">2015~ · 생존편향 실측 보정 · 검증 완료된 고정 자산 (판매 상품)</p>
+    <p class="cap" style="margin-top:8px">본 데이터셋의 청산 라벨은 <b>A-last 규칙</b>(SMA200 조건부 50/100%) <b>단일 기준</b>입니다.
+       <code>rule_version</code> 컬럼으로 버전이 고정 기재됩니다.</p>
   </div>
 
   <!-- [2] 데이터 미리보기 -->
@@ -169,11 +200,12 @@
     <p class="note" id="quality-note"></p>
   </section>
 
-  <!-- [5] 시장별 커버리지 -->
+  <!-- [5] 시장별 탐색 -->
   <section>
-    <h3><span class="dot"></span>시장별 커버리지 · 데이터 품질 등급</h3>
-    <p class="desc">성과 나열이 아니라 <b>커버리지 범위와 생존편향 보정 수준(Tier)</b> 관점입니다. Tier는 데이터의 신뢰 등급이며, 미보정 시장은 경고를 함께 표기합니다.</p>
-    <div id="markets" class="mkt"></div>
+    <h3><span class="dot"></span>시장별 탐색 — 커버리지·등급 + 샘플 신호</h3>
+    <p class="desc">5개 시장 탭. 각 탭 상단은 <b>커버리지·Tier 요약</b>, 아래는 <b>무료 샘플 신호 목록</b>(행 클릭 → 카드). 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
+    <div id="tabs" class="tabs"></div>
+    <div id="tabpanel"></div>
     <p class="note" id="capital"></p>
   </section>
 
@@ -213,7 +245,8 @@
 
   <section>
     <h3><span class="dot"></span>A-last vs B-last 규칙별 청산 성과</h3>
-    <p class="desc">동일 신호를 두 청산 규칙(A-last: 추세 조건부 분할, B-last: 단일 50%)으로 각각 추적해 사후 성과를 비교합니다.</p>
+    <p class="desc"><b>판매 데이터는 A-last입니다.</b> 아래 비교는 채택 규칙(A-last)과 기각 규칙(B-last)을 나란히 공개 추적해
+       규칙 선택의 타당성을 검증하는 <b>투명성 장치</b>입니다. (A-last: 추세 조건부 분할, B-last: 단일 50%)</p>
     <div id="rulecmp" class="cmp"></div>
   </section>
 
@@ -228,10 +261,12 @@
 
   <!-- [8] 문의 -->
   <footer>
-    <p><b>데이터셋 문의</b> — 전체 신호 데이터셋(진입·청산 상세, A/B/B-first 규칙별)의 상업적 이용 문의는 추후 별도 채널로 안내 예정입니다.</p>
+    <p><b>데이터셋 문의</b> — 전체 신호 데이터셋(A-last)의 상업적 이용 문의는 추후 별도 채널로 안내 예정입니다.</p>
     <p class="muted" id="meta"></p>
   </footer>
 </div>
+
+<div id="modal" class="modal-bg" hidden><div class="modal" id="modal-body"></div></div>
 
 <script>
 const $ = s => document.querySelector(s);
@@ -283,23 +318,91 @@ function renderQuality(qb){
   $('#quality-note').innerHTML = '핵심 논리: <b>품질점수가 높을수록 수익종결률이 오릅니다</b>(80+ 60.1% → 60-69 44.8% 단조). '+
     '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓어 비단조로 보입니다 — 숨기지 않고 함께 표기합니다.';
 }
-function renderMarkets(ms, capital){
-  $('#markets').innerHTML = ms.map(m=>{
-    const t = m.tier_short.startsWith('Tier 1')?'t1':'t3';
-    const exits = Object.entries(m.exits).map(([k,v])=>`${esc(k)} ${num(v,0)}`).join(' · ');
-    const legs = Object.entries(m.n_legs_dist||{}).map(([k,v])=>`${k}회 ${num(v,0)}`).join(' · ');
-    return `<div class="mcard"><div class="top"><h4>${esc(m.label)}</h4><span class="tier ${t}">${esc(m.tier_short)}</span></div>
-      <div class="mrow"><span class="l">신호 수</span><b>${num(m.n,0)}개</b></div>
-      <div class="mrow"><span class="l">기간</span><span>${esc(m.entry_from)} ~ ${esc(m.entry_to)}</span></div>
-      <div class="mrow"><span class="l">익절률</span><span title="익절 청산 ÷ 전체 신호">${m.tp_rate}%</span></div>
-      <div class="mrow"><span class="l">수익종결률</span><span title="최종 수익률&gt;0 ÷ 청산 완료">${m.pos_close_rate}%</span></div>
-      <div class="mrow"><span class="l">평균 수익 / 보유</span><span>${fmtPct(m.avg_ret)} / ${m.avg_hold}일</span></div>
-      <div class="exits">청산: ${exits}</div>
-      <div class="exits">물타기 차수 분포: ${legs}</div>
-      ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}</div>`;
+const MKT_ORDER=['US-SP500','US-NASDAQ','KR','MAJOR','ALT'];
+let EXP={sum:{},sig:{}};
+function renderExplorer(ms, signals, capital){
+  EXP.sum={}; ms.forEach(m=>EXP.sum[m.key]=m);
+  EXP.sig=(signals&&signals.markets)||{};
+  const order=MKT_ORDER.filter(k=>EXP.sum[k]);
+  $('#tabs').innerHTML=order.map((k,i)=>{
+    const n=(EXP.sig[k]||[]).length;
+    return `<button data-mk="${k}" class="${i===0?'active':''}">${esc(EXP.sum[k].label)}<span class="cnt">${n}</span></button>`;
   }).join('');
-  $('#capital').innerHTML = `자본 기준: <b>${esc(capital)}</b>`;
+  $('#tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    $('#tabs').querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); showTab(b.dataset.mk);
+  });
+  $('#capital').innerHTML=`자본 기준: <b>${esc(capital)}</b>`;
+  if(order.length) showTab(order[0]);
 }
+function showTab(k){
+  const m=EXP.sum[k], sigs=EXP.sig[k]||[];
+  const t=m.tier_short.startsWith('Tier 1')?'t1':'t3';
+  const exits=Object.entries(m.exits).map(([kk,v])=>`${esc(kk)} ${num(v,0)}`).join(' · ');
+  const legs=Object.entries(m.n_legs_dist||{}).map(([kk,v])=>`${kk}회 ${num(v,0)}`).join(' · ');
+  let h=`<div class="tsum">
+    <div class="b"><div class="k">Tier</div><div class="v"><span class="tier ${t}">${esc(m.tier_short)}</span></div></div>
+    <div class="b"><div class="k">신호 수</div><div class="v">${num(m.n,0)}</div></div>
+    <div class="b"><div class="k">익절률</div><div class="v">${m.tp_rate}%</div></div>
+    <div class="b"><div class="k">수익종결률</div><div class="v">${m.pos_close_rate}%</div></div>
+    <div class="b"><div class="k">평균 수익</div><div class="v">${fmtPct(m.avg_ret)}</div></div>
+    <div class="b"><div class="k">평균 보유</div><div class="v">${m.avg_hold}일</div></div></div>
+    <div class="exits" style="margin-bottom:4px">기간 ${esc(m.entry_from)}~${esc(m.entry_to)} · 청산: ${exits} · 물타기: ${legs}</div>
+    ${m.warn?`<div class="warn">⚠ ${esc(m.warn)}</div>`:''}
+    <p class="cap" style="margin:14px 0 6px">샘플 신호 ${sigs.length}건 — 행 클릭 시 카드가 열립니다.</p>
+    <div class="card scroll siglist"><table>
+      <thead><tr><th>진입일</th><th>티커</th><th>품질</th><th>공포등급</th><th>청산사유</th><th>최종수익률</th><th>보유일</th></tr></thead>
+      <tbody>${sigs.map((c,i)=>`<tr data-mk="${k}" data-i="${i}">
+        <td>${esc(c.entry_date)}</td><td><b>${esc(c.ticker)}</b></td>
+        <td class="qbadge">${c.quality_score} <span class="bkt">${esc(c.quality_bucket)}</span></td>
+        <td><span class="bkt">${esc(c.fear_bucket)}</span></td>
+        <td>${esc(c.exit_reason)}</td><td>${fmtPct(c.final_ret)}</td>
+        <td class="muted">${c.hold_days}일</td></tr>`).join('')}</tbody></table></div>`;
+  $('#tabpanel').innerHTML=h;
+  $('#tabpanel').querySelectorAll('.siglist tbody tr').forEach(tr=>
+    tr.onclick=()=>openCard(EXP.sig[tr.dataset.mk][+tr.dataset.i]));
+}
+function chartSVG(c){
+  const p=c.path, W=600,H=170,pad=24;
+  const days=p.map(x=>x.day), rets=p.map(x=>x.ret);
+  const dmax=Math.max(...days,1);
+  let rmin=Math.min(...rets,0), rmax=Math.max(...rets,0);
+  if(rmax===rmin){rmax+=1;rmin-=1;}
+  const X=d=>pad+d/dmax*(W-2*pad), Y=r=>pad+(rmax-r)/(rmax-rmin)*(H-2*pad);
+  const pts=p.map(x=>`${X(x.day).toFixed(1)},${Y(x.ret).toFixed(1)}`).join(' ');
+  const dot=(d,r,col)=>`<circle cx="${X(d).toFixed(1)}" cy="${Y(r).toFixed(1)}" r="3.6" style="fill:${col}"/>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <line x1="${pad}" y1="${Y(0).toFixed(1)}" x2="${W-pad}" y2="${Y(0).toFixed(1)}" stroke="var(--border)" stroke-dasharray="4 4"/>
+    <polyline points="${pts}" fill="none" style="stroke:var(--accent2)" stroke-width="1.6"/>
+    ${dot(c.mfe_day,c.mfe_pct,'var(--accent)')}${dot(c.mae_day,c.mae_pct,'var(--red)')}</svg>`;
+}
+function openCard(c){
+  const dna=Object.entries(c.dna).filter(([k,v])=>v&&v!=='nan'&&v!=='None'&&v!=='')  // 해당없는 지표(예: 주식의 코인 버킷) 숨김
+    .map(([k,v])=>`<span class="chip2">${esc(k.replace('_bucket',''))} <b>${esc(v)}</b></span>`).join('');
+  $('#modal-body').innerHTML=`<button class="x" onclick="closeModal()">×</button>
+    <h3>${esc(c.ticker)} <span class="bkt" style="font-size:12px">${esc(c.market)}</span></h3>
+    <p class="sub">${esc(c.sid)} · 진입 ${esc(c.entry_date)}</p>
+    <div class="mchips">
+      <span class="chip2">품질 <b>${c.quality_score}</b> ${esc(c.quality_bucket)}</span>
+      <span class="chip2">공포 <b>${esc(c.fear_bucket)}</b></span>
+      <span class="chip2">청산 <b>${esc(c.exit_reason)}</b></span>
+      <span class="chip2">Tier <b>${esc(String(c.tier).split(' ')[0])}</b></span>
+      <span class="chip2">rule <b>${esc(c.rule_version)}</b></span></div>
+    <div class="mlab">진입 시점 DNA (버킷값만)</div><div class="mchips">${dna}</div>
+    <div class="mlab">일별 수익률 경로 (day 0 → 청산 · 진입가 대비 · ● MFE / ● MAE)</div>
+    ${chartSVG(c)}
+    <div class="mgrid" style="margin-top:12px">
+      <div class="b"><div class="k">MFE (최고)</div><div class="v">${fmtPct(c.mfe_pct)} <small class="muted">d${c.mfe_day}</small></div></div>
+      <div class="b"><div class="k">MAE (최저)</div><div class="v">${fmtPct(c.mae_pct)} <small class="muted">d${c.mae_day}</small></div></div>
+      <div class="b"><div class="k">최종 수익률</div><div class="v">${fmtPct(c.final_ret)}</div></div>
+      <div class="b"><div class="k">보유일</div><div class="v">${c.hold_days}일</div></div></div>
+    <p class="cap2">진입가(day 0) 대비 수익률입니다 — A-last 청산 기준가는 마지막 매수가라, 물타기 시 익절이어도 진입대비 마이너스일 수 있습니다.
+       전체 16,986신호의 <b>동일 구조 데이터는 유료 제공</b>됩니다.</p>`;
+  $('#modal').hidden=false;
+}
+function closeModal(){ $('#modal').hidden=true; }
+document.addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 function renderSample(bt){
   $('#sample-note').innerHTML = `파일: <code>${esc(bt.sample.csv)}</code> — 100신호 전체 일별 경로 · `+
     `${bt.scale.columns_public}컬럼(무료 공개). 청산 규칙: ${esc(bt.rule)}`;
@@ -368,10 +471,11 @@ function forwardUnavailable(){
 (async()=>{
   // PART I (필수 — 커밋된 정적 자산)
   try{
-    const [btSum, btPrev] = await Promise.all([load('backtest_summary',true), load('backtest_preview',true)]);
+    const [btSum, btPrev, btSig] = await Promise.all([
+      load('backtest_summary',true), load('backtest_preview',true), load('backtest_signals',true)]);
     const descMap={}; (btSum.columns||[]).forEach(c=>descMap[c.name]=c.desc);
     renderHero(btSum.scale); renderPreview(btPrev, btPrev.columns, descMap);
-    renderQuality(btSum.quality_buckets); renderMarkets(btSum.markets, btSum.capital_basis);
+    renderQuality(btSum.quality_buckets); renderExplorer(btSum.markets, btSig, btSum.capital_basis);
     renderSample(btSum);
   }catch(e){
     $('#scale').innerHTML=`<span class="err">백테스트 데이터 로드 실패: ${esc(e.message)}</span>`;
