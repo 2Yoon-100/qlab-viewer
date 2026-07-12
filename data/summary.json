@@ -1,8 +1,19 @@
 {
  "forward_days": 2,
+ "markets_tracked": [
+  "FORWARD"
+ ],
  "n_signals_tracked": 1011,
  "n_covered": 943,
  "n_closed_total": 4,
+ "live": {
+  "n_tracked": 811,
+  "n_with_ret": 0,
+  "avg_ret": null,
+  "positive_ratio": null,
+  "latest_close_date": "2026-07-12",
+  "latest_close_n": 1
+ },
  "genesis_date": "2026-07-11",
  "latest_date": "2026-07-12",
  "latest_hash": "f8216e6dfd2b2603bf5be666a664632bdf1a477423481bc7171a03acad57cfe3",

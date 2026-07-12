@@ -107,6 +107,17 @@
     padding:5px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
   .fbtn.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
   .fbtn .fc{opacity:.6;margin-left:5px;font-size:11px} .fbtn.on .fc{opacity:.85}
+  /* v5: 보유중 라이브 카드 */
+  .livecard{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--card)),var(--card));
+    border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:14px 16px;margin-bottom:16px;cursor:pointer}
+  .livecard:hover{border-color:var(--accent)}
+  .livecard .lch{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-bottom:10px}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  .livegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .livegrid .b .k{color:var(--mut);font-size:11px} .livegrid .b .v{font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+  .livecard .cap3{color:var(--mut);font-size:11.5px;margin-top:10px}
+  @media(max-width:560px){.livegrid{grid-template-columns:repeat(2,1fr)}}
   /* 모달 카드 */
   .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
   .modal-bg[hidden]{display:none}
@@ -131,6 +142,8 @@
     font-family:ui-monospace,monospace;font-size:11px}
   .node .box.gen{border-color:var(--accent2)} .node .box.bad{border-color:var(--red)}
   .node .dt{color:var(--mut);font-size:10.5px;margin-top:4px}
+  .chainrow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .chlabel{min-width:74px;font-size:12px;font-weight:700;color:var(--mut);flex:0 0 auto}
   .link{color:var(--mut);flex:0 0 auto;padding:0 2px;font-size:16px}
   .ok{color:var(--accent)} .bad{color:var(--red)}
   .cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -227,6 +240,8 @@
   <section>
     <h3><span class="dot"></span>신호 탐색기</h3>
     <p class="desc">무료 샘플 100건을 <b>시장 · 청산상태 · 공포등급</b>으로 조합 탐색합니다. 행을 클릭하면 신호 카드(일별 경로 차트·DNA 버킷·MFE/MAE)가 열립니다. 표시 데이터는 무료 샘플 CSV와 1:1 동일합니다.</p>
+    <p class="cap">샘플 구성: <b>시장별 비례 + 최소 8건</b> 보장, 각 시장 할당의 <b>절반은 청산일 최신순 · 절반은 전 기간 무작위</b>. 목록 기본 정렬 = 진입일 최신순.</p>
+    <div id="livecard"></div>
     <div id="tabs" class="tabs"></div>
     <div id="filters"></div>
     <div id="explist"></div>
@@ -521,6 +536,20 @@ function renderList(){
         :`<tr><td colspan="8" class="muted">조건에 맞는 신호가 없습니다.</td></tr>`}</tbody></table></div>`;
   $('#explist').querySelectorAll('.siglist tbody tr[data-i]').forEach(tr=>tr.onclick=()=>openCard(EXP.rows[+tr.dataset.i]));
 }
+function renderLive(live){
+  const el=$('#livecard'); if(!el)return;
+  if(!live||!live.n_tracked){el.innerHTML='';return;}
+  const ar=live.avg_ret;
+  el.innerHTML=`<div class="lch"><span class="pulse"></span>지금 보유중 <span class="muted" style="font-weight:400;font-size:12px">· 집계 · 클릭 → 검증 기록</span></div>
+    <div class="livegrid">
+      <div class="b"><div class="k">추적 신호 수</div><div class="v">${num(live.n_tracked,0)}</div></div>
+      <div class="b"><div class="k">보유중 평균 수익률</div><div class="v ${ar==null?'':(ar>=0?'pos':'neg')}">${ar==null?'–':(ar>=0?'+':'')+ar+'%'}</div></div>
+      <div class="b"><div class="k">수익권 비율</div><div class="v">${live.positive_ratio==null?'–':live.positive_ratio+'%'}</div></div>
+      <div class="b"><div class="k">최근 청산</div><div class="v" style="font-size:14px">${esc(live.latest_close_date||'–')} <small class="muted">${live.latest_close_n?live.latest_close_n+'건':''}</small></div></div>
+    </div>
+    <div class="cap3">종목·개별 점수는 전략 보호를 위해 <b>비공개</b>이며, <b>청산 완료 시 공개</b>됩니다. (아래 값은 전부 집계)</div>`;
+  el.onclick=()=>{const t=document.querySelector('.connect')||$('#stats'); if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
+}
 function renderMarketCards(ms, capital){
   $('#marketcards').innerHTML=ms.map(m=>{
     const t=m.tier_short.startsWith('Tier 1')?'t1':'t3';
@@ -594,22 +623,30 @@ function renderStats(s){
   $('#meta').textContent = `포워드 기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source}`;
   const hb=$('#tb-hash'); if(hb) hb.textContent='해시 '+(s.latest_hash?esc(s.latest_hash.slice(0,10))+'…':'—');
 }
+const CHAIN_LABEL={COIN:'코인',KR:'한국',US:'미국',FORWARD:'통합(레거시)'};
 function renderChain(snaps){
-  const rows = snaps.filter(x=>x.market==='FORWARD').sort((a,b)=>(a.date||'').localeCompare(b.date||''));
   const box=$('#chain'); box.innerHTML='';
-  let broken=0,prevHash='GENESIS';
-  for(const s of rows){ if(s.prev_hash!==prevHash) broken++; prevHash=s.today_hash; }
-  const trim = rows.length>12 ? [...rows.slice(0,2), null, ...rows.slice(-8)] : rows;
-  box.insertAdjacentHTML('beforeend',`<div class="node"><div class="box gen">GENESIS</div><div class="dt">시작</div></div>`);
-  prevHash='GENESIS';
-  for(const s of trim){
-    if(s===null){ box.insertAdjacentHTML('beforeend',`<div class="link muted">…</div>`); continue; }
-    const ok=s.prev_hash===prevHash; prevHash=s.today_hash;
-    box.insertAdjacentHTML('beforeend',
-      `<div class="link ${ok?'ok':'bad'}">→</div><div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,10))}…</div><div class="dt">${esc(s.date)}</div></div>`);
+  const present=[...new Set(snaps.map(s=>s.market).filter(Boolean))];
+  const order=['COIN','KR','US','FORWARD'].filter(m=>present.includes(m))
+    .concat(present.filter(m=>!['COIN','KR','US','FORWARD'].includes(m)));
+  let broken=0,total=0;
+  for(const mk of order){
+    const rows=snaps.filter(s=>s.market===mk).sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    if(!rows.length) continue;
+    total+=rows.length; let prev='GENESIS';
+    for(const s of rows){ if(s.prev_hash!==prev) broken++; prev=s.today_hash; }
+    const trim=rows.length>8?[...rows.slice(0,1),null,...rows.slice(-5)]:rows;
+    let row=`<div class="chainrow"><span class="chlabel">${CHAIN_LABEL[mk]||esc(mk)}</span><div class="chain"><div class="node"><div class="box gen">GEN</div></div>`;
+    prev='GENESIS';
+    for(const s of trim){
+      if(s===null){ row+=`<div class="link muted">…</div>`; continue; }
+      const ok=s.prev_hash===prev; prev=s.today_hash;
+      row+=`<div class="link ${ok?'ok':'bad'}">→</div><div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,8))}…</div><div class="dt">${esc(s.date)}</div></div>`;
+    }
+    box.insertAdjacentHTML('beforeend', row+`</div></div>`);
   }
   $('#chain-status').innerHTML = broken===0
-    ? `<span class="ok">✓ 무결성 정상</span> — ${rows.length}개 스냅샷 전부 이전 해시와 정확히 연결됨(조작 흔적 없음).`
+    ? `<span class="ok">✓ 무결성 정상</span> — ${order.length}개 시장 체인 · 스냅샷 ${total}개 전부 이전 해시와 정확히 연결됨(조작 흔적 없음).`
     : `<span class="bad">✗ ${broken}개 지점 체인 불일치</span> — 조작·오류 신호.`;
 }
 function ruleBox(name,r,cls){
@@ -659,7 +696,7 @@ function forwardUnavailable(){
   // PART II (포워드 — 배포 전이면 없을 수 있음)
   try{
     const [fSum, snaps, clos] = await Promise.all([load('summary'), load('snapshots'), load('closures')]);
-    if(fSum && snaps && clos){ renderStats(fSum); renderChain(snaps); renderRules(fSum); renderClosures(clos); }
+    if(fSum && snaps && clos){ renderStats(fSum); renderLive(fSum.live); renderChain(snaps); renderRules(fSum); renderClosures(clos); }
     else forwardUnavailable();
   }catch(e){ forwardUnavailable(); }
 })();
