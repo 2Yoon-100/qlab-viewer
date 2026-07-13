@@ -1,43 +1,43 @@
 {
- "forward_days": 2,
+ "forward_days": 3,
  "markets_tracked": [
-  "FORWARD"
+  "COIN",
+  "FORWARD",
+  "KR",
+  "US"
  ],
- "n_signals_tracked": 1011,
- "n_covered": 943,
- "n_closed_total": 4,
+ "n_signals_tracked": 1043,
+ "n_covered": 975,
+ "n_closed_total": 7,
  "n_voided": 1,
  "live": {
-  "n_tracked": 808,
+  "n_tracked": 615,
   "n_with_ret": 0,
   "avg_ret": null,
   "positive_ratio": null,
   "latest_close_date": "2026-07-12",
-  "latest_close_n": 2,
+  "latest_close_n": 5,
   "updated_at": null,
   "breakdown": {
-   "holding_covered": 808,
-   "closed_backtest": 130,
-   "covered_total": 943,
-   "active_total": 1011
+   "holding_covered": 615,
+   "closed_backtest": 347,
+   "covered_total": 975,
+   "active_total": 1043
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-07-12",
- "latest_hash": "f8216e6dfd2b2603bf5be666a664632bdf1a477423481bc7171a03acad57cfe3",
+ "latest_date": "2026-07-13",
+ "latest_hash": "7df70186f0d63357cc3f7e5479cce9840afd5409f57bb6162e20653372dc8553",
  "alast_status_counts": {
-  "보유중": 876,
-  "청산완료(백테스트)": 130,
-  "검증불가(스케일)": 3,
-  "TP50": 1,
-  "만기손절": 1
+  "보유중": 615,
+  "청산완료(백테스트)": 347,
+  "검증불가(스케일)": 81
  },
  "blast_status_counts": {
-  "보유중": 849,
-  "청산완료(백테스트)": 157,
-  "검증불가(스케일)": 3,
-  "TP50": 1,
-  "만기손절": 1
+  "보유중": 612,
+  "청산완료(백테스트)": 347,
+  "검증불가(스케일)": 81,
+  "TP50": 3
  },
  "rule_compare": {
   "A-last": {
@@ -51,14 +51,14 @@
    }
   },
   "B-last": {
-   "n": 2,
-   "avg_ret": -24.34,
-   "win_rate": 50.0,
-   "best": 46.78,
+   "n": 5,
+   "avg_ret": 20.09,
+   "win_rate": 80.0,
+   "best": 59.77,
    "worst": -95.45,
    "reasons": {
-    "만기손절": 1,
-    "TP50": 1
+    "TP50": 4,
+    "만기손절": 1
    }
   }
  },

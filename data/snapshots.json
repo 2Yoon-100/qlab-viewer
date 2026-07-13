@@ -22,5 +22,41 @@
   "n_tracking": 813,
   "n_isolated": 0,
   "avg_ret_from_entry": -1.99
+ },
+ {
+  "date": "2026-07-13",
+  "market": "COIN",
+  "prev_hash": "GENESIS",
+  "today_hash": "322d395e841dd2faa9bda9dac303463aa7ff115286a59e131bf1083cd7711dc4",
+  "n_active": 118,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 108,
+  "n_isolated": 0,
+  "avg_ret_from_entry": -29.273
+ },
+ {
+  "date": "2026-07-13",
+  "market": "KR",
+  "prev_hash": "GENESIS",
+  "today_hash": "c02cd5c58de0f9a35299e90303d321f53375044f37333859baaf3c563b4da556",
+  "n_active": 447,
+  "n_closed": 3,
+  "n_failed": 0,
+  "n_tracking": 447,
+  "n_isolated": 0,
+  "avg_ret_from_entry": -18.632
+ },
+ {
+  "date": "2026-07-13",
+  "market": "US",
+  "prev_hash": "GENESIS",
+  "today_hash": "7df70186f0d63357cc3f7e5479cce9840afd5409f57bb6162e20653372dc8553",
+  "n_active": 0,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 0,
+  "n_isolated": 0,
+  "avg_ret_from_entry": null
  }
 ]
