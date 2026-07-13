@@ -8,7 +8,7 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 7,
+ "n_closed_total": 6,
  "n_voided": 1,
  "live": {
   "n_tracked": 615,
@@ -60,6 +60,10 @@
     "TP50": 4,
     "만기손절": 1
    }
+  },
+  "asymmetry": {
+   "b_closed_a_holding": 3,
+   "note": "B-last가 청산한 신호 중 3건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase"

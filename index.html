@@ -362,6 +362,7 @@
     <p class="desc"><b>판매 데이터는 A-last입니다.</b> 아래 비교는 채택 규칙(A-last)과 기각 규칙(B-last)을 나란히 공개 추적해
        규칙 선택의 타당성을 검증하는 <b>투명성 장치</b>입니다. (A-last: 추세 조건부 분할, B-last: 단일 50%)</p>
     <div id="rulecmp" class="cmp"></div>
+    <p id="rule-asymmetry" class="note"></p>
   </section>
 
   <section>
@@ -719,6 +720,8 @@ function ruleBox(name,r,cls){
 function renderRules(s){
   const c=s.rule_compare||{};
   $('#rulecmp').innerHTML = ruleBox('A-last','A-last'in c?c['A-last']:null,'rule-A')+ruleBox('B-last','B-last'in c?c['B-last']:null,'rule-B');
+  const asy=c.asymmetry, el=$('#rule-asymmetry');
+  if(el) el.textContent = (asy && asy.b_closed_a_holding>0) ? asy.note : '';
 }
 function renderClosures(clos){
   const corr={}; (clos||[]).forEach(c=>{ if(c.correction_of) corr[c.correction_of]=c; });
