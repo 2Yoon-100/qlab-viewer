@@ -1,5 +1,5 @@
 {
- "forward_days": 3,
+ "forward_days": 4,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -26,8 +26,8 @@
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-07-13",
- "latest_hash": "7df70186f0d63357cc3f7e5479cce9840afd5409f57bb6162e20653372dc8553",
+ "latest_date": "2026-07-14",
+ "latest_hash": "8d375af6c7164d022730949e6108b18f9788804b41e09721776f2dbd94e083ec",
  "alast_status_counts": {
   "보유중": 615,
   "청산완료(백테스트)": 347,
