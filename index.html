@@ -217,7 +217,7 @@
     <div class="logo">Q<span>Lab</span></div>
     <div class="tb-badges">
       <span class="tb-badge" id="tb-hash">해시 —</span>
-      <span class="tb-badge accent">● 매일 07:00 자동 축적</span>
+      <span class="tb-badge accent">● 시장 마감 직후 자동 축적 (코인 09:10 · 한국 15:40 · 미국 06:10 KST)</span>
     </div>
   </div>
 </header>
@@ -234,7 +234,7 @@
 
   <!-- [0] 시장 국면 지수 (히어로 바로 아래) -->
   <section class="mctx">
-    <h3><span class="dot"></span>시장 국면 지수 <span class="muted" style="font-size:12px;font-weight:400">2015~현재 · 독자 산출</span></h3>
+    <h3><span class="dot"></span>시장 국면 지표 <span class="muted" style="font-size:12px;font-weight:400">2015~현재 · 공개 매크로 데이터(VIX·시장 국면) 기반·검증</span></h3>
     <p class="desc">데이터셋의 <b>모든 신호에는 진입 당시의 시장 국면이 함께 기록</b>됩니다 — 아래 지수가 곧 데이터 피처입니다. (산출식은 비공개, 값만 제공)</p>
     <div class="card">
       <div id="mctx-strip" class="idxstrip"></div>
@@ -604,7 +604,8 @@ function renderLive(live){
       <div class="b"><div class="k">수익권 비율</div><div class="v">${pr==null?pend:pr+'%'}</div></div>
       <div class="b"><div class="k">최근 청산</div><div class="v" style="font-size:15px">${esc(live.latest_close_date||'–')}${live.latest_close_n?` <small class="muted">${live.latest_close_n}건</small>`:''}</div></div>
     </div>
-    <div class="cap3">종목·개별 점수는 전략 보호를 위해 <b>비공개</b>, <b>청산 완료 시</b>에만 공개(위 값은 전부 집계).</div>`;
+    <div class="cap3">종목·개별 점수는 전략 보호를 위해 <b>비공개</b>, <b>청산 완료 시</b>에만 공개(위 값은 전부 집계).</div>
+    <div class="cap3" style="margin-top:4px">마지막 축적: ${live.markets_last?Object.entries(live.markets_last).map(([m,d])=>esc(m)+' '+esc(d)).join(' · '):'–'}</div>`;
   el.onclick=()=>{const t=document.querySelector('.connect')||$('#stats'); if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
 }
 function renderMarketCards(ms, capital){

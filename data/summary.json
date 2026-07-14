@@ -1,4 +1,10 @@
 {
+ "markets_last": {
+  "FORWARD": "2026-07-12",
+  "COIN": "2026-07-14",
+  "KR": "2026-07-14",
+  "US": "2026-07-14"
+ },
  "forward_days": 4,
  "markets_tracked": [
   "COIN",
@@ -12,17 +18,23 @@
  "n_voided": 1,
  "live": {
   "n_tracked": 615,
-  "n_with_ret": 0,
-  "avg_ret": null,
-  "positive_ratio": null,
+  "n_with_ret": 589,
+  "avg_ret": -22.52,
+  "positive_ratio": 19.5,
   "latest_close_date": "2026-07-12",
   "latest_close_n": 5,
-  "updated_at": null,
+  "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
    "holding_covered": 615,
    "closed_backtest": 347,
    "covered_total": 975,
    "active_total": 1043
+  },
+  "markets_last": {
+   "FORWARD": "2026-07-12",
+   "COIN": "2026-07-14",
+   "KR": "2026-07-14",
+   "US": "2026-07-14"
   }
  },
  "genesis_date": "2026-07-11",
