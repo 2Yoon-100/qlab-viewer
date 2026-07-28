@@ -562,5 +562,41 @@
   "n_tracking": 0,
   "n_isolated": 0,
   "avg_ret_from_entry": null
+ },
+ {
+  "date": "2026-07-28",
+  "market": "COIN",
+  "prev_hash": "f5bc592c0c5f58bab9da6a8a925d5ac666ab3a5655edc57a448aee367c817b22",
+  "today_hash": "186c98ff336a29ef11c5f08407f2b15724586f4fbff7b7c9b97b9737e9e593b3",
+  "n_active": 118,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 108,
+  "n_isolated": 0,
+  "avg_ret_from_entry": -34.881
+ },
+ {
+  "date": "2026-07-28",
+  "market": "KR",
+  "prev_hash": "6d57b4ef0f49d9d2178b5df5e9ba9a2c07e884149df910f9ef81f610eceb0f27",
+  "today_hash": "e626343a715d0fa5c592ebaf4d0ebe0d6f622cc559aceaca3ba9eac00269afee",
+  "n_active": 447,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 447,
+  "n_isolated": 0,
+  "avg_ret_from_entry": -24.167
+ },
+ {
+  "date": "2026-07-28",
+  "market": "US",
+  "prev_hash": "ad07eb02762fb89e680effacc2f7ccf6f6665d7d6494d000e835b7240a960bb2",
+  "today_hash": "e43eed7984f6649d48541156676301700aebf6651e5dc9e3324beb9dcab420be",
+  "n_active": 0,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 0,
+  "n_isolated": 0,
+  "avg_ret_from_entry": null
  }
 ]
