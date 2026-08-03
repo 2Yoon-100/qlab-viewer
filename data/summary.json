@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-08-02",
-  "KR": "2026-08-02",
-  "US": "2026-08-02"
+  "COIN": "2026-08-03",
+  "KR": "2026-08-03",
+  "US": "2026-08-03"
  },
- "forward_days": 23,
+ "forward_days": 24,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -14,14 +14,14 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 20,
+ "n_closed_total": 21,
  "n_voided": 1,
  "live": {
   "n_tracked": 607,
   "n_with_ret": 581,
-  "avg_ret": -24.17,
-  "positive_ratio": 18.4,
-  "latest_close_date": "2026-07-30",
+  "avg_ret": -23.43,
+  "positive_ratio": 20.3,
+  "latest_close_date": "2026-08-03",
   "latest_close_n": 1,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
@@ -32,14 +32,14 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-08-02",
-   "KR": "2026-08-02",
-   "US": "2026-08-02"
+   "COIN": "2026-08-03",
+   "KR": "2026-08-03",
+   "US": "2026-08-03"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-08-02",
- "latest_hash": "b9e29457428cd34fcc79b104a0208bbf60acf422672e4a4749946d8817989bfa",
+ "latest_date": "2026-08-03",
+ "latest_hash": "56ad9a5a45b316b9b22b97169a51de4634feb63edc0313f62b0cd8404a06f4bb",
  "alast_status_counts": {
   "보유중": 607,
   "청산완료(백테스트)": 347,
@@ -48,10 +48,10 @@
   "TP100": 1
  },
  "blast_status_counts": {
-  "보유중": 604,
+  "보유중": 603,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 82,
-  "TP50": 10
+  "TP50": 11
  },
  "rule_compare": {
   "A-last": {
@@ -67,19 +67,19 @@
    }
   },
   "B-last": {
-   "n": 12,
-   "avg_ret": 14.0,
-   "win_rate": 58.3,
-   "best": 61.86,
+   "n": 13,
+   "avg_ret": 18.36,
+   "win_rate": 61.5,
+   "best": 70.74,
    "worst": -95.45,
    "reasons": {
-    "TP50": 11,
+    "TP50": 12,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 3,
-   "note": "B-last가 청산한 신호 중 3건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 4,
+   "note": "B-last가 청산한 신호 중 4건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase"
