@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-08-04",
-  "KR": "2026-08-04",
-  "US": "2026-08-04"
+  "COIN": "2026-08-05",
+  "KR": "2026-08-05",
+  "US": "2026-08-05"
  },
- "forward_days": 25,
+ "forward_days": 26,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -14,66 +14,66 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 24,
+ "n_closed_total": 26,
  "n_voided": 1,
  "live": {
-  "n_tracked": 606,
-  "n_with_ret": 580,
-  "avg_ret": -21.69,
-  "positive_ratio": 22.6,
-  "latest_close_date": "2026-08-04",
-  "latest_close_n": 3,
+  "n_tracked": 605,
+  "n_with_ret": 579,
+  "avg_ret": -20.79,
+  "positive_ratio": 23.7,
+  "latest_close_date": "2026-08-05",
+  "latest_close_n": 2,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
-   "holding_covered": 606,
+   "holding_covered": 605,
    "closed_backtest": 347,
    "covered_total": 975,
    "active_total": 1043
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-08-04",
-   "KR": "2026-08-04",
-   "US": "2026-08-04"
+   "COIN": "2026-08-05",
+   "KR": "2026-08-05",
+   "US": "2026-08-05"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-08-04",
- "latest_hash": "153c8b77ca6b562ea1fc31d567b2fcce827bff1b862ae2bd11199207a6fdef5b",
+ "latest_date": "2026-08-05",
+ "latest_hash": "590bc581736289eee746479417f01ec557dc765e107abddc0f100cec24b9c295",
  "alast_status_counts": {
-  "보유중": 606,
+  "보유중": 605,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 82,
-  "TP50": 6,
+  "TP50": 7,
   "TP100": 2
  },
  "blast_status_counts": {
-  "보유중": 601,
+  "보유중": 600,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 82,
-  "TP50": 13
+  "TP50": 14
  },
  "rule_compare": {
   "A-last": {
-   "n": 9,
-   "avg_ret": 17.07,
-   "win_rate": 55.6,
+   "n": 10,
+   "avg_ret": 21.13,
+   "win_rate": 60.0,
    "best": 74.14,
    "worst": -95.45,
    "reasons": {
-    "TP50": 6,
+    "TP50": 7,
     "TP100": 2,
     "만기손절": 1
    }
   },
   "B-last": {
-   "n": 15,
-   "avg_ret": 17.02,
-   "win_rate": 60.0,
+   "n": 16,
+   "avg_ret": 19.56,
+   "win_rate": 62.5,
    "best": 74.14,
    "worst": -95.45,
    "reasons": {
-    "TP50": 14,
+    "TP50": 15,
     "만기손절": 1
    }
   },
