@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-08-05",
-  "KR": "2026-08-05",
-  "US": "2026-08-05"
+  "COIN": "2026-08-06",
+  "KR": "2026-08-06",
+  "US": "2026-08-06"
  },
- "forward_days": 26,
+ "forward_days": 27,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -19,8 +19,8 @@
  "live": {
   "n_tracked": 605,
   "n_with_ret": 579,
-  "avg_ret": -20.79,
-  "positive_ratio": 23.7,
+  "avg_ret": -20.86,
+  "positive_ratio": 24.0,
   "latest_close_date": "2026-08-05",
   "latest_close_n": 2,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
@@ -32,14 +32,14 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-08-05",
-   "KR": "2026-08-05",
-   "US": "2026-08-05"
+   "COIN": "2026-08-06",
+   "KR": "2026-08-06",
+   "US": "2026-08-06"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-08-05",
- "latest_hash": "590bc581736289eee746479417f01ec557dc765e107abddc0f100cec24b9c295",
+ "latest_date": "2026-08-06",
+ "latest_hash": "93c14841866e25759427a5387d688650ae72d280cce7ab335c79ff23909a0346",
  "alast_status_counts": {
   "보유중": 605,
   "청산완료(백테스트)": 347,
