@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-08-10",
-  "KR": "2026-08-10",
-  "US": "2026-08-10"
+  "COIN": "2026-08-11",
+  "KR": "2026-08-11",
+  "US": "2026-08-11"
  },
- "forward_days": 31,
+ "forward_days": 32,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -14,15 +14,15 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 30,
+ "n_closed_total": 31,
  "n_voided": 1,
  "live": {
   "n_tracked": 603,
   "n_with_ret": 577,
-  "avg_ret": -19.54,
-  "positive_ratio": 26.2,
-  "latest_close_date": "2026-08-10",
-  "latest_close_n": 2,
+  "avg_ret": -18.97,
+  "positive_ratio": 27.6,
+  "latest_close_date": "2026-08-11",
+  "latest_close_n": 1,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
    "holding_covered": 603,
@@ -32,14 +32,14 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-08-10",
-   "KR": "2026-08-10",
-   "US": "2026-08-10"
+   "COIN": "2026-08-11",
+   "KR": "2026-08-11",
+   "US": "2026-08-11"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-08-10",
- "latest_hash": "a115a86bcdcf6770d51be7cba3585036bee3fc28fc1a409123697a139f99d13f",
+ "latest_date": "2026-08-11",
+ "latest_hash": "d32ed96359af6200e663a0ae600cb526d01a6cc5f1cb8ba669ef29f1e9dc6141",
  "alast_status_counts": {
   "보유중": 603,
   "청산완료(백테스트)": 347,
@@ -48,10 +48,10 @@
   "TP100": 2
  },
  "blast_status_counts": {
-  "보유중": 598,
+  "보유중": 597,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 82,
-  "TP50": 16
+  "TP50": 17
  },
  "rule_compare": {
   "A-last": {
@@ -67,19 +67,19 @@
    }
   },
   "B-last": {
-   "n": 18,
-   "avg_ret": 19.72,
-   "win_rate": 61.1,
+   "n": 19,
+   "avg_ret": 21.49,
+   "win_rate": 63.2,
    "best": 74.14,
    "worst": -95.45,
    "reasons": {
-    "TP50": 17,
+    "TP50": 18,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 5,
-   "note": "B-last가 청산한 신호 중 5건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 6,
+   "note": "B-last가 청산한 신호 중 6건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase"
