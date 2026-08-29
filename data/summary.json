@@ -1,9 +1,9 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-08-28",
+  "COIN": "2026-08-29",
   "KR": "2026-08-29",
-  "US": "2026-08-28"
+  "US": "2026-08-29"
  },
  "forward_days": 50,
  "markets_tracked": [
@@ -14,14 +14,14 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 36,
+ "n_closed_total": 37,
  "n_voided": 1,
  "live": {
   "n_tracked": 600,
   "n_with_ret": 574,
-  "avg_ret": -18.86,
-  "positive_ratio": 27.0,
-  "latest_close_date": "2026-08-27",
+  "avg_ret": -18.99,
+  "positive_ratio": 26.8,
+  "latest_close_date": "2026-08-28",
   "latest_close_n": 1,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
@@ -32,14 +32,14 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-08-28",
+   "COIN": "2026-08-29",
    "KR": "2026-08-29",
-   "US": "2026-08-28"
+   "US": "2026-08-29"
   }
  },
  "genesis_date": "2026-07-11",
  "latest_date": "2026-08-29",
- "latest_hash": "7cd20601b6c6c516f83d18ccc5d7f2ab83da7b8f979e83818eac9e8fc0c58802",
+ "latest_hash": "a753751573e9bd0fdcf46ecdc8e524ffa784609c4c55adf292298b7161355e0f",
  "alast_status_counts": {
   "보유중": 600,
   "청산완료(백테스트)": 347,
@@ -48,10 +48,10 @@
   "TP100": 2
  },
  "blast_status_counts": {
-  "보유중": 591,
+  "보유중": 590,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 84,
-  "TP50": 21
+  "TP50": 22
  },
  "rule_compare": {
   "A-last": {
@@ -67,19 +67,19 @@
    }
   },
   "B-last": {
-   "n": 23,
-   "avg_ret": 24.17,
-   "win_rate": 65.2,
+   "n": 24,
+   "avg_ret": 23.53,
+   "win_rate": 66.7,
    "best": 74.14,
    "worst": -95.45,
    "reasons": {
-    "TP50": 22,
+    "TP50": 23,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 9,
-   "note": "B-last가 청산한 신호 중 9건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 10,
+   "note": "B-last가 청산한 신호 중 10건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase"
