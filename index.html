@@ -345,6 +345,9 @@
     <b>Part I과의 연결</b> — 위 백테스트 마스터에서 <b>아직 보유중인 신호</b>가
     지금 이 순간에도 아래에서 실시간으로 검증·축적되고 있습니다. 실시간 보유 포지션은 전략 보호를 위해 비공개이며,
     <b>청산 완료 건만</b> 사후 공개됩니다.
+    <p>※ 포워드 추적은 2026-07-11 시작(시드 943건, 진입일 소급). 가격 갱신·청산 판정·스냅샷 축적은 매일 계속되지만,
+    신규 신호 진입은 시드 이후 없습니다. 시작 이후 청산 완료 12건으로 통계적 결론을 내리기에는 표본이 부족하며,
+    현재 표기된 보유 성과는 시드 시점에 이미 진행 중이던 포지션을 포함합니다.</p>
   </div>
 
   <div id="stats" class="grid"></div>
@@ -501,8 +504,10 @@ function renderQuality(qb){
   const tb=$('#quality tbody');
   tb.innerHTML = qb.map(q=>`<tr><td><span class="bkt">${esc(q.bucket)}</span></td><td>${num(q.n,0)}</td>`+
     `<td>${q.tp_rate}%</td><td><b>${q.pos_close_rate}%</b></td><td class="pos">${q.pos_close_wilson_low}%</td><td>${fmtPct(q.avg_ret)}</td></tr>`).join('');
-  $('#quality-note').innerHTML = '핵심 논리: <b>품질점수가 높을수록 수익종결률이 오릅니다</b>(80+ 60.1% → 60-69 44.8% 단조). '+
-    '단 <code>50-59</code>는 표본이 n=51로 작아 Wilson 하한(불확실성)이 넓어 비단조로 보입니다 — 숨기지 않고 함께 표기합니다.';
+  $('#quality-note').innerHTML = '품질구간별 수익종결률(전 기간): 80+ 60.1% · 70-79 47.8% · 60-69 44.8% · 50-59 62.8%(n=51). '+
+    '구간 간 단조성은 성립하지 않습니다. 진입 시기·시장에 따라 순서가 달라지며, 60-69와 70-79는 표본 오차 범위가 겹칩니다.'+
+    '<br><br>※ 청산 판정(TP50/TP100)은 마지막 매수가 기준, 표기 수익률은 1차 진입가 기준입니다(rule_version: A-last). '+
+    '두 기준이 다르므로, TP 청산 신호 9,261건 중 2,630건(28.4%)은 1차 진입가 기준으로는 손실입니다.';
 }
 const MKT_ORDER=['US-SP500','US-NASDAQ','KR','MAJOR','ALT'];
 const STATUS_OPTS=[
@@ -594,10 +599,13 @@ function renderLive(live){
   if(!live||!live.n_tracked){el.innerHTML='';return;}
   const ar=live.avg_ret, pr=live.positive_ratio;
   const pend='<span class="pending">다음 갱신 시 표시</span>';
-  const upd=live.updated_at?('갱신 '+esc(String(live.updated_at).slice(0,16).replace('T',' '))):'';
+  const upd=live.updated_at?('최근 신규 진입 '+esc(String(live.updated_at).slice(0,16).replace('T',' '))):'';
+  const ml=live.markets_last||{};
+  const dataDt=['COIN','KR','US'].map(k=>ml[k]).filter(Boolean).sort().slice(-1)[0];
+  const updData=dataDt?('데이터 갱신 '+esc(dataDt)):'';
   el.innerHTML=`
     <div class="lch"><span class="pulse"></span><span class="livebadge">LIVE</span> 지금 보유중
-      <span class="livemeta">${upd}${upd?' · ':''}클릭 → 검증 기록 ↓</span></div>
+      <span class="livemeta">${upd}${upd?' · ':''}${updData}${updData?' · ':''}클릭 → 검증 기록 ↓</span></div>
     <div class="livegrid">
       <div class="b"><div class="k">추적 신호 수</div><div class="v">${num(live.n_tracked,0)}</div></div>
       <div class="b"><div class="k">보유중 평균 수익률</div><div class="v ${ar==null?'':(ar>=0?'pos':'neg')}">${ar==null?pend:(ar>=0?'+':'')+ar+'%'}</div></div>
@@ -682,7 +690,7 @@ function renderStats(s){
   $('#meta').textContent = `포워드 기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source}`;
   const hb=$('#tb-hash'); if(hb) hb.textContent='해시 '+(s.latest_hash?esc(s.latest_hash.slice(0,10))+'…':'—');
 }
-const CHAIN_LABEL={COIN:'코인',KR:'한국',US:'미국',FORWARD:'통합(레거시)'};
+const CHAIN_LABEL={COIN:'코인',KR:'한국',US:'미국',FORWARD:'통합(레거시·2026-07-12 종료)'};
 function renderChain(snaps){
   const box=$('#chain'); box.innerHTML='';
   const present=[...new Set(snaps.map(s=>s.market).filter(Boolean))];
