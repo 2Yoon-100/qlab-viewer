@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-06",
-  "KR": "2026-09-06",
-  "US": "2026-09-06"
+  "COIN": "2026-09-07",
+  "KR": "2026-09-07",
+  "US": "2026-09-07"
  },
- "forward_days": 58,
+ "forward_days": 59,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -14,44 +14,44 @@
  ],
  "n_signals_tracked": 1043,
  "n_covered": 975,
- "n_closed_total": 39,
+ "n_closed_total": 41,
  "n_voided": 1,
  "live": {
-  "n_tracked": 597,
-  "n_with_ret": 571,
-  "avg_ret": -19.09,
-  "positive_ratio": 26.6,
-  "latest_close_date": "2026-09-03",
-  "latest_close_n": 1,
+  "n_tracked": 595,
+  "n_with_ret": 569,
+  "avg_ret": -18.75,
+  "positive_ratio": 27.2,
+  "latest_close_date": "2026-09-06",
+  "latest_close_n": 2,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
-   "holding_covered": 597,
+   "holding_covered": 595,
    "closed_backtest": 347,
    "covered_total": 975,
    "active_total": 1043
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-06",
-   "KR": "2026-09-06",
-   "US": "2026-09-06"
+   "COIN": "2026-09-07",
+   "KR": "2026-09-07",
+   "US": "2026-09-07"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-06",
- "latest_hash": "f14dcf89716614f6a660633b028614c16cf1ffdf80052590ef24e74c11dd6e80",
+ "latest_date": "2026-09-07",
+ "latest_hash": "e245a568e14686b10bbdcc51fe17889112122db6ab38ba1f5461903e4047f52f",
  "alast_status_counts": {
-  "보유중": 597,
+  "보유중": 595,
   "청산완료(백테스트)": 347,
-  "검증불가(스케일)": 85,
+  "검증불가(스케일)": 87,
   "TP50": 11,
   "TP100": 3
  },
  "blast_status_counts": {
-  "보유중": 589,
+  "보유중": 585,
   "청산완료(백테스트)": 347,
-  "검증불가(스케일)": 85,
-  "TP50": 22
+  "검증불가(스케일)": 87,
+  "TP50": 24
  },
  "rule_compare": {
   "A-last": {
@@ -67,19 +67,19 @@
    }
   },
   "B-last": {
-   "n": 24,
-   "avg_ret": 23.53,
-   "win_rate": 66.7,
-   "best": 74.14,
+   "n": 26,
+   "avg_ret": 25.99,
+   "win_rate": 69.2,
+   "best": 87.38,
    "worst": -95.45,
    "reasons": {
-    "TP50": 23,
+    "TP50": 25,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 8,
-   "note": "B-last가 청산한 신호 중 8건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 10,
+   "note": "B-last가 청산한 신호 중 10건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase"
