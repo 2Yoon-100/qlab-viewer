@@ -1,11 +1,11 @@
 {
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-09",
-  "KR": "2026-09-09",
-  "US": "2026-09-09"
+  "COIN": "2026-09-10",
+  "KR": "2026-09-10",
+  "US": "2026-09-10"
  },
- "forward_days": 61,
+ "forward_days": 62,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -17,40 +17,40 @@
  "n_closed_total": 42,
  "n_voided": 1,
  "live": {
-  "n_tracked": 595,
-  "n_with_ret": 569,
-  "avg_ret": -18.91,
-  "positive_ratio": 27.1,
+  "n_tracked": 594,
+  "n_with_ret": 568,
+  "avg_ret": -18.84,
+  "positive_ratio": 27.5,
   "latest_close_date": "2026-09-08",
   "latest_close_n": 1,
   "updated_at": "2026-07-12T18:16:52.384562+00:00",
   "breakdown": {
-   "holding_covered": 595,
+   "holding_covered": 594,
    "closed_backtest": 347,
    "covered_total": 975,
    "active_total": 1043
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-09",
-   "KR": "2026-09-09",
-   "US": "2026-09-09"
+   "COIN": "2026-09-10",
+   "KR": "2026-09-10",
+   "US": "2026-09-10"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-09",
- "latest_hash": "b9c4df8b723f74b444ca0eab44755598d4594680be2c303b2db2e894a4062bfb",
+ "latest_date": "2026-09-10",
+ "latest_hash": "d43bc73af405f1a52a8a7691bd0f16c8fcb87881888239b51675b7230f32e5c6",
  "alast_status_counts": {
-  "보유중": 595,
+  "보유중": 594,
   "청산완료(백테스트)": 347,
-  "검증불가(스케일)": 87,
+  "검증불가(스케일)": 88,
   "TP50": 11,
   "TP100": 3
  },
  "blast_status_counts": {
-  "보유중": 584,
+  "보유중": 583,
   "청산완료(백테스트)": 347,
-  "검증불가(스케일)": 87,
+  "검증불가(스케일)": 88,
   "TP50": 25
  },
  "rule_compare": {
