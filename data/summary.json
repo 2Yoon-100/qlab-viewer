@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-13T13:26:15.396496+00:00",
+ "generated_at": "2026-09-13T18:15:12.950427+00:00",
  "new_entries_observed": 5,
  "latest_entry_date": "2026-09-11",
  "market_health": [
@@ -11,7 +11,7 @@
   },
   {
    "market": "KR",
-   "latest_price_date": "2026-09-13",
+   "latest_price_date": "2026-09-11",
    "oldest_open_price_date": "2026-09-11",
    "open_missing_date": 0
   },
@@ -23,7 +23,7 @@
   },
   {
    "market": "US",
-   "latest_price_date": "2026-09-11",
+   "latest_price_date": "2026-07-12",
    "oldest_open_price_date": "2026-07-12",
    "open_missing_date": 2
   },
@@ -36,11 +36,11 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-13",
+  "COIN": "2026-09-14",
   "KR": "2026-09-13",
   "US": "2026-09-13"
  },
- "forward_days": 65,
+ "forward_days": 66,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -67,14 +67,14 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-13",
+   "COIN": "2026-09-14",
    "KR": "2026-09-13",
    "US": "2026-09-13"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-13",
- "latest_hash": "f456df2526cf7a8c8206969d9749d0bc68cf245c44a7c034aad7aafb39ccdc04",
+ "latest_date": "2026-09-14",
+ "latest_hash": "288fcc8d21acc9ff9b70108b96bcf415aeca73ef8ef73d476c28d3cd9eda8f6f",
  "alast_status_counts": {
   "보유중": 354,
   "청산완료(백테스트)": 347,
@@ -130,14 +130,6 @@
    "discovery": null
   },
   {
-   "market": "COIN",
-   "date": "2026-09-13",
-   "data_asof": "2026-09-12",
-   "status": "legacy_unverified",
-   "failed_prices": 1,
-   "discovery": null
-  },
-  {
    "market": "KR",
    "date": "2026-09-13",
    "data_asof": "2026-09-11",
@@ -156,6 +148,20 @@
    "status": "legacy_unverified",
    "failed_prices": 0,
    "discovery": null
+  },
+  {
+   "market": "COIN",
+   "date": "2026-09-14",
+   "data_asof": "2026-09-12",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 480,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-09-13T18:10:01.336560+00:00",
+   "source": "latest_run_report"
   }
  ]
 }
