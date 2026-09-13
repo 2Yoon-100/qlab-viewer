@@ -304,7 +304,7 @@
       <div class="card"><div class="clab">보유일 분포 (청산사유별)</div><div id="hold-chart"></div>
         <div class="caxis"><span>0일</span><span>365일</span></div><div id="hold-legend" class="legend"></div></div>
       <div class="card"><div class="clab">품질버킷 × 수익종결률</div><div id="qbar-chart"></div>
-        <p class="note" style="margin-top:6px">품질점수가 높을수록 수익종결률↑(표와 동일 데이터).</p></div>
+        <p class="note" style="margin-top:6px">품질 구간별 관측 결과입니다. 점수와 수익종결률의 단조 관계는 확인되지 않았습니다.</p></div>
     </div>
   </section>
 
@@ -338,16 +338,15 @@
   <div class="part">
     <div class="plabel">PART II</div>
     <h2>포워드 검증 기록</h2>
-    <p class="psub">매일 갱신 · 조작 불가 해시체인으로 실시간 축적</p>
+    <p class="psub">관측 기록 축적 · 시장별 데이터 기준일과 갱신 상태 확인</p>
   </div>
 
   <div class="connect" id="connect">
     <b>Part I과의 연결</b> — 위 백테스트 마스터에서 <b>아직 보유중인 신호</b>가
-    지금 이 순간에도 아래에서 실시간으로 검증·축적되고 있습니다. 실시간 보유 포지션은 전략 보호를 위해 비공개이며,
+    시장 마감 후 일별로 추적됩니다. 기준일이 오래된 종목은 갱신 지연으로 보아야 합니다. 보유 포지션은 비공개이며,
     <b>청산 완료 건만</b> 사후 공개됩니다.
-    <p>※ 포워드 추적은 2026-07-11 시작(시드 943건, 진입일 소급). 가격 갱신·청산 판정·스냅샷 축적은 매일 계속되지만,
-    신규 신호 진입은 시드 이후 없습니다. 시작 이후 청산 완료 12건으로 통계적 결론을 내리기에는 표본이 부족하며,
-    현재 표기된 보유 성과는 시드 시점에 이미 진행 중이던 포지션을 포함합니다.</p>
+    <p class="note" id="forward-observation-note">신규 관측 수를 불러오는 중입니다. 기존 시드 추적과 복원 데이터는 구분합니다.</p>
+    <div id="data-health" class="note"></div>
   </div>
 
   <div id="stats" class="grid"></div>
@@ -355,7 +354,7 @@
   <section>
     <h3><span class="dot"></span>해시체인 무결성</h3>
     <p class="desc">매일의 스냅샷은 전일 해시를 포함해 SHA-256으로 봉인됩니다(<code>today = sha256(prev + payload)</code>).
-       과거 한 건이라도 바꾸면 이후 모든 해시가 어긋나 <b>사후 조작이 즉시 드러납니다</b>.</p>
+       이 화면은 이전 해시 연결을 확인합니다. 원본 재해시와 외부 시각 인증을 통한 검증은 별도입니다.</p>
     <div class="card"><div id="chain" class="chain"></div>
       <div id="chain-status" class="muted" style="margin-top:10px;font-size:12.5px"></div></div>
   </section>
@@ -374,7 +373,7 @@
     <div class="card scroll"><table id="clo">
       <thead><tr><th>청산일</th><th>티커</th><th>시장</th><th>규칙</th><th>사유</th><th>차수</th><th>수익률(진입대비)</th><th>[ref 대비]</th><th>보유일</th><th>품질(진입)</th></tr></thead>
       <tbody></tbody></table></div>
-    <p class="note">품질 점수·버킷은 <b>청산 완료 건만</b> 공개(보유중 개별 점수 비공개).</p>
+    <p class="note">품질 점수·버킷은 청산 완료 건만 공개합니다.</p>
     <div id="clo-corrections"></div>
   </section>
 
@@ -459,6 +458,9 @@ function renderMctx(mc){
   $('#mctx-strip').innerHTML=strip.map(([k,v,d])=>`<div class="idx"><div class="k">${k} Index</div><div class="v">${v==null?'–':v}</div><div class="d">${d}</div></div>`).join('');
   $('#mctx-chart').innerHTML=svgLine(mc.quality,'var(--accent)');
   $('#mctx-axis').innerHTML=`<span>${esc(mc.dates[0])}</span><span>${esc(L.date||'')}</span>`;
+  const sourceDates=Object.entries(mc.source_dates||{}).map(([k,v])=>`${k} ${v}`).join(' · ');
+  $('#mctx-axis').insertAdjacentHTML('afterend', `<p class="note">지표 기준일 ${esc(L.date||'미확인')} · 원료 관측일 ${esc(sourceDates||'미확인')} · ${mc.data_type==='reconstructed'?'현재 수집 자료로 재계산한 이력':'과거 고정 자료'} · 조회 시점의 실시간 시세가 아닙니다.</p>`);
+
 }
 function renderDist(s){
   if(s.mae_hist) $('#mae-chart').innerHTML=svgHist(s.mae_hist.labels,s.mae_hist.counts,'var(--red)');
@@ -688,6 +690,11 @@ function renderStats(s){
     statCard('최신 해시', `<span class="bkt">${s.latest_hash?esc(s.latest_hash.slice(0,12)):'–'}…</span>`),
   ].join('');
   $('#meta').textContent = `포워드 기준일 ${s.latest_date||'–'} · GENESIS ${s.genesis_date||'–'} · 출처 ${s.source}`;
+  const obs=$('#forward-observation-note');
+  if(obs) obs.textContent=`기존 시드의 사후 추적을 포함합니다. 신규 관측 등록 ${s.new_entries_observed??0}건 · 최근 신규 진입 ${s.latest_entry_date||'미등록'} · 청산 기록 ${s.n_closed_total??0}건(A/B 규칙별 기록, 고유 거래 수와 다름). 복원 기록은 실시간 관측 성과에 합산하지 않습니다.`;
+  const health=$('#data-health');
+  if(health) health.innerHTML=(s.market_health||[]).map(m=>`${esc(m.market)}: 최근 가격 ${esc(m.latest_price_date||'미확인')} / 보유중 가장 오래된 가격 ${esc(m.oldest_open_price_date||'미확인')} / 기준일 누락 ${num(m.open_missing_date||0,0)}건`).join('<br>');
+  if(health) health.innerHTML += '<br>'+ (s.run_health||[]).map(r=>`${esc(r.market)} 수집 상태: ${esc(r.status||'미검증')} · 가격 실패 ${r.failed_prices??'미확인'}건 · 신규 탐지 실패 ${r.discovery?.failed??'미확인'}건`).join('<br>');
   const hb=$('#tb-hash'); if(hb) hb.textContent='해시 '+(s.latest_hash?esc(s.latest_hash.slice(0,10))+'…':'—');
 }
 const CHAIN_LABEL={COIN:'코인',KR:'한국',US:'미국',FORWARD:'통합(레거시·2026-07-12 종료)'};
@@ -707,13 +714,13 @@ function renderChain(snaps){
     prev='GENESIS';
     for(const s of trim){
       if(s===null){ row+=`<div class="link muted">…</div>`; continue; }
-      const ok=s.prev_hash===prev; prev=s.today_hash;
+      const position=rows.indexOf(s); const ok=s.prev_hash===(position?rows[position-1].today_hash:'GENESIS'); prev=s.today_hash;
       row+=`<div class="link ${ok?'ok':'bad'}">→</div><div class="node"><div class="box ${ok?'':'bad'}">${esc((s.today_hash||'').slice(0,8))}…</div><div class="dt">${esc(s.date)}</div></div>`;
     }
     box.insertAdjacentHTML('beforeend', row+`</div></div>`);
   }
   $('#chain-status').innerHTML = broken===0
-    ? `<span class="ok">✓ 무결성 정상</span> — ${order.length}개 시장 체인 · 스냅샷 ${total}개 전부 이전 해시와 정확히 연결됨(조작 흔적 없음).`
+    ? `<span class="ok">✓ 해시 연결 일치</span> — ${order.length}개 시장 체인 · 스냅샷 ${total}개의 이전 해시 연결 일치. 원본 내용·시각의 진실성을 보증하지 않습니다.`
     : `<span class="bad">✗ ${broken}개 지점 체인 불일치</span> — 조작·오류 신호.`;
 }
 function ruleBox(name,r,cls){

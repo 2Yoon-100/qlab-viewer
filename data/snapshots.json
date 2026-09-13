@@ -9,6 +9,9 @@
   "n_failed": 0,
   "n_tracking": 813,
   "n_isolated": 0,
+  "data_asof": null,
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -1.977
  },
  {
@@ -21,6 +24,9 @@
   "n_failed": 0,
   "n_tracking": 813,
   "n_isolated": 0,
+  "data_asof": null,
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -1.99
  },
  {
@@ -33,6 +39,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.273
  },
  {
@@ -45,6 +54,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.632
  },
  {
@@ -57,6 +69,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -69,6 +84,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-13",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.927
  },
  {
@@ -81,6 +99,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -22.432
  },
  {
@@ -93,6 +114,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-13",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -105,6 +129,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.008
  },
  {
@@ -117,6 +144,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -19.944
  },
  {
@@ -129,6 +159,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -141,6 +174,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -28.982
  },
  {
@@ -153,6 +189,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -20.334
  },
  {
@@ -165,6 +204,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -177,6 +219,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.412
  },
  {
@@ -189,6 +234,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -20.334
  },
  {
@@ -201,6 +249,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -213,6 +264,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.664
  },
  {
@@ -225,6 +279,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -20.334
  },
  {
@@ -237,6 +294,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -249,6 +309,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -31.445
  },
  {
@@ -261,6 +324,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -20.334
  },
  {
@@ -273,6 +339,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -285,6 +354,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.595
  },
  {
@@ -297,6 +369,9 @@
   "n_failed": 0,
   "n_tracking": 446,
   "n_isolated": 1,
+  "data_asof": "2026-07-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -22.95
  },
  {
@@ -309,6 +384,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -321,6 +399,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.618
  },
  {
@@ -333,6 +414,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -22.507
  },
  {
@@ -345,6 +429,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -357,6 +444,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.19
  },
  {
@@ -369,6 +459,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -22.134
  },
  {
@@ -381,6 +474,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -393,6 +489,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -31.661
  },
  {
@@ -405,6 +504,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -19.732
  },
  {
@@ -417,6 +519,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -429,6 +534,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -31.836
  },
  {
@@ -441,6 +549,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -21.196
  },
  {
@@ -453,6 +564,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -465,6 +579,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -33.061
  },
  {
@@ -477,6 +594,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -21.196
  },
  {
@@ -489,6 +609,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -501,6 +624,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -32.94
  },
  {
@@ -513,6 +639,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -21.196
  },
  {
@@ -525,6 +654,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -537,6 +669,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -32.153
  },
  {
@@ -549,6 +684,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -20.807
  },
  {
@@ -561,6 +699,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -573,6 +714,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -34.881
  },
  {
@@ -585,6 +729,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -24.167
  },
  {
@@ -597,6 +744,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -609,6 +759,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -36.422
  },
  {
@@ -621,6 +774,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-29",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -28.032
  },
  {
@@ -633,6 +789,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -645,6 +804,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-29",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -38.413
  },
  {
@@ -657,6 +819,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -27.901
  },
  {
@@ -669,6 +834,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-29",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -681,6 +849,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -38.897
  },
  {
@@ -693,6 +864,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-07-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -23.947
  },
  {
@@ -705,6 +879,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -717,6 +894,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-07-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -38.076
  },
  {
@@ -729,6 +909,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -23.947
  },
  {
@@ -741,6 +924,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-07-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -753,6 +939,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.305
  },
  {
@@ -765,6 +954,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -23.947
  },
  {
@@ -777,6 +969,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -789,6 +984,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.351
  },
  {
@@ -801,6 +999,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -22.822
  },
  {
@@ -813,6 +1014,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -825,6 +1029,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.579
  },
  {
@@ -837,6 +1044,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -19.702
  },
  {
@@ -849,6 +1059,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -861,6 +1074,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.66
  },
  {
@@ -873,6 +1089,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.241
  },
  {
@@ -885,6 +1104,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -897,6 +1119,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.873
  },
  {
@@ -909,6 +1134,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.32
  },
  {
@@ -921,6 +1149,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -933,6 +1164,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.418
  },
  {
@@ -945,6 +1179,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.983
  },
  {
@@ -957,6 +1194,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -969,6 +1209,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -37.02
  },
  {
@@ -981,6 +1224,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.983
  },
  {
@@ -993,6 +1239,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1005,6 +1254,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -36.623
  },
  {
@@ -1017,6 +1269,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.983
  },
  {
@@ -1029,6 +1284,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1041,6 +1299,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -36.283
  },
  {
@@ -1053,6 +1314,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.764
  },
  {
@@ -1065,6 +1329,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1077,6 +1344,9 @@
   "n_failed": 0,
   "n_tracking": 108,
   "n_isolated": 0,
+  "data_asof": "2026-08-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -35.404
  },
  {
@@ -1089,6 +1359,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.646
  },
  {
@@ -1101,6 +1374,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1113,6 +1389,9 @@
   "n_failed": 1,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -39.16
  },
  {
@@ -1125,6 +1404,9 @@
   "n_failed": 0,
   "n_tracking": 446,
   "n_isolated": 1,
+  "data_asof": "2026-08-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.346
  },
  {
@@ -1137,6 +1419,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1149,6 +1434,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -40.117
  },
  {
@@ -1161,6 +1449,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-13",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.03
  },
  {
@@ -1173,6 +1464,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1185,6 +1479,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-13",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -39.602
  },
  {
@@ -1197,6 +1494,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.429
  },
  {
@@ -1209,6 +1509,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-13",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1221,6 +1524,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -39.181
  },
  {
@@ -1233,6 +1539,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.429
  },
  {
@@ -1245,6 +1554,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-14",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1257,6 +1569,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -38.692
  },
  {
@@ -1269,6 +1584,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.429
  },
  {
@@ -1281,6 +1599,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-15",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1293,6 +1614,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -39.151
  },
  {
@@ -1305,6 +1629,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -14.429
  },
  {
@@ -1317,6 +1644,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-16",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1329,6 +1659,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -40.135
  },
  {
@@ -1341,6 +1674,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.229
  },
  {
@@ -1353,6 +1689,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-17",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1365,6 +1704,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -40.698
  },
  {
@@ -1377,6 +1719,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.211
  },
  {
@@ -1389,6 +1734,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-18",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1401,6 +1749,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -38.892
  },
  {
@@ -1413,6 +1764,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.398
  },
  {
@@ -1425,6 +1779,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-19",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1437,6 +1794,9 @@
   "n_failed": 0,
   "n_tracking": 107,
   "n_isolated": 0,
+  "data_asof": "2026-08-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -36.837
  },
  {
@@ -1449,6 +1809,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.219
  },
  {
@@ -1461,6 +1824,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-20",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1473,6 +1839,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.652
  },
  {
@@ -1485,6 +1854,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.219
  },
  {
@@ -1497,6 +1869,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-21",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1509,6 +1884,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.604
  },
  {
@@ -1521,6 +1899,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.219
  },
  {
@@ -1533,6 +1914,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-22",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1545,6 +1929,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -23.277
  },
  {
@@ -1557,6 +1944,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -18.002
  },
  {
@@ -1569,6 +1959,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-23",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1581,6 +1974,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.333
  },
  {
@@ -1593,6 +1989,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.176
  },
  {
@@ -1605,6 +2004,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-24",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1617,6 +2019,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.722
  },
  {
@@ -1629,6 +2034,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.803
  },
  {
@@ -1641,6 +2049,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-25",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1653,6 +2064,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -24.477
  },
  {
@@ -1665,6 +2079,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-26",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1677,6 +2094,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -24.536
  },
  {
@@ -1689,6 +2109,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.521
  },
  {
@@ -1701,6 +2124,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-27",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1713,6 +2139,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -23.432
  },
  {
@@ -1725,6 +2154,9 @@
   "n_failed": 0,
   "n_tracking": 446,
   "n_isolated": 1,
+  "data_asof": "2026-08-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.755
  },
  {
@@ -1737,6 +2169,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-28",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1749,6 +2184,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-29",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -30.346
  },
  {
@@ -1761,6 +2199,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-08-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.784
  },
  {
@@ -1773,6 +2214,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-29",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1785,6 +2229,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.547
  },
  {
@@ -1797,6 +2244,9 @@
   "n_failed": 0,
   "n_tracking": 446,
   "n_isolated": 1,
+  "data_asof": "2026-08-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.527
  },
  {
@@ -1809,6 +2259,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-30",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1821,6 +2274,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-08-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -27.808
  },
  {
@@ -1833,6 +2289,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -15.476
  },
  {
@@ -1845,6 +2304,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-08-31",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1857,6 +2319,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.665
  },
  {
@@ -1869,6 +2334,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.851
  },
  {
@@ -1881,6 +2349,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-01",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1893,6 +2364,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.621
  },
  {
@@ -1905,6 +2379,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -17.176
  },
  {
@@ -1917,6 +2394,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-02",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1929,6 +2409,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -25.183
  },
  {
@@ -1941,6 +2424,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.432
  },
  {
@@ -1953,6 +2439,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-03",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -1965,6 +2454,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -27.301
  },
  {
@@ -1977,6 +2469,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.432
  },
  {
@@ -1989,6 +2484,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-04",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2001,6 +2499,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -25.266
  },
  {
@@ -2013,6 +2514,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.432
  },
  {
@@ -2025,6 +2529,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-05",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2037,6 +2544,9 @@
   "n_failed": 0,
   "n_tracking": 106,
   "n_isolated": 0,
+  "data_asof": "2026-09-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -25.638
  },
  {
@@ -2049,6 +2559,9 @@
   "n_failed": 0,
   "n_tracking": 445,
   "n_isolated": 2,
+  "data_asof": "2026-09-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.226
  },
  {
@@ -2061,6 +2574,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-06",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2073,6 +2589,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -25.587
  },
  {
@@ -2085,6 +2604,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.835
  },
  {
@@ -2097,6 +2619,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-07",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2109,6 +2634,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -24.389
  },
  {
@@ -2121,6 +2649,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.533
  },
  {
@@ -2133,6 +2664,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-08",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2145,6 +2679,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.562
  },
  {
@@ -2157,6 +2694,9 @@
   "n_failed": 0,
   "n_tracking": 446,
   "n_isolated": 1,
+  "data_asof": "2026-09-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.276
  },
  {
@@ -2169,6 +2709,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-09",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2181,6 +2724,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -29.01
  },
  {
@@ -2193,6 +2739,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.38
  },
  {
@@ -2205,6 +2754,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-10",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2217,6 +2769,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -27.822
  },
  {
@@ -2229,6 +2784,9 @@
   "n_failed": 0,
   "n_tracking": 447,
   "n_isolated": 0,
+  "data_asof": "2026-09-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -16.38
  },
  {
@@ -2241,6 +2799,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-11",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  },
  {
@@ -2253,6 +2814,9 @@
   "n_failed": 1,
   "n_tracking": 105,
   "n_isolated": 0,
+  "data_asof": "2026-09-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": -26.316
  },
  {
@@ -2265,6 +2829,13 @@
   "n_failed": 0,
   "n_tracking": 306,
   "n_isolated": 0,
+  "data_asof": "2026-09-11",
+  "status": "ok",
+  "discovery": {
+   "failed": 0,
+   "scanned": 2765,
+   "new_candidates": 0
+  },
   "avg_ret_from_entry": -15.087
  },
  {
@@ -2277,6 +2848,9 @@
   "n_failed": 0,
   "n_tracking": 0,
   "n_isolated": 0,
+  "data_asof": "2026-09-12",
+  "status": "legacy_unverified",
+  "discovery": null,
   "avg_ret_from_entry": null
  }
 ]
