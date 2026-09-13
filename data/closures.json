@@ -1,5 +1,23 @@
 [
  {
+  "sid": "20250918-KAVAUSDT-0335",
+  "ticker": "KAVAUSDT",
+  "market": "ALT",
+  "rule": "B-last",
+  "reason": "TP50",
+  "ret_from_entry": -79.52,
+  "ret_ref": 50.92,
+  "buys": 3,
+  "hold_days": 359,
+  "date": "2026-09-12",
+  "quality_score": 77,
+  "quality_bucket": "70-79",
+  "correction_of": null,
+  "void_reason": null,
+  "corrected_at": null,
+  "voided": false
+ },
+ {
   "sid": "20260305-475460-4177",
   "ticker": "475460",
   "market": "KR",
