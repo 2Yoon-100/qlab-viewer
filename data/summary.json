@@ -1,24 +1,24 @@
 {
- "generated_at": "2026-09-15T12:17:37.623488+00:00",
- "new_entries_observed": 15,
- "latest_entry_date": "2026-09-15",
+ "generated_at": "2026-09-16T12:11:12.122641+00:00",
+ "new_entries_observed": 22,
+ "latest_entry_date": "2026-09-16",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-09-14",
+   "latest_price_date": "2026-09-15",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
   {
    "market": "KR",
-   "latest_price_date": "2026-09-15",
-   "oldest_open_price_date": "2026-09-15",
+   "latest_price_date": "2026-09-16",
+   "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-09-14",
-   "oldest_open_price_date": "2026-09-14",
+   "latest_price_date": "2026-09-15",
+   "oldest_open_price_date": "2026-09-15",
    "open_missing_date": 0
   },
   {
@@ -29,60 +29,60 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-09-14",
-   "oldest_open_price_date": "2026-09-11",
+   "latest_price_date": "2026-09-15",
+   "oldest_open_price_date": "2026-09-15",
    "open_missing_date": 0
   },
   {
    "market": "US-SP500",
-   "latest_price_date": "2026-09-14",
-   "oldest_open_price_date": "2026-09-14",
+   "latest_price_date": "2026-09-15",
+   "oldest_open_price_date": "2026-09-15",
    "open_missing_date": 0
   }
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-15",
-  "KR": "2026-09-15",
-  "US": "2026-09-15"
+  "COIN": "2026-09-16",
+  "KR": "2026-09-16",
+  "US": "2026-09-16"
  },
- "forward_days": 67,
+ "forward_days": 68,
  "markets_tracked": [
   "COIN",
   "FORWARD",
   "KR",
   "US"
  ],
- "n_signals_tracked": 1058,
- "n_covered": 990,
+ "n_signals_tracked": 1065,
+ "n_covered": 997,
  "n_closed_total": 49,
  "n_voided": 1,
  "live": {
-  "n_tracked": 363,
-  "n_with_ret": 360,
-  "avg_ret": -17.07,
-  "positive_ratio": 24.2,
+  "n_tracked": 370,
+  "n_with_ret": 367,
+  "avg_ret": -17.46,
+  "positive_ratio": 24.8,
   "latest_close_date": "2026-09-15",
   "latest_close_n": 1,
-  "updated_at": "2026-09-15T12:17:22.693066+00:00",
+  "updated_at": "2026-09-16T12:10:56.101793+00:00",
   "breakdown": {
-   "holding_covered": 363,
+   "holding_covered": 370,
    "closed_backtest": 347,
-   "covered_total": 990,
-   "active_total": 1058
+   "covered_total": 997,
+   "active_total": 1065
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-15",
-   "KR": "2026-09-15",
-   "US": "2026-09-15"
+   "COIN": "2026-09-16",
+   "KR": "2026-09-16",
+   "US": "2026-09-16"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-15",
- "latest_hash": "dc39b16bf4bda7ca12f8f37b9d583fc69b1d058bd273a68b053b0e57eb386144",
+ "latest_date": "2026-09-16",
+ "latest_hash": "ffe27f1ef51cc246dadb0e471de9213714d518805c5e34f8d451cb9163b89180",
  "alast_status_counts": {
-  "보유중": 363,
+  "보유중": 370,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 88,
@@ -90,7 +90,7 @@
   "TP100": 4
  },
  "blast_status_counts": {
-  "보유중": 349,
+  "보유중": 356,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 88,
@@ -137,8 +137,8 @@
   },
   {
    "market": "COIN",
-   "date": "2026-09-15",
-   "data_asof": "2026-09-14",
+   "date": "2026-09-16",
+   "data_asof": "2026-09-15",
    "status": "partial",
    "failed_prices": 1,
    "discovery": {
@@ -149,8 +149,8 @@
   },
   {
    "market": "KR",
-   "date": "2026-09-15",
-   "data_asof": "2026-09-15",
+   "date": "2026-09-16",
+   "data_asof": "2026-09-16",
    "status": "ok",
    "failed_prices": 0,
    "discovery": {
@@ -158,19 +158,19 @@
     "new_candidates": 2,
     "failed": 0
    },
-   "observed_at": "2026-09-15T12:04:51.400885+00:00",
+   "observed_at": "2026-09-16T12:00:46.735900+00:00",
    "source": "latest_run_report"
   },
   {
    "market": "US",
-   "date": "2026-09-15",
-   "data_asof": "2026-09-14",
+   "date": "2026-09-16",
+   "data_asof": "2026-09-15",
    "status": "partial",
-   "failed_prices": 8,
+   "failed_prices": 6,
    "discovery": {
-    "failed": 1780,
-    "scanned": 4303,
-    "new_candidates": 8
+    "failed": 428,
+    "scanned": 4305,
+    "new_candidates": 5
    }
   }
  ]
