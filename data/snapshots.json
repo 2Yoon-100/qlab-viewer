@@ -3080,5 +3080,62 @@
    "new_candidates": 13
   },
   "avg_ret_from_entry": -1.7
+ },
+ {
+  "date": "2026-09-18",
+  "market": "COIN",
+  "prev_hash": "53b335642add1154f19f4f6ca81440d2f1168723dfef492f2d8868bda918e86e",
+  "today_hash": "f69cec7ffb1be556dfb9ae58c88bbdc04b1e60b737f982ac63d32bfae8bb0bb4",
+  "n_active": 36,
+  "n_closed": 0,
+  "n_failed": 1,
+  "n_tracking": 36,
+  "n_isolated": 0,
+  "data_asof": "2026-09-17",
+  "status": "partial",
+  "discovery": {
+   "failed": 0,
+   "scanned": 483,
+   "new_candidates": 0
+  },
+  "avg_ret_from_entry": -37.823
+ },
+ {
+  "date": "2026-09-18",
+  "market": "KR",
+  "prev_hash": "c0d1b848c80d3da695d28f5b385ee0c3aa554909423a59ff6506295c0c7b749a",
+  "today_hash": "ef41d75e7cf126ef934f053ff5aec88ebfe361f35166f5c62af09c43af30e771",
+  "n_active": 310,
+  "n_closed": 0,
+  "n_failed": 0,
+  "n_tracking": 310,
+  "n_isolated": 0,
+  "data_asof": "2026-09-18",
+  "status": "ok",
+  "discovery": {
+   "failed": 0,
+   "scanned": 2762,
+   "new_candidates": 0
+  },
+  "avg_ret_from_entry": -14.09
+ },
+ {
+  "date": "2026-09-18",
+  "market": "US",
+  "prev_hash": "fb81ae8075fe6a429bcd631b5fef30362ca2cd21491c455a8d83d10a3652ee7f",
+  "today_hash": "459043ec5dd3b708c7ab75ca53110f2c42b66c0dafe394e353923adff3c17f6f",
+  "n_active": 39,
+  "n_closed": 0,
+  "n_failed": 7,
+  "n_tracking": 39,
+  "n_isolated": 0,
+  "data_asof": "2026-09-17",
+  "status": "partial",
+  "discovery": {
+   "failed": 435,
+   "scanned": 4312,
+   "new_candidates": 9
+  },
+  "avg_ret_from_entry": -1.465
  }
 ]
