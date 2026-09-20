@@ -1,497 +1,497 @@
 [
   {
-    "ret_from_entry": -80.58,
-    "rule": "A-last",
-    "date": "2026-09-18",
     "market": "ALT",
     "hold_days": 365,
+    "date": "2026-09-18",
+    "rule": "A-last",
+    "ticker": "KAVAUSDT",
     "reason": "만기손절",
-    "ticker": "KAVAUSDT"
+    "ret_from_entry": -80.58
   },
   {
-    "ret_from_entry": -26.12,
-    "rule": "B-last",
-    "date": "2026-09-17",
     "market": "KR",
     "hold_days": 134,
+    "date": "2026-09-17",
+    "rule": "B-last",
+    "ticker": "439580",
     "reason": "TP50",
-    "ticker": "439580"
+    "ret_from_entry": -26.12
   },
   {
-    "ret_from_entry": 32.89,
-    "rule": "B-last",
-    "date": "2026-09-17",
     "market": "KR",
     "hold_days": 70,
+    "date": "2026-09-17",
+    "rule": "B-last",
+    "ticker": "340450",
     "reason": "TP50",
-    "ticker": "340450"
+    "ret_from_entry": 32.89
   },
   {
-    "ret_from_entry": -26.12,
-    "rule": "A-last",
-    "date": "2026-09-17",
     "market": "KR",
     "hold_days": 134,
-    "reason": "TP50",
-    "ticker": "439580"
-  },
-  {
-    "ret_from_entry": 3.19,
-    "rule": "B-last",
     "date": "2026-09-17",
-    "market": "KR",
-    "hold_days": 115,
-    "reason": "TP50",
-    "ticker": "480370"
-  },
-  {
-    "ret_from_entry": 3.19,
     "rule": "A-last",
-    "date": "2026-09-17",
-    "market": "KR",
-    "hold_days": 115,
+    "ticker": "439580",
     "reason": "TP50",
-    "ticker": "480370"
+    "ret_from_entry": -26.12
   },
   {
-    "ret_from_entry": 10.41,
+    "market": "KR",
+    "hold_days": 115,
+    "date": "2026-09-17",
     "rule": "B-last",
-    "date": "2026-09-15",
+    "ticker": "480370",
+    "reason": "TP50",
+    "ret_from_entry": 3.19
+  },
+  {
+    "market": "KR",
+    "hold_days": 115,
+    "date": "2026-09-17",
+    "rule": "A-last",
+    "ticker": "480370",
+    "reason": "TP50",
+    "ret_from_entry": 3.19
+  },
+  {
     "market": "KR",
     "hold_days": 187,
+    "date": "2026-09-15",
+    "rule": "B-last",
+    "ticker": "201490",
     "reason": "TP50",
-    "ticker": "201490"
+    "ret_from_entry": 10.41
   },
   {
-    "ret_from_entry": 23.66,
-    "rule": "A-last",
-    "date": "2026-09-14",
     "market": "KR",
     "hold_days": 67,
+    "date": "2026-09-14",
+    "rule": "A-last",
+    "ticker": "140430",
     "reason": "TP50",
-    "ticker": "140430"
+    "ret_from_entry": 23.66
   },
   {
-    "ret_from_entry": 19.33,
-    "rule": "B-last",
-    "date": "2026-09-14",
     "market": "KR",
     "hold_days": 131,
+    "date": "2026-09-14",
+    "rule": "B-last",
+    "ticker": "411080",
     "reason": "TP50",
-    "ticker": "411080"
+    "ret_from_entry": 19.33
   },
   {
-    "ret_from_entry": 23.66,
-    "rule": "B-last",
-    "date": "2026-09-14",
     "market": "KR",
     "hold_days": 67,
+    "date": "2026-09-14",
+    "rule": "B-last",
+    "ticker": "140430",
     "reason": "TP50",
-    "ticker": "140430"
+    "ret_from_entry": 23.66
   },
   {
-    "ret_from_entry": -79.52,
-    "rule": "B-last",
-    "date": "2026-09-12",
     "market": "ALT",
     "hold_days": 359,
+    "date": "2026-09-12",
+    "rule": "B-last",
+    "ticker": "KAVAUSDT",
     "reason": "TP50",
-    "ticker": "KAVAUSDT"
+    "ret_from_entry": -79.52
   },
   {
-    "ret_from_entry": 17.96,
-    "rule": "B-last",
-    "date": "2026-09-11",
     "market": "KR",
     "hold_days": 130,
+    "date": "2026-09-11",
+    "rule": "B-last",
+    "ticker": "475460",
     "reason": "TP50",
-    "ticker": "475460"
+    "ret_from_entry": 17.96
   },
   {
-    "ret_from_entry": 111.55,
-    "rule": "A-last",
-    "date": "2026-09-10",
     "market": "ALT",
     "hold_days": 216,
+    "date": "2026-09-10",
+    "rule": "A-last",
+    "ticker": "RAYUSDT",
     "reason": "TP100",
-    "ticker": "RAYUSDT"
+    "ret_from_entry": 111.55
   },
   {
-    "ret_from_entry": 425.67,
-    "rule": "B-last",
-    "date": "2026-09-08",
     "market": "ALT",
     "hold_days": 0,
+    "date": "2026-09-08",
+    "rule": "B-last",
+    "ticker": "LDOUSDT",
     "reason": "TP50",
-    "ticker": "LDOUSDT"
+    "ret_from_entry": 425.67
   },
   {
-    "ret_from_entry": 23.63,
-    "rule": "B-last",
-    "date": "2026-09-06",
     "market": "MAJOR",
     "hold_days": 216,
+    "date": "2026-09-06",
+    "rule": "B-last",
+    "ticker": "LINKUSDT",
     "reason": "TP50",
-    "ticker": "LINKUSDT"
+    "ret_from_entry": 23.63
   },
   {
-    "ret_from_entry": 87.38,
-    "rule": "B-last",
-    "date": "2026-09-06",
     "market": "ALT",
     "hold_days": 212,
+    "date": "2026-09-06",
+    "rule": "B-last",
+    "ticker": "RAYUSDT",
     "reason": "TP50",
-    "ticker": "RAYUSDT"
+    "ret_from_entry": 87.38
   },
   {
-    "ret_from_entry": -13.8,
-    "rule": "A-last",
-    "date": "2026-09-03",
     "market": "MAJOR",
     "hold_days": 326,
+    "date": "2026-09-03",
+    "rule": "A-last",
+    "ticker": "UNIUSDT",
     "reason": "TP100",
-    "ticker": "UNIUSDT"
+    "ret_from_entry": -13.8
   },
   {
-    "ret_from_entry": -28.38,
-    "rule": "A-last",
-    "date": "2026-08-31",
     "market": "KR",
     "hold_days": 121,
+    "date": "2026-08-31",
+    "rule": "A-last",
+    "ticker": "210120",
     "reason": "TP50",
-    "ticker": "210120"
+    "ret_from_entry": -28.38
   },
   {
-    "ret_from_entry": 8.66,
-    "rule": "B-last",
-    "date": "2026-08-28",
     "market": "ALT",
     "hold_days": 118,
+    "date": "2026-08-28",
+    "rule": "B-last",
+    "ticker": "TRUMPUSDT",
     "reason": "TP50",
-    "ticker": "TRUMPUSDT"
+    "ret_from_entry": 8.66
   },
   {
-    "ret_from_entry": 50.65,
-    "rule": "B-last",
-    "date": "2026-08-27",
     "market": "MAJOR",
     "hold_days": 81,
+    "date": "2026-08-27",
+    "rule": "B-last",
+    "ticker": "SOLUSDT",
     "reason": "TP50",
-    "ticker": "SOLUSDT"
+    "ret_from_entry": 50.65
   },
   {
-    "ret_from_entry": -17.67,
-    "rule": "B-last",
-    "date": "2026-08-25",
     "market": "KR",
     "hold_days": 122,
+    "date": "2026-08-25",
+    "rule": "B-last",
+    "ticker": "049470",
     "reason": "TP50",
-    "ticker": "049470"
+    "ret_from_entry": -17.67
   },
   {
-    "ret_from_entry": -17.67,
+    "market": "KR",
+    "hold_days": 122,
+    "date": "2026-08-25",
     "rule": "A-last",
-    "date": "2026-08-25",
-    "market": "KR",
-    "hold_days": 122,
+    "ticker": "049470",
     "reason": "TP50",
-    "ticker": "049470"
+    "ret_from_entry": -17.67
   },
   {
-    "ret_from_entry": 55.04,
-    "rule": "B-last",
-    "date": "2026-08-20",
     "market": "KR",
     "hold_days": 53,
+    "date": "2026-08-20",
+    "rule": "B-last",
+    "ticker": "070300",
     "reason": "TP50",
-    "ticker": "070300"
+    "ret_from_entry": 55.04
   },
   {
-    "ret_from_entry": 59.62,
-    "rule": "B-last",
-    "date": "2026-08-20",
     "market": "KR",
     "hold_days": 114,
+    "date": "2026-08-20",
+    "rule": "B-last",
+    "ticker": "210120",
     "reason": "TP50",
-    "ticker": "210120"
+    "ret_from_entry": 59.62
   },
   {
-    "ret_from_entry": 53.39,
-    "rule": "B-last",
-    "date": "2026-08-11",
     "market": "KR",
     "hold_days": 176,
+    "date": "2026-08-11",
+    "rule": "B-last",
+    "ticker": "025890",
     "reason": "TP50",
-    "ticker": "025890"
+    "ret_from_entry": 53.39
   },
   {
-    "ret_from_entry": -16.71,
-    "rule": "B-last",
-    "date": "2026-08-10",
     "market": "KR",
     "hold_days": 140,
+    "date": "2026-08-10",
+    "rule": "B-last",
+    "ticker": "460870",
     "reason": "TP50",
-    "ticker": "460870"
+    "ret_from_entry": -16.71
   },
   {
-    "ret_from_entry": -16.71,
-    "rule": "A-last",
-    "date": "2026-08-10",
     "market": "KR",
     "hold_days": 140,
+    "date": "2026-08-10",
+    "rule": "A-last",
+    "ticker": "460870",
     "reason": "TP50",
-    "ticker": "460870"
+    "ret_from_entry": -16.71
   },
   {
-    "ret_from_entry": 58.64,
-    "rule": "B-last",
-    "date": "2026-08-07",
     "market": "KR",
     "hold_days": 20,
+    "date": "2026-08-07",
+    "rule": "B-last",
+    "ticker": "340360",
     "reason": "TP50",
-    "ticker": "340360"
+    "ret_from_entry": 58.64
   },
   {
-    "ret_from_entry": 58.64,
-    "rule": "A-last",
-    "date": "2026-08-07",
     "market": "KR",
     "hold_days": 20,
+    "date": "2026-08-07",
+    "rule": "A-last",
+    "ticker": "340360",
     "reason": "TP50",
-    "ticker": "340360"
+    "ret_from_entry": 58.64
   },
   {
-    "ret_from_entry": 57.7,
-    "rule": "A-last",
-    "date": "2026-08-05",
     "market": "KR",
     "hold_days": 21,
+    "date": "2026-08-05",
+    "rule": "A-last",
+    "ticker": "469750",
     "reason": "TP50",
-    "ticker": "469750"
+    "ret_from_entry": 57.7
   },
   {
-    "ret_from_entry": 57.7,
+    "market": "KR",
+    "hold_days": 21,
+    "date": "2026-08-05",
     "rule": "B-last",
-    "date": "2026-08-05",
-    "market": "KR",
-    "hold_days": 21,
+    "ticker": "469750",
     "reason": "TP50",
-    "ticker": "469750"
+    "ret_from_entry": 57.7
   },
   {
-    "ret_from_entry": 74.14,
-    "rule": "A-last",
-    "date": "2026-08-04",
     "market": "KR",
     "hold_days": 201,
+    "date": "2026-08-04",
+    "rule": "A-last",
+    "ticker": "148780",
     "reason": "TP100",
-    "ticker": "148780"
+    "ret_from_entry": 74.14
   },
   {
-    "ret_from_entry": -57.51,
-    "rule": "B-last",
-    "date": "2026-08-04",
     "market": "KR",
     "hold_days": 194,
+    "date": "2026-08-04",
+    "rule": "B-last",
+    "ticker": "270520",
     "reason": "TP50",
-    "ticker": "270520"
+    "ret_from_entry": -57.51
   },
   {
-    "ret_from_entry": 74.14,
-    "rule": "B-last",
-    "date": "2026-08-04",
     "market": "KR",
     "hold_days": 201,
+    "date": "2026-08-04",
+    "rule": "B-last",
+    "ticker": "148780",
     "reason": "TP50",
-    "ticker": "148780"
+    "ret_from_entry": 74.14
   },
   {
-    "ret_from_entry": 70.74,
-    "rule": "B-last",
-    "date": "2026-08-03",
     "market": "KR",
     "hold_days": 24,
+    "date": "2026-08-03",
+    "rule": "B-last",
+    "ticker": "484810",
     "reason": "TP50",
-    "ticker": "484810"
+    "ret_from_entry": 70.74
   },
   {
-    "ret_from_entry": -37.25,
-    "rule": "B-last",
-    "date": "2026-07-30",
     "market": "MAJOR",
     "hold_days": 291,
+    "date": "2026-07-30",
+    "rule": "B-last",
+    "ticker": "UNIUSDT",
     "reason": "TP50",
-    "ticker": "UNIUSDT"
+    "ret_from_entry": -37.25
   },
   {
-    "ret_from_entry": 50.43,
-    "rule": "A-last",
-    "date": "2026-07-27",
     "market": "KR",
     "hold_days": 33,
+    "date": "2026-07-27",
+    "rule": "A-last",
+    "ticker": "481070",
     "reason": "TP50",
-    "ticker": "481070"
+    "ret_from_entry": 50.43
   },
   {
-    "ret_from_entry": 50.43,
-    "rule": "B-last",
-    "date": "2026-07-27",
     "market": "KR",
     "hold_days": 33,
+    "date": "2026-07-27",
+    "rule": "B-last",
+    "ticker": "481070",
     "reason": "TP50",
-    "ticker": "481070"
+    "ret_from_entry": 50.43
   },
   {
-    "ret_from_entry": -3.1,
-    "rule": "B-last",
-    "date": "2026-07-21",
     "market": "KR",
     "hold_days": 102,
+    "date": "2026-07-21",
+    "rule": "B-last",
+    "ticker": "023790",
     "reason": "TP50",
-    "ticker": "023790"
+    "ret_from_entry": -3.1
   },
   {
-    "ret_from_entry": -3.1,
-    "rule": "A-last",
-    "date": "2026-07-21",
     "market": "KR",
     "hold_days": 102,
+    "date": "2026-07-21",
+    "rule": "A-last",
+    "ticker": "023790",
     "reason": "TP50",
-    "ticker": "023790"
+    "ret_from_entry": -3.1
   },
   {
-    "ret_from_entry": -15.95,
-    "rule": "A-last",
-    "date": "2026-07-20",
     "market": "KR",
     "hold_days": 11,
+    "date": "2026-07-20",
+    "rule": "A-last",
+    "ticker": "001527",
     "reason": "TP50",
-    "ticker": "001527"
+    "ret_from_entry": -15.95
   },
   {
-    "ret_from_entry": -15.95,
+    "market": "KR",
+    "hold_days": 11,
+    "date": "2026-07-20",
     "rule": "B-last",
-    "date": "2026-07-20",
-    "market": "KR",
-    "hold_days": 11,
+    "ticker": "001527",
     "reason": "TP50",
-    "ticker": "001527"
+    "ret_from_entry": -15.95
   },
   {
-    "ret_from_entry": 70.18,
-    "rule": "A-last",
-    "date": "2026-07-20",
     "market": "KR",
     "hold_days": 92,
+    "date": "2026-07-20",
+    "rule": "A-last",
+    "ticker": "457600",
     "reason": "TP100",
-    "ticker": "457600"
+    "ret_from_entry": 70.18
   },
   {
-    "ret_from_entry": 61.86,
-    "rule": "B-last",
-    "date": "2026-07-19",
     "market": "ALT",
     "hold_days": 59,
+    "date": "2026-07-19",
+    "rule": "B-last",
+    "ticker": "PROMUSDT",
     "reason": "TP50",
-    "ticker": "PROMUSDT"
+    "ret_from_entry": 61.86
   },
   {
-    "ret_from_entry": 61.86,
-    "rule": "A-last",
-    "date": "2026-07-19",
     "market": "ALT",
     "hold_days": 59,
+    "date": "2026-07-19",
+    "rule": "A-last",
+    "ticker": "PROMUSDT",
     "reason": "TP50",
-    "ticker": "PROMUSDT"
+    "ret_from_entry": 61.86
   },
   {
-    "ret_from_entry": -16.48,
-    "rule": "B-last",
-    "date": "2026-07-16",
     "market": "KR",
     "hold_days": 44,
+    "date": "2026-07-16",
+    "rule": "B-last",
+    "ticker": "093240",
     "reason": "TP50",
-    "ticker": "093240"
+    "ret_from_entry": -16.48
   },
   {
-    "ret_from_entry": -16.48,
-    "rule": "A-last",
-    "date": "2026-07-16",
     "market": "KR",
     "hold_days": 44,
-    "reason": "TP50",
-    "ticker": "093240"
-  },
-  {
-    "ret_from_entry": 27.97,
-    "rule": "B-last",
-    "date": "2026-07-15",
-    "market": "KR",
-    "hold_days": 87,
-    "reason": "TP50",
-    "ticker": "053350"
-  },
-  {
-    "ret_from_entry": 27.97,
+    "date": "2026-07-16",
     "rule": "A-last",
+    "ticker": "093240",
+    "reason": "TP50",
+    "ret_from_entry": -16.48
+  },
+  {
+    "market": "KR",
+    "hold_days": 87,
     "date": "2026-07-15",
-    "market": "KR",
-    "hold_days": 87,
+    "rule": "B-last",
+    "ticker": "053350",
     "reason": "TP50",
-    "ticker": "053350"
+    "ret_from_entry": 27.97
   },
   {
-    "ret_from_entry": 50.95,
-    "rule": "B-last",
-    "date": "2026-07-12",
     "market": "KR",
     "hold_days": 87,
+    "date": "2026-07-15",
+    "rule": "A-last",
+    "ticker": "053350",
     "reason": "TP50",
-    "ticker": "457600"
+    "ret_from_entry": 27.97
   },
   {
-    "ret_from_entry": 38.42,
-    "rule": "B-last",
+    "market": "KR",
+    "hold_days": 87,
     "date": "2026-07-12",
+    "rule": "B-last",
+    "ticker": "457600",
+    "reason": "TP50",
+    "ret_from_entry": 50.95
+  },
+  {
     "market": "KR",
     "hold_days": 97,
+    "date": "2026-07-12",
+    "rule": "B-last",
+    "ticker": "290690",
     "reason": "TP50",
-    "ticker": "290690"
+    "ret_from_entry": 38.42
   },
   {
-    "ret_from_entry": 59.77,
-    "rule": "B-last",
-    "date": "2026-07-12",
     "market": "KR",
     "hold_days": 36,
+    "date": "2026-07-12",
+    "rule": "B-last",
+    "ticker": "011230",
     "reason": "TP50",
-    "ticker": "011230"
+    "ret_from_entry": 59.77
   },
   {
-    "ret_from_entry": -95.45,
-    "rule": "B-last",
-    "date": "2026-07-11",
     "market": "US",
     "hold_days": 365,
+    "date": "2026-07-11",
+    "rule": "B-last",
+    "ticker": "DXST",
     "reason": "만기손절",
-    "ticker": "DXST"
+    "ret_from_entry": -95.45
   },
   {
-    "ret_from_entry": -95.45,
+    "market": "US",
+    "hold_days": 365,
+    "date": "2026-07-11",
     "rule": "A-last",
-    "date": "2026-07-11",
-    "market": "US",
-    "hold_days": 365,
+    "ticker": "DXST",
     "reason": "만기손절",
-    "ticker": "DXST"
+    "ret_from_entry": -95.45
   },
   {
-    "ret_from_entry": 46.78,
-    "rule": "B-last",
-    "date": "2026-07-11",
     "market": "US",
     "hold_days": 313,
+    "date": "2026-07-11",
+    "rule": "B-last",
+    "ticker": "EBC",
     "reason": "TP50",
-    "ticker": "EBC"
+    "ret_from_entry": 46.78
   }
 ]
