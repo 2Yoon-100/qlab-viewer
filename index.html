@@ -6,15 +6,16 @@
 <title>QLab · 트레이딩 신호 이벤트 데이터셋</title>
 <style>
   :root{
-    --bg:#0d1117; --card:#161b22; --border:#2a3038; --fg:#e6edf3; --mut:#8b949e;
+    --bg:#080d14; --card:#111923; --border:#263442; --fg:#edf4f8; --mut:#91a4b3;
     --accent:#3fb950; --accent2:#58a6ff; --red:#f85149; --amber:#d29922; --chip:#21262d;
   }
   @media (prefers-color-scheme: light){
     :root{--bg:#f6f8fa;--card:#fff;--border:#d0d7de;--fg:#1f2328;--mut:#656d76;
           --accent:#1a7f37;--accent2:#0969da;--red:#cf222e;--amber:#9a6700;--chip:#eaeef2;}
+    body{background:radial-gradient(circle at 50% -20%,#dce7f1 0,var(--bg) 42%)}
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);
+  body{margin:0;background:radial-gradient(circle at 50% -20%,#15283a 0,var(--bg) 38%);color:var(--fg);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;
     line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1080px;margin:0 auto;padding:36px 20px 90px}
@@ -31,6 +32,7 @@
   .scale span{background:var(--chip);border:1px solid var(--border);border-radius:8px;
     padding:6px 11px;font-size:13px}
   .scale span b{font-size:15px}
+  #mctx-range{margin:8px 0 4px} #mctx-range button.active{border-color:var(--accent);color:var(--accent)}
   /* 섹션 */
   .part{margin:52px 0 10px;padding-top:22px;border-top:2px solid var(--border)}
   .part .plabel{color:var(--accent2);font-size:12.5px;font-weight:700;letter-spacing:.04em}
@@ -41,7 +43,7 @@
   h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
   .desc{color:var(--mut);font-size:13.5px;margin:0 0 14px;max-width:840px}
   .cap{font-size:12.5px;color:var(--mut);margin:0 0 8px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .card{background:linear-gradient(145deg,color-mix(in srgb,var(--card) 96%,#fff),var(--card));border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 14px 36px rgba(0,0,0,.16)}
   .scroll{overflow-x:auto}
   table{border-collapse:collapse;font-size:12.5px;white-space:nowrap}
   th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--border)}
@@ -240,6 +242,7 @@
     <div class="card">
       <div id="mctx-strip" class="idxstrip"></div>
       <div class="clab">Quality Index — 공포·위기일수록↑ (역발상 매수 기회)</div>
+      <div id="mctx-range" class="mchips" aria-label="chart range"></div>
       <div id="mctx-chart"></div>
       <div class="caxis" id="mctx-axis"></div>
     </div>
@@ -407,16 +410,24 @@ async function load(name, required){
 }
 
 /* ── v4 차트 헬퍼 ── */
-function svgLine(vals,color){
-  const W=800,H=240,pad=6,n=vals.length; if(n<2)return '';
-  const vmin=Math.min(...vals),vmax=Math.max(...vals),span=(vmax-vmin)||1;
-  const X=i=>pad+i/(n-1)*(W-2*pad),Y=v=>pad+(vmax-v)/span*(H-2*pad);
-  const pts=vals.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
-  const area=`${X(0).toFixed(1)},${H-pad} ${pts} ${X(n-1).toFixed(1)},${H-pad}`;
-  return `<svg class="chartwide" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`+
-    `<polygon points="${area}" style="fill:${color};opacity:.13"/>`+
-    `<polyline points="${pts}" fill="none" style="stroke:${color}" stroke-width="1.3" vector-effect="non-scaling-stroke"/></svg>`;
+let MCTX=null;
+function qualitySVG(dates,vals){
+  const W=800,H=260,L=46,R=18,T=18,B=30,n=vals.length;if(n<2)return '';
+  const lo=Math.floor(Math.min(...vals)/10)*10,hi=Math.ceil(Math.max(...vals)/10)*10||100,span=(hi-lo)||1;
+  const X=i=>L+i/(n-1)*(W-L-R),Y=v=>T+(hi-v)/span*(H-T-B);
+  const ticks=[lo,lo+span*.25,lo+span*.5,lo+span*.75,hi];
+  const grid=ticks.map(v=>'<line x1="'+L+'" y1="'+Y(v)+'" x2="'+(W-R)+'" y2="'+Y(v)+'" stroke="var(--border)"/><text x="'+(L-8)+'" y="'+(Y(v)+4)+'" text-anchor="end" fill="var(--mut)" font-size="11">'+v.toFixed(0)+'</text>').join('');
+  const pts=vals.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' '),last=vals[n-1];
+  return '<svg class="chartwide" viewBox="0 0 '+W+' '+H+'"><g opacity=".65">'+grid+'</g><polyline points="'+pts+'" fill="none" stroke="var(--accent)" stroke-width="2.2" vector-effect="non-scaling-stroke"/><circle cx="'+X(n-1)+'" cy="'+Y(last)+'" r="4" fill="var(--accent)"/><text x="'+(X(n-1)-8)+'" y="'+(Y(last)-10)+'" text-anchor="end" fill="var(--fg)" font-size="13" font-weight="700">'+Number(last).toFixed(1)+'</text><text x="'+L+'" y="'+(H-7)+'" fill="var(--mut)" font-size="11">'+esc(dates[0])+'</text><text x="'+(W-R)+'" y="'+(H-7)+'" text-anchor="end" fill="var(--mut)" font-size="11">'+esc(dates[n-1])+'</text></svg>';
 }
+function drawMctxRange(years){
+  const mc=MCTX,end=new Date(mc.dates[mc.dates.length-1]),cut=years?new Date(end.getFullYear()-years,end.getMonth(),end.getDate()).getTime():0;
+  const p=mc.dates.map((d,i)=>[d,mc.quality[i]]).filter(x=>!cut||new Date(x[0]).getTime()>=cut);
+  $('#mctx-chart').innerHTML=qualitySVG(p.map(x=>x[0]),p.map(x=>x[1]));
+  $('#mctx-axis').innerHTML='<span>'+esc(p[0][0])+'</span><span>'+esc(p[p.length-1][0])+'</span>';
+  document.querySelectorAll('#mctx-range button').forEach(b=>b.classList.toggle('active',Number(b.dataset.years)===years));
+}
+
 function svgHist(labels,counts,color){
   const W=400,H=220,padB=6,padT=6,padL=4,n=counts.length,max=Math.max(...counts,1),bw=(W-2*padL)/n;
   const bars=counts.map((c,i)=>{const bh=(c/max)*(H-padB-padT),x=padL+i*bw+bw*.12,y=H-padB-bh;
@@ -454,11 +465,12 @@ function retCell(v){
 }
 function renderMctx(mc){
   if(!mc||!mc.quality){const el=document.querySelector('.mctx'); if(el)el.style.display='none'; return;}
-  const L=mc.latest||{};
+  MCTX=mc; const L=mc.latest||{};
   const strip=[['Quality',L.quality,'역발상 기회'],['Fear',L.fear,'공포'],['Risk',L.risk,'진입 위험'],['Momentum',L.momentum,'모멘텀']];
   $('#mctx-strip').innerHTML=strip.map(([k,v,d])=>`<div class="idx"><div class="k">${k} Index</div><div class="v">${v==null?'–':v}</div><div class="d">${d}</div></div>`).join('');
-  $('#mctx-chart').innerHTML=svgLine(mc.quality,'var(--accent)');
-  $('#mctx-axis').innerHTML=`<span>${esc(mc.dates[0])}</span><span>${esc(L.date||'')}</span>`;
+  $('#mctx-range').innerHTML=[1,3,5,0].map(y=>'<button type="button" class="chip2" data-years="'+y+'">'+(y?y+'년':'전체')+'</button>').join('');
+  document.querySelectorAll('#mctx-range button').forEach(b=>b.onclick=()=>drawMctxRange(Number(b.dataset.years)));
+  drawMctxRange(5);
   const sourceDates=Object.entries(mc.source_dates||{}).map(([k,v])=>`${k} ${v}`).join(' · ');
   $('#mctx-axis').insertAdjacentHTML('afterend', `<p class="note">지표 기준일 ${esc(L.date||'미확인')} · 원료 관측일 ${esc(sourceDates||'미확인')} · ${mc.data_type==='reconstructed'?'현재 수집 자료로 재계산한 이력':'과거 고정 자료'} · 조회 시점의 실시간 시세가 아닙니다.</p>`);
 
@@ -635,6 +647,7 @@ function renderMarketCards(ms, capital){
 }
 function chartSVG(c){
   const p=c.path, W=600,H=170,pad=24;
+  if(!Array.isArray(p)||p.length<2)return '<div class="card muted" style="margin:10px 0">확정 일봉 경로를 확인할 수 없습니다.</div>';
   const days=p.map(x=>x.day), rets=p.map(x=>x.ret);
   const dmax=Math.max(...days,1);
   let rmin=Math.min(...rets,0), rmax=Math.max(...rets,0);
@@ -645,7 +658,7 @@ function chartSVG(c){
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
     <line x1="${pad}" y1="${Y(0).toFixed(1)}" x2="${W-pad}" y2="${Y(0).toFixed(1)}" stroke="var(--border)" stroke-dasharray="4 4"/>
     <polyline points="${pts}" fill="none" style="stroke:var(--accent2)" stroke-width="1.6"/>
-    ${dot(c.mfe_day,c.mfe_pct,'var(--accent)')}${dot(c.mae_day,c.mae_pct,'var(--red)')}</svg>`;
+    ${Number.isFinite(c.mfe_day)&&Number.isFinite(c.mfe_pct)?dot(c.mfe_day,c.mfe_pct,'var(--accent)'):''}${Number.isFinite(c.mae_day)&&Number.isFinite(c.mae_pct)?dot(c.mae_day,c.mae_pct,'var(--red)'):''}</svg>`;
 }
 function openCard(c){
   const dna=Object.entries(c.dna).filter(([k,v])=>v&&v!=='nan'&&v!=='None'&&v!=='')  // 해당없는 지표(예: 주식의 코인 버킷) 숨김
@@ -744,7 +757,9 @@ function openClosureCard(c){
   $('#modal-body').innerHTML=`<button class="x" onclick="closeModal()">×</button>
     <h3>${esc(c.ticker)} <span class="bkt" style="font-size:12px">${esc(c.market)}</span></h3>
     <p class="sub">청산 ${esc(c.date)} · ${esc(c.rule)}</p>
-    <div class="mgrid">
+    <div class="mlab">일별 수익률 경로 (진입가 대비 · 실제 확정봉)</div>
+    ${chartSVG(c)}
+    <div class="mgrid" style="margin-top:12px">
       <div class="b"><div class="k">청산 사유</div><div class="v">${esc(c.reason)}</div></div>
       <div class="b"><div class="k">매수 차수</div><div class="v">${c.buys==null?'–':c.buys+'차'}</div></div>
       <div class="b"><div class="k">진입가 대비</div><div class="v">${fmtPct(c.ret_from_entry)}</div></div>
