@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-09-20T23:29:41.374638+00:00",
+ "generated_at": "2026-09-21T04:52:02.773270+00:00",
  "new_entries_observed": 57,
  "latest_entry_date": "2026-09-18",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-09-19",
+   "latest_price_date": "2026-09-20",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
@@ -17,8 +17,8 @@
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-09-19",
-   "oldest_open_price_date": "2026-09-19",
+   "latest_price_date": "2026-09-20",
+   "oldest_open_price_date": "2026-09-20",
    "open_missing_date": 0
   },
   {
@@ -42,7 +42,7 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-20",
+  "COIN": "2026-09-21",
   "KR": "2026-09-20",
   "US": "2026-09-21"
  },
@@ -55,15 +55,15 @@
  ],
  "n_signals_tracked": 1100,
  "n_covered": 1032,
- "n_closed_total": 55,
+ "n_closed_total": 57,
  "n_voided": 1,
  "live": {
   "n_tracked": 402,
   "n_with_ret": 399,
-  "avg_ret": -14.3,
+  "avg_ret": -14.25,
   "positive_ratio": 27.8,
-  "latest_close_date": "2026-09-18",
-  "latest_close_n": 1,
+  "latest_close_date": "2026-09-20",
+  "latest_close_n": 2,
   "updated_at": "2026-09-18T23:30:32.675411+00:00",
   "breakdown": {
    "holding_covered": 402,
@@ -73,7 +73,7 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-20",
+   "COIN": "2026-09-21",
    "KR": "2026-09-20",
    "US": "2026-09-21"
   }
@@ -91,11 +91,11 @@
   "만기손절": 1
  },
  "blast_status_counts": {
-  "보유중": 388,
+  "보유중": 386,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 88,
-  "TP50": 33
+  "TP50": 35
  },
  "rule_compare": {
   "A-last": {
@@ -111,19 +111,19 @@
    }
   },
   "B-last": {
-   "n": 35,
-   "avg_ret": 31.52,
-   "win_rate": 71.4,
+   "n": 37,
+   "avg_ret": 29.94,
+   "win_rate": 70.3,
    "best": 425.67,
    "worst": -95.45,
    "reasons": {
-    "TP50": 34,
+    "TP50": 36,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 14,
-   "note": "B-last가 청산한 신호 중 14건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 16,
+   "note": "B-last가 청산한 신호 중 16건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase",
@@ -137,20 +137,6 @@
    "discovery": null
   },
   {
-   "market": "COIN",
-   "date": "2026-09-20",
-   "data_asof": "2026-09-19",
-   "status": "partial",
-   "failed_prices": 1,
-   "discovery": {
-    "scanned": 483,
-    "new_candidates": 0,
-    "failed": 0
-   },
-   "observed_at": "2026-09-20T04:48:00.104289+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-09-20",
    "data_asof": "2026-09-18",
@@ -162,6 +148,20 @@
     "failed": 0
    },
    "observed_at": "2026-09-20T11:47:30.685423+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "COIN",
+   "date": "2026-09-21",
+   "data_asof": "2026-09-20",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 483,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-09-21T04:48:23.253860+00:00",
    "source": "latest_run_report"
   },
   {
