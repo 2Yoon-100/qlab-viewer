@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24T12:17:55.908574+00:00",
+ "generated_at": "2026-09-24T23:59:57.569130+00:00",
  "new_entries_observed": 65,
  "latest_entry_date": "2026-09-23",
  "market_health": [
@@ -29,7 +29,7 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-09-23",
+   "latest_price_date": "2026-09-24",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
@@ -44,9 +44,9 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-09-24",
   "KR": "2026-09-24",
-  "US": "2026-09-24"
+  "US": "2026-09-25"
  },
- "forward_days": 76,
+ "forward_days": 77,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -60,7 +60,7 @@
  "live": {
   "n_tracked": 407,
   "n_with_ret": 404,
-  "avg_ret": -13.94,
+  "avg_ret": -13.97,
   "positive_ratio": 28.2,
   "latest_close_date": "2026-09-23",
   "latest_close_n": 3,
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-09-24",
    "KR": "2026-09-24",
-   "US": "2026-09-24"
+   "US": "2026-09-25"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-24",
- "latest_hash": "aed45ba29398c4a11c7841f876e30a5342b6f3c95a7c5c5820914c950649ee6b",
+ "latest_date": "2026-09-25",
+ "latest_hash": "b2875667b4519bb9b4384ad47bd74c3849bd4178ada1f4d927cbca861737fbd3",
  "alast_status_counts": {
   "보유중": 407,
   "청산완료(백테스트)": 347,
@@ -166,15 +166,17 @@
   },
   {
    "market": "US",
-   "date": "2026-09-24",
-   "data_asof": "2026-09-23",
+   "date": "2026-09-25",
+   "data_asof": "2026-09-24",
    "status": "partial",
    "failed_prices": 55,
    "discovery": {
-    "failed": 3923,
-    "scanned": 4311,
-    "new_candidates": 0
-   }
+    "scanned": 4315,
+    "new_candidates": 0,
+    "failed": 3923
+   },
+   "observed_at": "2026-09-24T23:52:22.113126+00:00",
+   "source": "latest_run_report"
   }
  ]
 }
