@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-09-26T11:55:59.051133+00:00",
- "new_entries_observed": 66,
+ "generated_at": "2026-09-26T23:52:59.612675+00:00",
+ "new_entries_observed": 83,
  "latest_entry_date": "2026-09-25",
  "market_health": [
   {
@@ -44,45 +44,45 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-09-26",
   "KR": "2026-09-26",
-  "US": "2026-09-26"
+  "US": "2026-09-27"
  },
- "forward_days": 78,
+ "forward_days": 79,
  "markets_tracked": [
   "COIN",
   "FORWARD",
   "KR",
   "US"
  ],
- "n_signals_tracked": 1109,
- "n_covered": 1041,
+ "n_signals_tracked": 1126,
+ "n_covered": 1058,
  "n_closed_total": 62,
  "n_voided": 1,
  "live": {
-  "n_tracked": 408,
-  "n_with_ret": 405,
-  "avg_ret": -13.47,
-  "positive_ratio": 28.4,
+  "n_tracked": 425,
+  "n_with_ret": 422,
+  "avg_ret": -13.28,
+  "positive_ratio": 25.1,
   "latest_close_date": "2026-09-23",
   "latest_close_n": 3,
-  "updated_at": "2026-09-26T00:03:47.567614+00:00",
+  "updated_at": "2026-09-26T23:52:24.640682+00:00",
   "breakdown": {
-   "holding_covered": 408,
+   "holding_covered": 425,
    "closed_backtest": 347,
-   "covered_total": 1041,
-   "active_total": 1109
+   "covered_total": 1058,
+   "active_total": 1126
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-09-26",
    "KR": "2026-09-26",
-   "US": "2026-09-26"
+   "US": "2026-09-27"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-09-26",
- "latest_hash": "e299214cb0922a8c8553aee7f05c79cbf27090fd187c0f99af8661d2aca863aa",
+ "latest_date": "2026-09-27",
+ "latest_hash": "1fa0df8e7200180cae1274779378059fc27f768d0c3cbe1fabb8c5ae1a4ee4bd",
  "alast_status_counts": {
-  "보유중": 408,
+  "보유중": 425,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 89,
@@ -91,7 +91,7 @@
   "만기손절": 1
  },
  "blast_status_counts": {
-  "보유중": 391,
+  "보유중": 408,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 89,
@@ -166,16 +166,16 @@
   },
   {
    "market": "US",
-   "date": "2026-09-26",
+   "date": "2026-09-27",
    "data_asof": "2026-09-25",
    "status": "partial",
-   "failed_prices": 59,
+   "failed_prices": 8,
    "discovery": {
     "scanned": 4311,
-    "new_candidates": 1,
-    "failed": 3515
+    "new_candidates": 17,
+    "failed": 117
    },
-   "observed_at": "2026-09-25T23:56:23.110639+00:00",
+   "observed_at": "2026-09-26T23:34:52.932951+00:00",
    "source": "latest_run_report"
   }
  ]
