@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-09-26T00:04:15.543633+00:00",
+ "generated_at": "2026-09-26T04:54:48.004764+00:00",
  "new_entries_observed": 66,
  "latest_entry_date": "2026-09-25",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-09-24",
+   "latest_price_date": "2026-09-25",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
@@ -17,8 +17,8 @@
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-09-24",
-   "oldest_open_price_date": "2026-09-24",
+   "latest_price_date": "2026-09-25",
+   "oldest_open_price_date": "2026-09-25",
    "open_missing_date": 0
   },
   {
@@ -42,7 +42,7 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-25",
+  "COIN": "2026-09-26",
   "KR": "2026-09-25",
   "US": "2026-09-26"
  },
@@ -60,8 +60,8 @@
  "live": {
   "n_tracked": 408,
   "n_with_ret": 405,
-  "avg_ret": -13.71,
-  "positive_ratio": 28.1,
+  "avg_ret": -13.47,
+  "positive_ratio": 28.4,
   "latest_close_date": "2026-09-23",
   "latest_close_n": 3,
   "updated_at": "2026-09-26T00:03:47.567614+00:00",
@@ -73,7 +73,7 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-25",
+   "COIN": "2026-09-26",
    "KR": "2026-09-25",
    "US": "2026-09-26"
   }
@@ -137,20 +137,6 @@
    "discovery": null
   },
   {
-   "market": "COIN",
-   "date": "2026-09-25",
-   "data_asof": "2026-09-24",
-   "status": "partial",
-   "failed_prices": 1,
-   "discovery": {
-    "scanned": 487,
-    "new_candidates": 0,
-    "failed": 0
-   },
-   "observed_at": "2026-09-25T04:49:12.156771+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-09-25",
    "data_asof": "2026-09-23",
@@ -162,6 +148,20 @@
     "failed": 0
    },
    "observed_at": "2026-09-25T12:10:53.681954+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "COIN",
+   "date": "2026-09-26",
+   "data_asof": "2026-09-25",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 487,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-09-26T04:49:45.054202+00:00",
    "source": "latest_run_report"
   },
   {
