@@ -3650,5 +3650,24 @@
    "new_candidates": 17
   },
   "avg_ret_from_entry": -2.356
+ },
+ {
+  "date": "2026-09-28",
+  "market": "US",
+  "prev_hash": "1fa0df8e7200180cae1274779378059fc27f768d0c3cbe1fabb8c5ae1a4ee4bd",
+  "today_hash": "8ca38da8d54131464bde2c6ef1a6f6c15f6c43375b82ae761c3219fe11012e3c",
+  "n_active": 71,
+  "n_closed": 0,
+  "n_failed": 8,
+  "n_tracking": 71,
+  "n_isolated": 0,
+  "data_asof": "2026-09-25",
+  "status": "partial",
+  "discovery": {
+   "failed": 117,
+   "scanned": 4311,
+   "new_candidates": 0
+  },
+  "avg_ret_from_entry": -2.356
  }
 ]
