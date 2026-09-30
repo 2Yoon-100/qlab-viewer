@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30T05:29:32.757448+00:00",
+ "generated_at": "2026-09-30T13:10:15.001786+00:00",
  "new_entries_observed": 89,
  "latest_entry_date": "2026-09-29",
  "market_health": [
@@ -11,7 +11,7 @@
   },
   {
    "market": "KR",
-   "latest_price_date": "2026-09-29",
+   "latest_price_date": "2026-09-30",
    "oldest_open_price_date": "2026-09-18",
    "open_missing_date": 0
   },
@@ -43,7 +43,7 @@
  "markets_last": {
   "FORWARD": "2026-07-12",
   "COIN": "2026-09-30",
-  "KR": "2026-09-29",
+  "KR": "2026-09-30",
   "US": "2026-09-30"
  },
  "forward_days": 82,
@@ -55,15 +55,15 @@
  ],
  "n_signals_tracked": 1132,
  "n_covered": 1064,
- "n_closed_total": 66,
+ "n_closed_total": 67,
  "n_voided": 1,
  "live": {
   "n_tracked": 429,
   "n_with_ret": 426,
   "avg_ret": -13.3,
-  "positive_ratio": 24.2,
-  "latest_close_date": "2026-09-28",
-  "latest_close_n": 3,
+  "positive_ratio": 25.4,
+  "latest_close_date": "2026-09-30",
+  "latest_close_n": 1,
   "updated_at": "2026-09-30T00:29:29.614658+00:00",
   "breakdown": {
    "holding_covered": 429,
@@ -74,7 +74,7 @@
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-09-30",
-   "KR": "2026-09-29",
+   "KR": "2026-09-30",
    "US": "2026-09-30"
   }
  },
@@ -91,11 +91,11 @@
   "만기손절": 1
  },
  "blast_status_counts": {
-  "보유중": 410,
+  "보유중": 409,
   "청산완료(백테스트)": 347,
   "검증불가(관측공백)": 244,
   "검증불가(스케일)": 90,
-  "TP50": 41
+  "TP50": 42
  },
  "rule_compare": {
   "A-last": {
@@ -111,19 +111,19 @@
    }
   },
   "B-last": {
-   "n": 43,
-   "avg_ret": 32.5,
-   "win_rate": 72.1,
+   "n": 44,
+   "avg_ret": 32.93,
+   "win_rate": 72.7,
    "best": 425.67,
    "worst": -95.45,
    "reasons": {
-    "TP50": 42,
+    "TP50": 43,
     "만기손절": 1
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 19,
-   "note": "B-last가 청산한 신호 중 19건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 20,
+   "note": "B-last가 청산한 신호 중 20건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase",
@@ -137,20 +137,6 @@
    "discovery": null
   },
   {
-   "market": "KR",
-   "date": "2026-09-29",
-   "data_asof": "2026-09-29",
-   "status": "partial",
-   "failed_prices": 1,
-   "discovery": {
-    "scanned": 2765,
-    "new_candidates": 1,
-    "failed": 0
-   },
-   "observed_at": "2026-09-29T13:18:17.839251+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "COIN",
    "date": "2026-09-30",
    "data_asof": "2026-09-29",
@@ -162,6 +148,20 @@
     "failed": 0
    },
    "observed_at": "2026-09-30T05:25:32.520537+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "KR",
+   "date": "2026-09-30",
+   "data_asof": "2026-09-30",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 2766,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-09-30T12:59:15.125472+00:00",
    "source": "latest_run_report"
   },
   {
