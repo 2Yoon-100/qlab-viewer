@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-10-01T00:36:33.653746+00:00",
+ "generated_at": "2026-10-01T05:47:06.478878+00:00",
  "new_entries_observed": 90,
  "latest_entry_date": "2026-09-30",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-09-29",
+   "latest_price_date": "2026-09-30",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
@@ -17,8 +17,8 @@
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-09-29",
-   "oldest_open_price_date": "2026-09-29",
+   "latest_price_date": "2026-09-30",
+   "oldest_open_price_date": "2026-09-30",
    "open_missing_date": 0
   },
   {
@@ -42,7 +42,7 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-09-30",
+  "COIN": "2026-10-01",
   "KR": "2026-09-30",
   "US": "2026-10-01"
  },
@@ -60,7 +60,7 @@
  "live": {
   "n_tracked": 430,
   "n_with_ret": 427,
-  "avg_ret": -13.3,
+  "avg_ret": -13.24,
   "positive_ratio": 26.0,
   "latest_close_date": "2026-09-30",
   "latest_close_n": 1,
@@ -73,7 +73,7 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-09-30",
+   "COIN": "2026-10-01",
    "KR": "2026-09-30",
    "US": "2026-10-01"
   }
@@ -137,20 +137,6 @@
    "discovery": null
   },
   {
-   "market": "COIN",
-   "date": "2026-09-30",
-   "data_asof": "2026-09-29",
-   "status": "partial",
-   "failed_prices": 1,
-   "discovery": {
-    "scanned": 487,
-    "new_candidates": 0,
-    "failed": 0
-   },
-   "observed_at": "2026-09-30T05:25:32.520537+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-09-30",
    "data_asof": "2026-09-30",
@@ -162,6 +148,20 @@
     "failed": 0
    },
    "observed_at": "2026-09-30T12:59:15.125472+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "COIN",
+   "date": "2026-10-01",
+   "data_asof": "2026-09-30",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 494,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-10-01T05:43:05.726019+00:00",
    "source": "latest_run_report"
   },
   {
