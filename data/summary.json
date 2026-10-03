@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T13:22:47.057044+00:00",
+ "generated_at": "2026-10-03T00:31:03.692606+00:00",
  "new_entries_observed": 96,
  "latest_entry_date": "2026-10-02",
  "market_health": [
@@ -29,7 +29,7 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-10-01",
+   "latest_price_date": "2026-10-02",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
@@ -44,9 +44,9 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-10-02",
   "KR": "2026-10-02",
-  "US": "2026-10-02"
+  "US": "2026-10-03"
  },
- "forward_days": 84,
+ "forward_days": 85,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -60,8 +60,8 @@
  "live": {
   "n_tracked": 136,
   "n_with_ret": 133,
-  "avg_ret": -9.66,
-  "positive_ratio": 18.8,
+  "avg_ret": -9.71,
+  "positive_ratio": 18.0,
   "latest_close_date": "2026-09-30",
   "latest_close_n": 1,
   "updated_at": "2026-10-02T13:22:15.875744+00:00",
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-10-02",
    "KR": "2026-10-02",
-   "US": "2026-10-02"
+   "US": "2026-10-03"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-10-02",
- "latest_hash": "f89c261bb09dc909756179b74b37dbe79ed305ed27a8f222e64a4eadd091ad83",
+ "latest_date": "2026-10-03",
+ "latest_hash": "c866593c02eade83ae6080b0af47bcb4c4e63a5c78c2cc76606d135f89068919",
  "alast_status_counts": {
   "검증불가(관측공백)": 544,
   "청산완료(백테스트)": 347,
@@ -166,16 +166,16 @@
   },
   {
    "market": "US",
-   "date": "2026-10-02",
-   "data_asof": "2026-10-01",
+   "date": "2026-10-03",
+   "data_asof": "2026-10-02",
    "status": "partial",
    "failed_prices": 79,
    "discovery": {
-    "scanned": 4314,
-    "new_candidates": 1,
-    "failed": 4027
+    "scanned": 4311,
+    "new_candidates": 0,
+    "failed": 4032
    },
-   "observed_at": "2026-10-02T00:43:49.154036+00:00",
+   "observed_at": "2026-10-03T00:26:53.161586+00:00",
    "source": "latest_run_report"
   }
  ]
