@@ -1,6 +1,6 @@
 {
   "schema": "protected-v1",
-  "generated_at": "2026-10-05T15:25:34.134669+00:00",
+  "generated_at": "2026-10-06T02:02:44.445443+00:00",
   "cadence": "confirmed_daily",
   "health": [
     {
@@ -16,25 +16,25 @@
       "status": "partial"
     },
     {
-      "market": "US",
-      "date": "2026-10-05",
-      "data_asof": "2026-10-02",
-      "status": "partial"
-    },
-    {
       "market": "KR",
       "date": "2026-10-06",
       "data_asof": "2026-10-02",
       "status": "partial"
+    },
+    {
+      "market": "US",
+      "date": "2026-10-06",
+      "data_asof": "2026-10-05",
+      "status": "partial"
     }
   ],
   "context": {
-    "date": "2026-10-05",
-    "generated_at": "2026-10-05T15:25:34.648690+00:00",
+    "date": "2026-10-06",
+    "generated_at": "2026-10-06T02:02:44.957068+00:00",
     "source_dates": {
-      "SPX": "2026-10-02",
-      "VIX": "2026-10-02",
-      "DXY": "2026-10-02"
+      "SPX": "2026-10-05",
+      "VIX": "2026-10-05",
+      "DXY": "2026-10-05"
     },
     "volatility": "low",
     "momentum": "moderate",
