@@ -1,6 +1,6 @@
 {
   "schema": "protected-v1",
-  "generated_at": "2026-10-06T02:02:44.445443+00:00",
+  "generated_at": "2026-10-06T06:16:51.766421+00:00",
   "cadence": "confirmed_daily",
   "health": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "market": "COIN",
-      "date": "2026-10-05",
-      "data_asof": "2026-10-04",
+      "date": "2026-10-06",
+      "data_asof": "2026-10-05",
       "status": "partial"
     },
     {
@@ -30,7 +30,7 @@
   ],
   "context": {
     "date": "2026-10-06",
-    "generated_at": "2026-10-06T02:02:44.957068+00:00",
+    "generated_at": "2026-10-06T06:16:52.140937+00:00",
     "source_dates": {
       "SPX": "2026-10-05",
       "VIX": "2026-10-05",
