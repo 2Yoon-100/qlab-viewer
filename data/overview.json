@@ -1,6 +1,6 @@
 {
   "schema": "protected-v1",
-  "generated_at": "2026-10-08T01:03:58.449994+00:00",
+  "generated_at": "2026-10-08T05:59:24.296653+00:00",
   "cadence": "confirmed_daily",
   "health": [
     {
@@ -10,14 +10,14 @@
       "status": "legacy_unverified"
     },
     {
-      "market": "COIN",
+      "market": "KR",
       "date": "2026-10-07",
-      "data_asof": "2026-10-06",
+      "data_asof": "2026-10-07",
       "status": "partial"
     },
     {
-      "market": "KR",
-      "date": "2026-10-07",
+      "market": "COIN",
+      "date": "2026-10-08",
       "data_asof": "2026-10-07",
       "status": "partial"
     },
@@ -30,11 +30,11 @@
   ],
   "context": {
     "date": "2026-10-08",
-    "generated_at": "2026-10-08T01:03:59.018287+00:00",
+    "generated_at": "2026-10-08T05:59:24.761505+00:00",
     "source_dates": {
       "SPX": "2026-10-07",
       "VIX": "2026-10-07",
-      "DXY": "2026-10-06"
+      "DXY": "2026-10-07"
     },
     "volatility": "low",
     "momentum": "moderate",
