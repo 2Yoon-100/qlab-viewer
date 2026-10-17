@@ -4679,6 +4679,25 @@
  },
  {
   "date": "2026-10-17",
+  "market": "COIN",
+  "prev_hash": "f8209aa3bfa3842fd15fd613c6a348fba46399ac8734b434f3acd8b91799aac1",
+  "today_hash": "19af6469bb9c26646b38756fd8efb00e8b3f2a5d277d6b2bb07e5c1b3d6dd2bd",
+  "n_active": 33,
+  "n_closed": 0,
+  "n_failed": 1,
+  "n_tracking": 33,
+  "n_isolated": 0,
+  "data_asof": "2026-10-16",
+  "status": "partial",
+  "discovery": {
+   "failed": 0,
+   "scanned": 500,
+   "new_candidates": 0
+  },
+  "avg_ret_from_entry": -26.647
+ },
+ {
+  "date": "2026-10-17",
   "market": "US",
   "prev_hash": "f86a62288249a5d631ca1cf598543b92095fd5bfd355a7dce8ff1d61add55e5e",
   "today_hash": "52fa56e9ac912fe8f6e26c4df94d812c8df4cff22f6ea4df87027206cfb975ea",
