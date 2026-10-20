@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-20T12:20:34.414554+00:00",
- "new_entries_observed": 277,
- "latest_entry_date": "2026-10-19",
+ "generated_at": "2026-10-20T23:58:42.678039+00:00",
+ "new_entries_observed": 313,
+ "latest_entry_date": "2026-10-20",
  "market_health": [
   {
    "market": "ALT",
@@ -29,14 +29,14 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-10-19",
+   "latest_price_date": "2026-10-20",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
   {
    "market": "US-SP500",
-   "latest_price_date": "2026-10-16",
-   "oldest_open_price_date": "2026-10-16",
+   "latest_price_date": "2026-10-20",
+   "oldest_open_price_date": "2026-10-20",
    "open_missing_date": 0
   }
  ],
@@ -44,47 +44,47 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-10-20",
   "KR": "2026-10-20",
-  "US": "2026-10-20"
+  "US": "2026-10-21"
  },
- "forward_days": 102,
+ "forward_days": 103,
  "markets_tracked": [
   "COIN",
   "FORWARD",
   "KR",
   "US"
  ],
- "n_signals_tracked": 1320,
- "n_covered": 1252,
+ "n_signals_tracked": 1356,
+ "n_covered": 1288,
  "n_closed_total": 81,
  "n_voided": 1,
  "live": {
-  "n_tracked": 309,
-  "n_with_ret": 306,
-  "avg_ret": -10.88,
-  "positive_ratio": 24.2,
+  "n_tracked": 345,
+  "n_with_ret": 342,
+  "avg_ret": -9.25,
+  "positive_ratio": 23.7,
   "latest_close_date": "2026-10-17",
   "latest_close_n": 1,
-  "updated_at": "2026-10-20T04:42:33.000741+00:00",
+  "updated_at": "2026-10-20T23:57:59.290511+00:00",
   "breakdown": {
-   "holding_covered": 309,
+   "holding_covered": 345,
    "closed_backtest": 347,
-   "covered_total": 1252,
-   "active_total": 1320
+   "covered_total": 1288,
+   "active_total": 1356
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-10-20",
    "KR": "2026-10-20",
-   "US": "2026-10-20"
+   "US": "2026-10-21"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-10-20",
- "latest_hash": "d4e2eea34998f207f19d427a367a1114f1b894de930366e06c9ccddd287771a2",
+ "latest_date": "2026-10-21",
+ "latest_hash": "6e0eec616b86ee1019502fee682017d469d2cedd86ab3f28ee4c856175a1c3f7",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
   "청산완료(백테스트)": 347,
-  "보유중": 309,
+  "보유중": 345,
   "검증불가(스케일)": 90,
   "TP50": 19,
   "TP100": 6,
@@ -93,7 +93,7 @@
  "blast_status_counts": {
   "검증불가(관측공백)": 534,
   "청산완료(백테스트)": 347,
-  "보유중": 299,
+  "보유중": 335,
   "검증불가(스케일)": 90,
   "TP50": 48,
   "만기손절": 2
@@ -167,16 +167,16 @@
   },
   {
    "market": "US",
-   "date": "2026-10-20",
-   "data_asof": "2026-10-19",
+   "date": "2026-10-21",
+   "data_asof": "2026-10-20",
    "status": "partial",
-   "failed_prices": 185,
+   "failed_prices": 9,
    "discovery": {
-    "scanned": 4313,
-    "new_candidates": 1,
-    "failed": 4035
+    "scanned": 4310,
+    "new_candidates": 36,
+    "failed": 462
    },
-   "observed_at": "2026-10-20T00:17:50.237677+00:00",
+   "observed_at": "2026-10-20T23:50:14.393966+00:00",
    "source": "latest_run_report"
   }
  ]
