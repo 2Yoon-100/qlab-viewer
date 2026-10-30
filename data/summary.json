@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29T13:54:08.227780+00:00",
+ "generated_at": "2026-10-30T01:00:42.405495+00:00",
  "new_entries_observed": 356,
  "latest_entry_date": "2026-10-29",
  "market_health": [
@@ -29,7 +29,7 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-10-28",
+   "latest_price_date": "2026-10-29",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
@@ -44,9 +44,9 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-10-29",
   "KR": "2026-10-29",
-  "US": "2026-10-29"
+  "US": "2026-10-30"
  },
- "forward_days": 111,
+ "forward_days": 112,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-10-29",
    "KR": "2026-10-29",
-   "US": "2026-10-29"
+   "US": "2026-10-30"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-10-29",
- "latest_hash": "ee1b11f3b6abf3ae67756410c148e47a635ef8f2b16851f898ede225db2030d2",
+ "latest_date": "2026-10-30",
+ "latest_hash": "dfb50ae3831b27193585b310378164dc5f3e0121843c064a7f362c05cc47d40a",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
   "보유중": 387,
@@ -167,16 +167,16 @@
   },
   {
    "market": "US",
-   "date": "2026-10-29",
-   "data_asof": "2026-10-28",
+   "date": "2026-10-30",
+   "data_asof": "2026-10-29",
    "status": "partial",
-   "failed_prices": 230,
+   "failed_prices": 231,
    "discovery": {
-    "scanned": 4314,
-    "new_candidates": 1,
-    "failed": 3751
+    "scanned": 4310,
+    "new_candidates": 0,
+    "failed": 4025
    },
-   "observed_at": "2026-10-29T00:51:49.674510+00:00",
+   "observed_at": "2026-10-30T00:53:57.739385+00:00",
    "source": "latest_run_report"
   }
  ]
