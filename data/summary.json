@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-02T05:57:27.049301+00:00",
- "new_entries_observed": 369,
- "latest_entry_date": "2026-10-31",
+ "generated_at": "2026-11-02T16:40:08.546068+00:00",
+ "new_entries_observed": 382,
+ "latest_entry_date": "2026-11-02",
  "market_health": [
   {
    "market": "ALT",
@@ -11,7 +11,7 @@
   },
   {
    "market": "KR",
-   "latest_price_date": "2026-10-30",
+   "latest_price_date": "2026-11-02",
    "oldest_open_price_date": "2026-09-18",
    "open_missing_date": 0
   },
@@ -43,47 +43,47 @@
  "markets_last": {
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-02",
-  "KR": "2026-11-01",
+  "KR": "2026-11-03",
   "US": "2026-11-02"
  },
- "forward_days": 115,
+ "forward_days": 116,
  "markets_tracked": [
   "COIN",
   "FORWARD",
   "KR",
   "US"
  ],
- "n_signals_tracked": 1412,
- "n_covered": 1344,
+ "n_signals_tracked": 1425,
+ "n_covered": 1357,
  "n_closed_total": 86,
  "n_voided": 1,
  "live": {
-  "n_tracked": 399,
-  "n_with_ret": 396,
-  "avg_ret": -11.55,
-  "positive_ratio": 20.7,
+  "n_tracked": 412,
+  "n_with_ret": 409,
+  "avg_ret": -10.72,
+  "positive_ratio": 23.2,
   "latest_close_date": "2026-10-30",
   "latest_close_n": 2,
-  "updated_at": "2026-11-01T05:55:22.647069+00:00",
+  "updated_at": "2026-11-02T16:39:43.646013+00:00",
   "breakdown": {
-   "holding_covered": 399,
+   "holding_covered": 412,
    "closed_backtest": 347,
-   "covered_total": 1344,
-   "active_total": 1412
+   "covered_total": 1357,
+   "active_total": 1425
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-02",
-   "KR": "2026-11-01",
+   "KR": "2026-11-03",
    "US": "2026-11-02"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-11-02",
- "latest_hash": "448d338311001ac0e229c671f78d5a6708399faa80821ff1c6a70c4689bde3c2",
+ "latest_date": "2026-11-03",
+ "latest_hash": "77fa96653a0c163d89e57eec3d81aa2f02ed40a8ed123bb2c347b604d6d7402a",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
-  "보유중": 399,
+  "보유중": 412,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
   "TP50": 21,
@@ -92,7 +92,7 @@
  },
  "blast_status_counts": {
   "검증불가(관측공백)": 534,
-  "보유중": 388,
+  "보유중": 401,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
   "TP50": 51,
@@ -138,20 +138,6 @@
    "discovery": null
   },
   {
-   "market": "KR",
-   "date": "2026-11-01",
-   "data_asof": "2026-10-30",
-   "status": "partial",
-   "failed_prices": 1,
-   "discovery": {
-    "scanned": 2767,
-    "new_candidates": 0,
-    "failed": 0
-   },
-   "observed_at": "2026-11-01T13:45:38.589441+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "COIN",
    "date": "2026-11-02",
    "data_asof": "2026-11-01",
@@ -177,6 +163,20 @@
     "failed": 114
    },
    "observed_at": "2026-11-02T00:37:57.827618+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "KR",
+   "date": "2026-11-03",
+   "data_asof": "2026-11-02",
+   "status": "partial",
+   "failed_prices": 1,
+   "discovery": {
+    "scanned": 2767,
+    "new_candidates": 13,
+    "failed": 0
+   },
+   "observed_at": "2026-11-02T16:31:27.840370+00:00",
    "source": "latest_run_report"
   }
  ]
