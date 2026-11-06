@@ -5819,6 +5819,25 @@
  },
  {
   "date": "2026-11-06",
+  "market": "KR",
+  "prev_hash": "1aec39062116194abba1b4a9460428c0aa65f88d1701ff28db7e2f6ea2092774",
+  "today_hash": "3d31e062818246a3ba3e0004b11c71c0e63540d1ae97009b8b80ba0b2aabc564",
+  "n_active": 133,
+  "n_closed": 0,
+  "n_failed": 2,
+  "n_tracking": 133,
+  "n_isolated": 0,
+  "data_asof": "2026-11-06",
+  "status": "partial",
+  "discovery": {
+   "failed": 0,
+   "scanned": 2769,
+   "new_candidates": 4
+  },
+  "avg_ret_from_entry": -7.815
+ },
+ {
+  "date": "2026-11-06",
   "market": "US",
   "prev_hash": "ef7d87a6976eceed29f8083ed112fe59f7532ff13f9062c6b7df51a5615ca3ce",
   "today_hash": "671b7b8ea51238a38cc8cf6292a5dcfd13407fa8d68993eaa9ad9ca41e9ae38f",
