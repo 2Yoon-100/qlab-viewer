@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-06T14:44:32.494086+00:00",
- "new_entries_observed": 415,
+ "generated_at": "2026-11-07T01:04:17.996332+00:00",
+ "new_entries_observed": 421,
  "latest_entry_date": "2026-11-06",
  "market_health": [
   {
@@ -29,14 +29,14 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-11-05",
+   "latest_price_date": "2026-11-06",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
   {
    "market": "US-SP500",
-   "latest_price_date": "2026-11-02",
-   "oldest_open_price_date": "2026-11-02",
+   "latest_price_date": "2026-11-06",
+   "oldest_open_price_date": "2026-11-06",
    "open_missing_date": 0
   }
  ],
@@ -44,46 +44,46 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-06",
   "KR": "2026-11-06",
-  "US": "2026-11-06"
+  "US": "2026-11-07"
  },
- "forward_days": 119,
+ "forward_days": 120,
  "markets_tracked": [
   "COIN",
   "FORWARD",
   "KR",
   "US"
  ],
- "n_signals_tracked": 1458,
- "n_covered": 1390,
- "n_closed_total": 91,
+ "n_signals_tracked": 1464,
+ "n_covered": 1396,
+ "n_closed_total": 92,
  "n_voided": 1,
  "live": {
-  "n_tracked": 443,
-  "n_with_ret": 440,
-  "avg_ret": -12.93,
-  "positive_ratio": 19.8,
-  "latest_close_date": "2026-11-05",
-  "latest_close_n": 3,
-  "updated_at": "2026-11-06T14:44:06.14524+00:00",
+  "n_tracked": 449,
+  "n_with_ret": 446,
+  "avg_ret": -12.47,
+  "positive_ratio": 20.9,
+  "latest_close_date": "2026-11-06",
+  "latest_close_n": 1,
+  "updated_at": "2026-11-07T01:02:53.930584+00:00",
   "breakdown": {
-   "holding_covered": 443,
+   "holding_covered": 449,
    "closed_backtest": 347,
-   "covered_total": 1390,
-   "active_total": 1458
+   "covered_total": 1396,
+   "active_total": 1464
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-06",
    "KR": "2026-11-06",
-   "US": "2026-11-06"
+   "US": "2026-11-07"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-11-06",
- "latest_hash": "671b7b8ea51238a38cc8cf6292a5dcfd13407fa8d68993eaa9ad9ca41e9ae38f",
+ "latest_date": "2026-11-07",
+ "latest_hash": "ccf438261f7eaf1c27413429753f615ed1c225054c3e013d102d7c2b050a9920",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
-  "보유중": 443,
+  "보유중": 449,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
   "TP50": 21,
@@ -92,10 +92,10 @@
  },
  "blast_status_counts": {
   "검증불가(관측공백)": 534,
-  "보유중": 431,
+  "보유중": 436,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
-  "TP50": 53,
+  "TP50": 54,
   "만기손절": 3
  },
  "rule_compare": {
@@ -112,19 +112,19 @@
    }
   },
   "B-last": {
-   "n": 58,
-   "avg_ret": 30.96,
-   "win_rate": 70.7,
+   "n": 59,
+   "avg_ret": 31.29,
+   "win_rate": 71.2,
    "best": 425.67,
    "worst": -95.45,
    "reasons": {
-    "TP50": 54,
+    "TP50": 55,
     "만기손절": 4
    }
   },
   "asymmetry": {
-   "b_closed_a_holding": 12,
-   "note": "B-last가 청산한 신호 중 12건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
+   "b_closed_a_holding": 13,
+   "note": "B-last가 청산한 신호 중 13건은 A-last 기준 보유중(더 높은 문턱=TP100 대기 등) — 청산 완료분만의 비교는 초기 단계에서 비대칭적입니다."
   }
  },
  "source": "supabase",
@@ -167,16 +167,16 @@
   },
   {
    "market": "US",
-   "date": "2026-11-06",
-   "data_asof": "2026-11-05",
+   "date": "2026-11-07",
+   "data_asof": "2026-11-06",
    "status": "partial",
-   "failed_prices": 237,
+   "failed_prices": 184,
    "discovery": {
-    "scanned": 4307,
-    "new_candidates": 1,
-    "failed": 3981
+    "scanned": 4303,
+    "new_candidates": 6,
+    "failed": 2521
    },
-   "observed_at": "2026-11-06T01:30:16.130823+00:00",
+   "observed_at": "2026-11-07T00:52:45.922954+00:00",
    "source": "latest_run_report"
   }
  ]
