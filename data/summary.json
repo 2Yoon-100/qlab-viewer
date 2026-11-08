@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-11-08T00:46:16.681105+00:00",
+ "generated_at": "2026-11-08T05:56:39.112904+00:00",
  "new_entries_observed": 450,
  "latest_entry_date": "2026-11-06",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-11-06",
+   "latest_price_date": "2026-11-07",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
@@ -17,8 +17,8 @@
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-11-06",
-   "oldest_open_price_date": "2026-11-06",
+   "latest_price_date": "2026-11-07",
+   "oldest_open_price_date": "2026-11-07",
    "open_missing_date": 0
   },
   {
@@ -42,7 +42,7 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-11-07",
+  "COIN": "2026-11-08",
   "KR": "2026-11-07",
   "US": "2026-11-08"
  },
@@ -55,25 +55,25 @@
  ],
  "n_signals_tracked": 1493,
  "n_covered": 1425,
- "n_closed_total": 92,
+ "n_closed_total": 94,
  "n_voided": 1,
  "live": {
-  "n_tracked": 478,
-  "n_with_ret": 475,
-  "avg_ret": -12.23,
+  "n_tracked": 477,
+  "n_with_ret": 474,
+  "avg_ret": -12.25,
   "positive_ratio": 19.8,
-  "latest_close_date": "2026-11-06",
-  "latest_close_n": 1,
+  "latest_close_date": "2026-11-07",
+  "latest_close_n": 2,
   "updated_at": "2026-11-08T00:44:59.697779+00:00",
   "breakdown": {
-   "holding_covered": 478,
+   "holding_covered": 477,
    "closed_backtest": 347,
    "covered_total": 1425,
    "active_total": 1493
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-11-07",
+   "COIN": "2026-11-08",
    "KR": "2026-11-07",
    "US": "2026-11-08"
   }
@@ -83,43 +83,43 @@
  "latest_hash": "ccb5b7865de36b80cae3bc5a5d5a91c33edc8f86e715fd88eca3811933057d8d",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
-  "보유중": 478,
+  "보유중": 477,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
   "TP50": 21,
   "TP100": 6,
-  "만기손절": 5
+  "만기손절": 6
  },
  "blast_status_counts": {
   "검증불가(관측공백)": 534,
-  "보유중": 465,
+  "보유중": 464,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
   "TP50": 54,
-  "만기손절": 3
+  "만기손절": 4
  },
  "rule_compare": {
   "A-last": {
-   "n": 33,
-   "avg_ret": 9.47,
-   "win_rate": 48.5,
+   "n": 34,
+   "avg_ret": 6.9,
+   "win_rate": 47.1,
    "best": 111.55,
    "worst": -95.45,
    "reasons": {
     "TP50": 21,
-    "만기손절": 6,
+    "만기손절": 7,
     "TP100": 6
    }
   },
   "B-last": {
-   "n": 59,
-   "avg_ret": 31.29,
-   "win_rate": 71.2,
+   "n": 60,
+   "avg_ret": 29.47,
+   "win_rate": 70.0,
    "best": 425.67,
    "worst": -95.45,
    "reasons": {
     "TP50": 55,
-    "만기손절": 4
+    "만기손절": 5
    }
   },
   "asymmetry": {
@@ -138,20 +138,6 @@
    "discovery": null
   },
   {
-   "market": "COIN",
-   "date": "2026-11-07",
-   "data_asof": "2026-11-06",
-   "status": "partial",
-   "failed_prices": 2,
-   "discovery": {
-    "scanned": 507,
-    "new_candidates": 6,
-    "failed": 0
-   },
-   "observed_at": "2026-11-07T05:50:24.095799+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-11-07",
    "data_asof": "2026-11-06",
@@ -163,6 +149,20 @@
     "failed": 0
    },
    "observed_at": "2026-11-07T13:31:13.966775+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "COIN",
+   "date": "2026-11-08",
+   "data_asof": "2026-11-07",
+   "status": "partial",
+   "failed_prices": 2,
+   "discovery": {
+    "scanned": 507,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-11-08T05:52:54.344826+00:00",
    "source": "latest_run_report"
   },
   {
