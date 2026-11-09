@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T13:54:11.288209+00:00",
+ "generated_at": "2026-11-09T01:00:22.597299+00:00",
  "new_entries_observed": 450,
  "latest_entry_date": "2026-11-06",
  "market_health": [
@@ -44,9 +44,9 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-08",
   "KR": "2026-11-08",
-  "US": "2026-11-08"
+  "US": "2026-11-09"
  },
- "forward_days": 121,
+ "forward_days": 122,
  "markets_tracked": [
   "COIN",
   "FORWARD",
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-08",
    "KR": "2026-11-08",
-   "US": "2026-11-08"
+   "US": "2026-11-09"
   }
  },
  "genesis_date": "2026-07-11",
- "latest_date": "2026-11-08",
- "latest_hash": "ccb5b7865de36b80cae3bc5a5d5a91c33edc8f86e715fd88eca3811933057d8d",
+ "latest_date": "2026-11-09",
+ "latest_hash": "787acde5a08c4c80c317b26b2cf9fe596833c9ed0b41e713a4d55cf85865d104",
  "alast_status_counts": {
   "검증불가(관측공백)": 546,
   "보유중": 477,
@@ -167,16 +167,16 @@
   },
   {
    "market": "US",
-   "date": "2026-11-08",
+   "date": "2026-11-09",
    "data_asof": "2026-11-06",
    "status": "partial",
    "failed_prices": 14,
    "discovery": {
     "scanned": 4303,
-    "new_candidates": 23,
+    "new_candidates": 0,
     "failed": 117
    },
-   "observed_at": "2026-11-08T00:30:48.453121+00:00",
+   "observed_at": "2026-11-09T00:48:35.688097+00:00",
    "source": "latest_run_report"
   }
  ]
