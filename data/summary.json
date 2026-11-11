@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T15:22:55.230446+00:00",
+ "generated_at": "2026-11-11T01:19:17.600914+00:00",
  "new_entries_observed": 524,
  "latest_entry_date": "2026-11-10",
  "market_health": [
@@ -29,7 +29,7 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-11-09",
+   "latest_price_date": "2026-11-10",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
@@ -44,7 +44,7 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-10",
   "KR": "2026-11-11",
-  "US": "2026-11-10"
+  "US": "2026-11-11"
  },
  "forward_days": 124,
  "markets_tracked": [
@@ -60,7 +60,7 @@
  "live": {
   "n_tracked": 550,
   "n_with_ret": 547,
-  "avg_ret": -9.1,
+  "avg_ret": -9.11,
   "positive_ratio": 26.0,
   "latest_close_date": "2026-11-09",
   "latest_close_n": 3,
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-10",
    "KR": "2026-11-11",
-   "US": "2026-11-10"
+   "US": "2026-11-11"
   }
  },
  "genesis_date": "2026-07-11",
  "latest_date": "2026-11-11",
- "latest_hash": "c6e10d020c5dda6386c78f89cdb97f4f0dbf971c75a8012bac4f22826b283cab",
+ "latest_hash": "feb5b9b0be8418c63af2ede7ad4e5e449afae38b1570f28cc2259cb6ca104e58",
  "alast_status_counts": {
   "보유중": 550,
   "검증불가(관측공백)": 546,
@@ -152,20 +152,6 @@
    "source": "latest_run_report"
   },
   {
-   "market": "US",
-   "date": "2026-11-10",
-   "data_asof": "2026-11-09",
-   "status": "partial",
-   "failed_prices": 14,
-   "discovery": {
-    "scanned": 4308,
-    "new_candidates": 17,
-    "failed": 124
-   },
-   "observed_at": "2026-11-10T03:30:09.479203+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-11-11",
    "data_asof": "2026-11-10",
@@ -177,6 +163,20 @@
     "failed": 0
    },
    "observed_at": "2026-11-10T15:12:42.582074+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "US",
+   "date": "2026-11-11",
+   "data_asof": "2026-11-10",
+   "status": "partial",
+   "failed_prices": 283,
+   "discovery": {
+    "scanned": 4310,
+    "new_candidates": 0,
+    "failed": 4031
+   },
+   "observed_at": "2026-11-11T01:12:58.023789+00:00",
    "source": "latest_run_report"
   }
  ]
