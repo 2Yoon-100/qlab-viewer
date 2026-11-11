@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-11T06:04:58.118028+00:00",
- "new_entries_observed": 524,
- "latest_entry_date": "2026-11-10",
+ "generated_at": "2026-11-11T14:54:52.107896+00:00",
+ "new_entries_observed": 527,
+ "latest_entry_date": "2026-11-11",
  "market_health": [
   {
    "market": "ALT",
@@ -11,7 +11,7 @@
   },
   {
    "market": "KR",
-   "latest_price_date": "2026-11-10",
+   "latest_price_date": "2026-11-11",
    "oldest_open_price_date": "2026-09-18",
    "open_missing_date": 0
   },
@@ -53,23 +53,23 @@
   "KR",
   "US"
  ],
- "n_signals_tracked": 1567,
- "n_covered": 1499,
+ "n_signals_tracked": 1570,
+ "n_covered": 1502,
  "n_closed_total": 97,
  "n_voided": 1,
  "live": {
-  "n_tracked": 550,
-  "n_with_ret": 547,
-  "avg_ret": -9.18,
-  "positive_ratio": 26.7,
+  "n_tracked": 553,
+  "n_with_ret": 550,
+  "avg_ret": -8.44,
+  "positive_ratio": 33.6,
   "latest_close_date": "2026-11-09",
   "latest_close_n": 3,
-  "updated_at": "2026-11-10T15:22:15.433589+00:00",
+  "updated_at": "2026-11-11T14:53:55.421341+00:00",
   "breakdown": {
-   "holding_covered": 550,
+   "holding_covered": 553,
    "closed_backtest": 347,
-   "covered_total": 1499,
-   "active_total": 1567
+   "covered_total": 1502,
+   "active_total": 1570
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
@@ -82,7 +82,7 @@
  "latest_date": "2026-11-11",
  "latest_hash": "feb5b9b0be8418c63af2ede7ad4e5e449afae38b1570f28cc2259cb6ca104e58",
  "alast_status_counts": {
-  "보유중": 550,
+  "보유중": 553,
   "검증불가(관측공백)": 546,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
@@ -91,7 +91,7 @@
   "만기손절": 6
  },
  "blast_status_counts": {
-  "보유중": 536,
+  "보유중": 539,
   "검증불가(관측공백)": 534,
   "청산완료(백테스트)": 347,
   "검증불가(스케일)": 90,
@@ -154,15 +154,15 @@
   {
    "market": "KR",
    "date": "2026-11-11",
-   "data_asof": "2026-11-10",
+   "data_asof": "2026-11-11",
    "status": "partial",
    "failed_prices": 2,
    "discovery": {
-    "scanned": 2768,
-    "new_candidates": 40,
+    "scanned": 2769,
+    "new_candidates": 3,
     "failed": 0
    },
-   "observed_at": "2026-11-10T15:12:42.582074+00:00",
+   "observed_at": "2026-11-11T14:42:05.565547+00:00",
    "source": "latest_run_report"
   },
   {
