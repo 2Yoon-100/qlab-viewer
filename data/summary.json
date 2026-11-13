@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-11-13T01:52:17.547207+00:00",
+ "generated_at": "2026-11-13T06:33:13.337564+00:00",
  "new_entries_observed": 529,
  "latest_entry_date": "2026-11-11",
  "market_health": [
   {
    "market": "ALT",
-   "latest_price_date": "2026-11-11",
+   "latest_price_date": "2026-11-12",
    "oldest_open_price_date": "2026-09-12",
    "open_missing_date": 0
   },
@@ -17,8 +17,8 @@
   },
   {
    "market": "MAJOR",
-   "latest_price_date": "2026-11-11",
-   "oldest_open_price_date": "2026-11-11",
+   "latest_price_date": "2026-11-12",
+   "oldest_open_price_date": "2026-11-12",
    "open_missing_date": 0
   },
   {
@@ -42,7 +42,7 @@
  ],
  "markets_last": {
   "FORWARD": "2026-07-12",
-  "COIN": "2026-11-12",
+  "COIN": "2026-11-13",
   "KR": "2026-11-13",
   "US": "2026-11-13"
  },
@@ -61,7 +61,7 @@
   "n_tracked": 555,
   "n_with_ret": 552,
   "avg_ret": -8.85,
-  "positive_ratio": 29.9,
+  "positive_ratio": 30.4,
   "latest_close_date": "2026-11-09",
   "latest_close_n": 3,
   "updated_at": "2026-11-12T07:04:01.465688+00:00",
@@ -73,7 +73,7 @@
   },
   "markets_last": {
    "FORWARD": "2026-07-12",
-   "COIN": "2026-11-12",
+   "COIN": "2026-11-13",
    "KR": "2026-11-13",
    "US": "2026-11-13"
   }
@@ -139,16 +139,16 @@
   },
   {
    "market": "COIN",
-   "date": "2026-11-12",
-   "data_asof": "2026-11-11",
+   "date": "2026-11-13",
+   "data_asof": "2026-11-12",
    "status": "partial",
    "failed_prices": 2,
    "discovery": {
     "scanned": 507,
-    "new_candidates": 2,
+    "new_candidates": 0,
     "failed": 0
    },
-   "observed_at": "2026-11-12T07:01:43.558807+00:00",
+   "observed_at": "2026-11-13T06:30:13.996439+00:00",
    "source": "latest_run_report"
   },
   {
