@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T15:44:37.739787+00:00",
+ "generated_at": "2026-11-13T01:52:17.547207+00:00",
  "new_entries_observed": 529,
  "latest_entry_date": "2026-11-11",
  "market_health": [
@@ -29,7 +29,7 @@
   },
   {
    "market": "US-NASDAQ",
-   "latest_price_date": "2026-11-11",
+   "latest_price_date": "2026-11-12",
    "oldest_open_price_date": "2026-09-16",
    "open_missing_date": 0
   },
@@ -44,7 +44,7 @@
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-12",
   "KR": "2026-11-13",
-  "US": "2026-11-12"
+  "US": "2026-11-13"
  },
  "forward_days": 126,
  "markets_tracked": [
@@ -61,7 +61,7 @@
   "n_tracked": 555,
   "n_with_ret": 552,
   "avg_ret": -8.85,
-  "positive_ratio": 30.1,
+  "positive_ratio": 29.9,
   "latest_close_date": "2026-11-09",
   "latest_close_n": 3,
   "updated_at": "2026-11-12T07:04:01.465688+00:00",
@@ -75,12 +75,12 @@
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-12",
    "KR": "2026-11-13",
-   "US": "2026-11-12"
+   "US": "2026-11-13"
   }
  },
  "genesis_date": "2026-07-11",
  "latest_date": "2026-11-13",
- "latest_hash": "dbe7c71729cbd3aabe812b11561ca40f3262e4623c3c895a2c9ed5ba389f10d7",
+ "latest_hash": "19398d795ee05ca56f861ab5f95dc870dbece1b21a43ec7536b25f6bf1c59179",
  "alast_status_counts": {
   "보유중": 555,
   "검증불가(관측공백)": 546,
@@ -152,20 +152,6 @@
    "source": "latest_run_report"
   },
   {
-   "market": "US",
-   "date": "2026-11-12",
-   "data_asof": "2026-11-11",
-   "status": "partial",
-   "failed_prices": 282,
-   "discovery": {
-    "scanned": 4309,
-    "new_candidates": 0,
-    "failed": 4016
-   },
-   "observed_at": "2026-11-12T02:14:22.715256+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "KR",
    "date": "2026-11-13",
    "data_asof": "2026-11-12",
@@ -177,6 +163,20 @@
     "failed": 0
    },
    "observed_at": "2026-11-12T15:34:10.094343+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "US",
+   "date": "2026-11-13",
+   "data_asof": "2026-11-12",
+   "status": "partial",
+   "failed_prices": 283,
+   "discovery": {
+    "scanned": 4307,
+    "new_candidates": 0,
+    "failed": 4028
+   },
+   "observed_at": "2026-11-13T01:47:29.552131+00:00",
    "source": "latest_run_report"
   }
  ]
