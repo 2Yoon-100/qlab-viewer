@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T06:39:15.537109+00:00",
+ "generated_at": "2026-11-22T15:02:20.716936+00:00",
  "new_entries_observed": 619,
  "latest_entry_date": "2026-11-21",
  "market_health": [
@@ -43,7 +43,7 @@
  "markets_last": {
   "FORWARD": "2026-07-12",
   "COIN": "2026-11-22",
-  "KR": "2026-11-21",
+  "KR": "2026-11-22",
   "US": "2026-11-22"
  },
  "forward_days": 135,
@@ -74,7 +74,7 @@
   "markets_last": {
    "FORWARD": "2026-07-12",
    "COIN": "2026-11-22",
-   "KR": "2026-11-21",
+   "KR": "2026-11-22",
    "US": "2026-11-22"
   }
  },
@@ -138,20 +138,6 @@
    "discovery": null
   },
   {
-   "market": "KR",
-   "date": "2026-11-21",
-   "data_asof": "2026-11-20",
-   "status": "partial",
-   "failed_prices": 2,
-   "discovery": {
-    "scanned": 2771,
-    "new_candidates": 0,
-    "failed": 0
-   },
-   "observed_at": "2026-11-21T14:55:45.802005+00:00",
-   "source": "latest_run_report"
-  },
-  {
    "market": "COIN",
    "date": "2026-11-22",
    "data_asof": "2026-11-21",
@@ -163,6 +149,20 @@
     "failed": 0
    },
    "observed_at": "2026-11-22T06:35:27.879117+00:00",
+   "source": "latest_run_report"
+  },
+  {
+   "market": "KR",
+   "date": "2026-11-22",
+   "data_asof": "2026-11-20",
+   "status": "partial",
+   "failed_prices": 2,
+   "discovery": {
+    "scanned": 2771,
+    "new_candidates": 0,
+    "failed": 0
+   },
+   "observed_at": "2026-11-22T14:53:09.830145+00:00",
    "source": "latest_run_report"
   },
   {
